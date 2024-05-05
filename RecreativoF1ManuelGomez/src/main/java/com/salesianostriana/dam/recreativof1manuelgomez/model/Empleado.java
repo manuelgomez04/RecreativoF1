@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -34,6 +35,20 @@ public class Empleado {
 	private double salario;
 	private double incentivo;
 
+	@ManyToOne
 	private Carrera carrera;
+
+	public void addToCarrera(Carrera carrera) {
+		this.carrera = carrera;
+
+		carrera.getListaEmpleados().add(this);
+
+	}
+
+	public void removeToCarrera(Carrera carrera) {
+		carrera.getListaEmpleados().remove(this);
+
+		this.carrera = null;
+	}
 
 }

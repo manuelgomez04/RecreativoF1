@@ -12,5 +12,6 @@ import lombok.experimental.SuperBuilder;
 public class Piloto extends Empleado {
 
 	private Coche coche;
+
 	private int posicionCarrera;
 }
