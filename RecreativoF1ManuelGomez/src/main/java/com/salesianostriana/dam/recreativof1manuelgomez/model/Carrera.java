@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.model;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,4 +30,7 @@ public class Carrera {
 	private boolean asfaltado;
 	private String nombreCircuito;
 	private String localizacion;
+
+	private List<Empleado> listaEmpleados;
+	private List<Componentes> listaComponentes;
 }
