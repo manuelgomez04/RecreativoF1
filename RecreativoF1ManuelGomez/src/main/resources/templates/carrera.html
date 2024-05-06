@@ -1,0 +1,62 @@
+	<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/boton.css" th:href="@{/CSS/boton.css}">
+    <script src="../JS/carrera.js" defer th:href="@{/JS/carrera.js}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+
+    <!-- Contenido de la página como una tarjeta -->
+    <div class="container mt-4">
+        <div class="card mx-auto w-75">
+            <div class="card-body">
+                <h1 class="card-title text-center">Circuito de Mónaco</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../Imagenes/trazado-monaco_mid641adddf83b16.png" alt="Imagen" class="img-fluid mb-3">
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo vel
+                            libero
+                            tincidunt aliquet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat harum
+                            blanditiis impedit ratione, repellendus nesciunt. Tempore praesentium est quam obcaecati
+                            quaerat
+                            placeat numquam? Ex porro doloribus temporibus hic vero dolor. Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit.</p>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-center justify-content-center">
+                        <!-- Espacio para el listado de atributos -->
+                        <ul>
+                            <li>Atributo 1</li>
+                            <li>Atributo 2</li>
+                            <li>Atributo 3</li>
+                            <!-- Agrega más atributos según sea necesario -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón para otra página -->
+    <div class="container text-center mt-4 boton2">
+        <button type="submit" class="btn btn-primary btn-block" id="carreraBtn" th:action="coches">Siguiente página</button>
+    </div>
+
+
+    <!-- Pie de página a 3 columnas -->
+    <footer th:replace="~{fragmentos/footer::footer}">
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Página</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/boton.css" th:href="@{CSS/boton.css}">
+    <script src="../JS/repuestos.js" th:href="@{/JS/repuestos.js}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+
+
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+    <!-- Contenido de la página -->
+    <div class="container mt-4 contenido">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Listado</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item">Item 1</li>
+                            <li class="list-group-item">Item 2</li>
+                            <li class="list-group-item">Item 3</li>
+                            <li class="list-group-item">Item 4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 1</h5>
+                                <p class="card-text">Contenido de la carta 1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 2</h5>
+                                <p class="card-text">Contenido de la carta 2</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 3</h5>
+                                <p class="card-text">Contenido de la carta 3</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 4</h5>
+                                <p class="card-text">Contenido de la carta 4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 5</h5>
+                                <p class="card-text">Contenido de la carta 5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 6</h5>
+                                <p class="card-text">Contenido de la carta 6</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 7</h5>
+                                <p class="card-text">Contenido de la carta 7</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">Carta 8</h5>
+                                <p class="card-text">Contenido de la carta 8</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón para otra página -->
+    <div class="container text-center mt-4 boton">
+        <button class="btn btn-primary" id="volverBtn" th:action="carrera">Ir a Otra Página</button>
+    </div>
+
+    <footer th:replace="~{fragmentos/footer::footer}">
+    </footer>
+
+</body>
+
+</html>
