@@ -1,4 +1,4 @@
-package com.salesianostriana.dam.recreativof1manuelgomez.service.base;
+package com.salesianostriana.dam.recreativof1manuelgomez.services.base;
 
 import java.util.List;
 import java.util.Optional;

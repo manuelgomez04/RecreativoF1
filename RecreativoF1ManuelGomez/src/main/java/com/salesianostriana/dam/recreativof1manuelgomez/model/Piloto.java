@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,5 +23,7 @@ public class Piloto extends Empleado {
 	private int posicionCarrera;
 
 	@OneToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_piloto_coche"))
+
 	private Coche cochePiloto;
 }

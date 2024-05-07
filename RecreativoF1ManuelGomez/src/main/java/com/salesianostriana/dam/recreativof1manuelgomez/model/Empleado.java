@@ -5,10 +5,12 @@ import java.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,6 +40,7 @@ public class Empleado {
 	private double incentivo;
 
 	@ManyToOne
+	@JoinColumn(foreignKey = @ForeignKey(name = "fk_empleado_carrera"))
 	private Carrera carreraEmpleado;
 
 }

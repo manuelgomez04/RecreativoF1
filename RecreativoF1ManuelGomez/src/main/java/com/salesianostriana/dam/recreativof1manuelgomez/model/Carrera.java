@@ -3,6 +3,7 @@ package com.salesianostriana.dam.recreativof1manuelgomez.model;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -29,13 +30,18 @@ public class Carrera {
 	private String nombreCircuito;
 	private String localizacion;
 
-	@OneToMany(mappedBy = "carreraEmpleado")
+	@OneToMany(mappedBy = "carreraEmpleado",
+			fetch = FetchType.EAGER)
 	private List<Empleado> listaEmpleados;
 
-	@OneToMany(mappedBy = "carreraComponente")
+	@OneToMany(mappedBy = "carreraComponente",
+			fetch = FetchType.EAGER
+			
+			)
 	private List<Componente> listaComponentes;
 
-	@OneToMany(mappedBy = "carreraCoche")
+	@OneToMany(mappedBy = "carreraCoche",
+			fetch = FetchType.EAGER)
 	private List<Coche> listaCoches;
 
 }
