@@ -1,0 +1,35 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-bg {
+    background-image: url('background-image.jpg');
+    /* Reemplaza 'background-image.jpg' con la ruta de tu imagen de fondo */
+    background-size: cover;
+    height: 100vh;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    /* Establecemos un ancho máximo */
+    width: 100%;
+    /* Estiramos horizontalmente */
+    margin: auto;
+    /* Centramos horizontalmente */
+}
+
+/* Estilo adicional para el botón de mostrar contraseña */
+#showPasswordBtn:focus {
+    outline: none;
+}
