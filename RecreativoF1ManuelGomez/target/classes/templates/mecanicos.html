@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Página</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/boton.css" th:href="@{CSS/boton.css}">
+    <script src="../JS/mecanico.js" th:href="@{JS/mecanico.js}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Banner como imagen -->
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+
+    <!-- Contenido de la página -->
+    <div class="container mt-4 contenido">
+        <div class="row justify-content-center">
+            <div class="col">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Dni</th>
+                            <th>Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="mecanico : ${listaCompletaMecanicos}">
+                            <td th:text="${mecanico.nombre}"></td>
+                            <td th:text="${mecanico.apellidos}"></td>
+                            <td th:text="${mecanico.dni}"></td>
+                            <td th:text="${#numbers.formatDecimal(mecanico.salario, 1, 2)+' €'}"></td>
+							<td>
+								<a href="#" th:href="@{/editar/{id}(id=${mecanico.id})}">Editar</a> |
+								
+							</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center text-center">
+            <div class="col">
+                <button id="addMecanicoButton" class="btn btn-primary btn-block boton"
+                    th:action="mecanicoFormulario">Añadir un nuevo Mecánico</button>
+            </div>
+            <div class="col">
+                <button id="nextPageButton" class="btn btn-primary btn-block boton" th:action="repuestos">Siguiente
+                    página</button>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragmentos/footer::footer}">
+    </footer>
+
+</body>
+
+</html>
