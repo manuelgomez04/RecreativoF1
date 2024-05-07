@@ -36,7 +36,7 @@ public class MecanicoController {
 		// model.addAttribute("piloto", piloto);
 		mecanicoService.save(mecanico);
 
-		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
+		model.addAttribute("listaMecanicos", mecanicoService.findAll());
 
 		return "redirect:/mecanicos";
 	}
