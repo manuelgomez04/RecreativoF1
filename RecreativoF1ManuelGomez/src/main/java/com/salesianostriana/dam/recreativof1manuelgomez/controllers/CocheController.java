@@ -33,6 +33,7 @@ public class CocheController {
 
 		if (cocheService.findById(id).isPresent()) {
 			model.addAttribute("editarCoche", cocheService.findById(id).get());
+
 			return "editarCoche";
 		} else {
 			return "coches";
@@ -41,7 +42,6 @@ public class CocheController {
 
 	@PostMapping("/editarCoche/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("editarCoche") Coche coche) {
-		carreraService.save(coche.getCarreraCoche());
 
 		cocheService.save(coche);
 		return "redirect:/coches";

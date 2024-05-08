@@ -1,5 +1,9 @@
 insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado) values (1, 5.0, 55, 'Monaco', 'Monaco', 'Nuevo');
 
+insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (false, 2, 1, 1, 'Coche 1');
+insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (true, 3, 1, 2, 'Coche 2');
+
+
 insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (1, 'Lucho', 'Sutherden', 'Abata', 16430.99, 20.0, 1);
 insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (2, 'Dory', 'Thieme', 'Aivee', 54769.92, 20.0, 1);
 insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (3, 'Grissel', 'Macallam', 'Yoveo', 44096.63, 20.0, 1);
@@ -11,9 +15,6 @@ insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, c
 insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (9, 'Cele', 'Gathercoal', 'Viva', 99070.69, 20.0, 1);
 insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (10, 'Kane', 'MacMurray', 'Kamba', 26255.46, 20.0, 1);
 
-
-insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche) values (false, 2, 1, 1);
-insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche) values (true, 3, 1, 2);
 
 
 insert into jefe_equipo (id_empleado) values (2);
@@ -36,4 +37,5 @@ insert into piloto (posicion_carrera, coche_piloto_id_coche, id_empleado) values
 
 
 ALTER SEQUENCE empleado_seq RESTART WITH (60);
+ALTER SEQUENCE coche_seq RESTART WITH (52);
 
