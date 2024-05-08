@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Mecanico;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 
@@ -25,7 +26,7 @@ public class MecanicoController {
 
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {
-		Mecanico mecanico = new Mecanico();
+		Empleado mecanico = new Mecanico();
 		model.addAttribute("mecanicoForm", mecanico);
 		return "mecanicoForm";
 	}
@@ -57,4 +58,6 @@ public class MecanicoController {
 		mecanicoService.save(m);
 		return "redirect:/mecanicos";
 	}
+	
+	
 }
