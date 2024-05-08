@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Mecanico;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 
@@ -57,4 +58,6 @@ public class MecanicoController {
 		mecanicoService.save(m);
 		return "redirect:/mecanicos";
 	}
+	
+	
 }
