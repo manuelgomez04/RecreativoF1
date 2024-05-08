@@ -29,6 +29,7 @@ public class Coche {
 	@GeneratedValue
 	private long idCoche;
 
+	private String nombre;
 	private boolean estaDaniado;
 	private int posicionCarrera;
 

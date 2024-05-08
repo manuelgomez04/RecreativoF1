@@ -1,5 +1,8 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,8 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Mecanico;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 
 @Controller
@@ -17,6 +22,9 @@ public class MecanicoController {
 
 	@Autowired
 	private MecanicoService mecanicoService;
+
+	@Autowired
+	private CocheService cocheService;
 
 	@GetMapping("/mecanicos")
 	public String mostrarListaMecanicos(Model model) {
@@ -28,6 +36,7 @@ public class MecanicoController {
 	public String adddMecanico(Model model) {
 		Empleado mecanico = new Mecanico();
 		model.addAttribute("mecanicoForm", mecanico);
+		model.addAttribute("listaCoches", cocheService.findAll());
 		return "mecanicoForm";
 	}
 
@@ -35,9 +44,13 @@ public class MecanicoController {
 	public String showMecanico(@ModelAttribute("mecanicoForm") Mecanico mecanico, Model model) {
 
 		// model.addAttribute("piloto", piloto);
-		mecanicoService.save(mecanico);
 
-		model.addAttribute("listaMecanicos", mecanicoService.findAll());
+		Optional<Coche> optionalCoche = cocheService.findById(mecanico.getCocheMecanico().getIdCoche());
+
+		if (optionalCoche.isPresent()) {
+			mecanico.setCocheMecanico(optionalCoche.get());
+			mecanicoService.save(mecanico);
+		}
 
 		return "redirect:/mecanicos";
 	}
@@ -47,6 +60,9 @@ public class MecanicoController {
 
 		if (mecanicoService.findById(id).isPresent()) {
 			model.addAttribute("mecanicoForm", mecanicoService.findById(id).get());
+			List<Coche> listaCochesOpcion = cocheService.findAll();
+			model.addAttribute("listaCoches", listaCochesOpcion);
+
 			return "mecanicoForm";
 		} else {
 			return "mecanicos";
