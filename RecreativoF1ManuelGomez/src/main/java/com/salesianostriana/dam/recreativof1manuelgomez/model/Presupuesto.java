@@ -10,7 +10,9 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -27,6 +29,8 @@ public class Presupuesto {
 	private double ingresosVariables;
 	private double gastosvariables;
 
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "presupuesto", fetch = FetchType.EAGER)
 	private List<Carrera> listaCarreras;
 }

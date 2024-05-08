@@ -6,6 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -22,8 +23,9 @@ import lombok.experimental.SuperBuilder;
 
 public class JefeEquipo extends Empleado {
 
-	@OneToMany(mappedBy = "jefeComponente",
-			fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@OneToMany(mappedBy = "jefeComponente", fetch = FetchType.EAGER)
 	private List<Componente> listaComponentes;
 
 }

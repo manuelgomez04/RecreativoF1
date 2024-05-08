@@ -58,6 +58,5 @@ public class MecanicoController {
 		mecanicoService.save(m);
 		return "redirect:/mecanicos";
 	}
-	
-	
+
 }
