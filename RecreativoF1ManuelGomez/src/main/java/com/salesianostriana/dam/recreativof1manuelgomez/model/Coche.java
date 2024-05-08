@@ -14,7 +14,9 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
@@ -34,15 +36,16 @@ public class Coche {
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_coche_carrera"))
 	private Carrera carreraCoche;
 
-	@OneToMany(mappedBy = "cocheComponente",
-			fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@OneToMany(mappedBy = "cocheComponente", fetch = FetchType.EAGER)
 	private List<Componente> listaComponentes;
 
-	@OneToMany(mappedBy = "cocheMecanico",
-			fetch = FetchType.EAGER)
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
+	@OneToMany(mappedBy = "cocheMecanico", fetch = FetchType.EAGER)
 	private List<Mecanico> listaMecanicos;
 
-	@OneToOne(mappedBy = "cochePiloto",
-			fetch = FetchType.EAGER)
+	@OneToOne(mappedBy = "cochePiloto", fetch = FetchType.EAGER)
 	private Piloto piloto;
 }
