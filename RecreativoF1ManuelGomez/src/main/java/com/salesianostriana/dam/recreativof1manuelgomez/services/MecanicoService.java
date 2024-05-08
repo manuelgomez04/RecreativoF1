@@ -9,4 +9,5 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServic
 @Service
 public class MecanicoService extends BaseServiceImpl<Mecanico, Long, MecanicoRepository> {
 
+
 }
