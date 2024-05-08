@@ -13,12 +13,20 @@ insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, c
 
 
 insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche) values (false, 2, 1, 1);
-insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche) values (false, 3, 1, 2);
+insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche) values (true, 3, 1, 2);
 
 
 insert into jefe_equipo (id_empleado) values (2);
 
 insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (1, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (2, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (3, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (4, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (5, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (6, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (7, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (8, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (9, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
 
 
 insert into mecanico(coche_mecanico_id_coche, id_empleado) values (1, 1);

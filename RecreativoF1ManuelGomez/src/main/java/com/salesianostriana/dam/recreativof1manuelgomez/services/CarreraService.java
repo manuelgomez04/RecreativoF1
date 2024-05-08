@@ -7,6 +7,10 @@ import com.salesianostriana.dam.recreativof1manuelgomez.repository.CarreraReposi
 import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServiceImpl;
 
 @Service
+<<<<<<< HEAD
 public class CarreraService extends BaseServiceImpl<Carrera, Long, CarreraRepository>{
+=======
+public class CarreraService extends BaseServiceImpl<Carrera, Long, CarreraRepository> {
+>>>>>>> main
 
 }

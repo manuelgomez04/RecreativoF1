@@ -26,7 +26,7 @@ public class MecanicoController {
 
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {
-		Mecanico mecanico = new Mecanico();
+		Empleado mecanico = new Mecanico();
 		model.addAttribute("mecanicoForm", mecanico);
 		return "mecanicoForm";
 	}
@@ -58,6 +58,5 @@ public class MecanicoController {
 		mecanicoService.save(m);
 		return "redirect:/mecanicos";
 	}
-	
-	
+
 }
