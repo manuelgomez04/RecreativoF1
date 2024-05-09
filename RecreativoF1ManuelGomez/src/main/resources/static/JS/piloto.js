@@ -4,6 +4,3 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.getElementById("addPilotoButton").addEventListener("click", function() {
-    window.location.href = '/pilotoForm';
-});

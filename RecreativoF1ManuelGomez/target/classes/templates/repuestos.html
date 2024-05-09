@@ -107,8 +107,14 @@
     </div>
 
     <!-- Botón para otra página -->
-    <div class="container text-center mt-4 boton">
-        <button class="btn btn-primary" id="volverBtn" th:action="carrera">Ir a Otra Página</button>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
+                <form th:action="@{/carrera}" method="get">
+                    <button type="submit" class="btn btn-primary">Siguiente página</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <footer th:replace="~{fragmentos/footer::footer}">

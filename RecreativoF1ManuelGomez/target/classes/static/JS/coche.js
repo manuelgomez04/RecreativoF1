@@ -5,7 +5,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-document.getElementById("addCocheButton").addEventListener("click", function() {
-    window.location.href = '/editarCoche';
-});
 
