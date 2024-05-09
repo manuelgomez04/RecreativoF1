@@ -21,12 +21,13 @@
     <!-- Contenido de la página como una tarjeta -->
     <div class="container mt-4">
         <div class="card mx-auto w-75">
-            <div class="card-body">
-                <h1 class="card-title text-center">Circuito de Mónaco</h1>
+            <div class="card-body" th:each=" carrera : ${listaCarreras}">
+                <h1 class="card-title text-center" th:text="${carrera.nombreCircuito}">Circuito de Mónaco</h1>
                 <div class="row">
                     <div class="col-md-6">
                         <img src="../Imagenes/trazado-monaco_mid641adddf83b16.png" alt="Imagen" class="img-fluid mb-3">
-                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac justo vel
+                        <p class="card-text" th:text="${carrera.descripcion}">Lorem ipsum dolor sit amet, consectetur
+                            adipiscing elit. Sed ac justo vel
                             libero
                             tincidunt aliquet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat harum
                             blanditiis impedit ratione, repellendus nesciunt. Tempore praesentium est quam obcaecati
@@ -36,18 +37,26 @@
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                         <ul>
-                            <li>Atributo 1</li>
-                            <li>Atributo 2</li>
-                            <li>Atributo 3</li>
+                            <li th:text="${carrera.longitudPorVuelta}">Atributo 1</li>
+                            <li th:text="${carrera.longitudTotal}">Atributo 2</li>
+                            <li th:text="${carrera.localizacion}">Atributo 3</li>
+
                         </ul>
                     </div>
                 </div>
+                <a href="#" th:href="@{/carrera/edit/{id}(id=${carrera.id})}">Editar</a> |
+                <a href="#" th:href="@{/carrera/borrar/{id}(id=${carrera.id})}">Borrar</a>
             </div>
         </div>
     </div>
 
     <!-- Botón para otra página -->
     <div class="container mt-4">
+        <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
+            <form th:action="@{/carrera/carreraFormAdd}" method="get">
+                <button type="submit" class="btn btn-primary">Añadir una nueva carrera</button>
+            </form>
+        </div>
         <div class="row justify-content-center">
             <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
                 <form th:action="@{/coches}" method="get">

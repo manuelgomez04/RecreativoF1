@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con Bootstrap</title>
+    <!-- Agregar la referencia a Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="text-center mb-4">Formulario</h2>
+                <form class="login-form"
+                    th:action="${carreraForm.id != 0} ? @{/carrera/editarCarrera/submit} : @{/carrera/addCarrera}"
+                    method="POST" th:object="${carreraForm}">
+                    <div>
+                        <input th:if="${carreraForm.id != 0}" type="hidden" name="id" th:field="*{id}" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre Circuito:</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombreCircuito}">
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Descripción:</label>
+                        <input th:field="*{descripcion}" type="text" class="form-control" id="apellidos"
+                            placeholder="Ingrese sus apellidos">
+                    </div>
+                    <div class="form-group">
+                        <label for="dni">Longitud por vuelta:</label>
+                        <input th:field="*{longitudPorVuelta}" type="number" class="form-control" id="dni"
+                            placeholder="Ingrese su DNI">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fecha">Longitud total:</label>
+                        <input th:field="*{longitudTotal}" type="number" id="fecha" name="fecha" class="form-control"
+                            placeholder="Fecha de nacimiento">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="salario">Localización:</label>
+                        <input th:field="*{localizacion}" type="text" class="form-control" id="salario"
+                            placeholder="Ingrese su salario">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="salario">Estado del asfalto:</label>
+                        <input th:field="*{tipoAsfaltado}" type="text" class="form-control" id="salario"
+                            placeholder="Ingrese su salario">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
+</body>
+
+</html>
