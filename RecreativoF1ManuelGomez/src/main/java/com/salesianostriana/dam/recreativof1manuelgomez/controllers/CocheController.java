@@ -18,8 +18,7 @@ public class CocheController {
 	@Autowired
 	private CocheService cocheService;
 
-	@Autowired
-	private CarreraService carreraService;
+	
 
 	@GetMapping("/coches")
 	public String showCoches(Model model) {
