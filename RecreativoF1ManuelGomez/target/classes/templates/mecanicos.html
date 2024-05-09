@@ -37,9 +37,10 @@
                             <td th:text="${mecanico.nombre}"></td>
                             <td th:text="${mecanico.apellidos}"></td>
                             <td th:text="${mecanico.dni}"></td>
+                            <td></td>
                             <td th:text="${#numbers.formatDecimal(mecanico.salario, 1, 2)+' €'}"></td>
 							<td>
-								<a href="#" th:href="@{/editar/{id}(id=${mecanico.idmecanico})}">Editar</a> |
+								<a href="#" th:href="@{/editar/{id}(id=${mecanico.idEmpleado})}">Editar</a> |
 								
 							</td>
                         </tr>
@@ -53,7 +54,7 @@
         <div class="row justify-content-center text-center">
             <div class="col">
                 <button id="addMecanicoButton" class="btn btn-primary btn-block boton"
-                    th:action="mecanicoFormulario">Añadir un nuevo Mecánico</button>
+                    th:action="mecanicoFormAdd">Añadir un nuevo Mecánico</button>
             </div>
             <div class="col">
                 <button id="nextPageButton" class="btn btn-primary btn-block boton" th:action="repuestos">Siguiente

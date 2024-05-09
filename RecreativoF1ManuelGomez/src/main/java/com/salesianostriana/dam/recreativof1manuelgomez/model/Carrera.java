@@ -13,7 +13,9 @@ import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -33,12 +35,18 @@ public class Carrera {
 	private String nombreCircuito;
 	private String localizacion;
 
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "carreraEmpleado", fetch = FetchType.EAGER)
 	private List<Empleado> listaEmpleados;
 
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "carreraComponente", fetch = FetchType.EAGER)
 	private List<Componente> listaComponentes;
 
+	@ToString.Exclude
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "carreraCoche", fetch = FetchType.EAGER)
 	private List<Coche> listaCoches;
 

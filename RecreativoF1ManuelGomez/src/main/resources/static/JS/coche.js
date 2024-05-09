@@ -4,3 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = '/pilotos';
     });
 });
+
+document.getElementById("addCocheButton").addEventListener("click", function() {
+    window.location.href = '/editarCoche';
+});
+
