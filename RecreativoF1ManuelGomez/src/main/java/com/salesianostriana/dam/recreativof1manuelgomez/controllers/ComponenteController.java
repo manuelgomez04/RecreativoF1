@@ -99,4 +99,12 @@ public class ComponenteController {
 		return "redirect:/componentes/";
 	}
 
+	@GetMapping("borrar/{id}")
+	public String borrarComponente(@PathVariable("id") Long id) {
+
+		componenteService.deleteById(id);
+
+		return "redirect:/componentes/";
+	}
+
 }
