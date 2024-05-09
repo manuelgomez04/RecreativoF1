@@ -73,4 +73,12 @@ public class CarreraController {
 		return "redirect:/carrera/";
 	}
 
+	@GetMapping("borrarCarrera/{id}")
+	public String borrarCarrera(@PathVariable("id") Long id) {
+
+		carreraService.deleteById(id);
+
+		return "redirect:/carrera/";
+	}
+
 }
