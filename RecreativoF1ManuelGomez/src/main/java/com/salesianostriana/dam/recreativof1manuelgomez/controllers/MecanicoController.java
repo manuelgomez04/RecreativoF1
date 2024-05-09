@@ -43,11 +43,11 @@ public class MecanicoController {
 	@PostMapping("/addMecanico")
 	public String showMecanico(@ModelAttribute("mecanicoForm") Mecanico mecanico, Model model) {
 
-
 		Optional<Coche> optionalCoche = cocheService.findById(mecanico.getCocheMecanico().getIdCoche());
 
 		if (optionalCoche.isPresent()) {
 			mecanico.setCocheMecanico(optionalCoche.get());
+
 			mecanicoService.save(mecanico);
 		}
 
@@ -73,9 +73,9 @@ public class MecanicoController {
 		mecanicoService.save(m);
 		return "redirect:/mecanicos";
 	}
-	
+
 	@GetMapping("/borrar/{id}")
-	public String borrarMecanico (@PathVariable("id") Long id) {
+	public String borrarMecanico(@PathVariable("id") Long id) {
 		mecanicoService.deleteById(id);
 		return "redirect:/mecanicos";
 	}

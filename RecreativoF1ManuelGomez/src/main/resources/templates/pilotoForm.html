@@ -23,11 +23,10 @@
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
                 <form class="login-form"
-                    th:action="${pilotoForm.idEmpleado != 0} ? @{/pilotos/editarPiloto/submit} : @{/pilotos/addPiloto}" method="POST"
-                    th:object="${pilotoForm}">
+                    th:action="${pilotoForm.idEmpleado != 0} ? @{/pilotos/editarPiloto/submit} : @{/pilotos/addPiloto}"
+                    method="POST" th:object="${pilotoForm}">
                     <div>
-                        <input th:if="${pilotoForm.idEmpleado != 0}" type="hidden" name="id"
-                            th:field="*{idEmpleado}" />
+                        <input th:if="${pilotoForm.idEmpleado != 0}" type="hidden" name="id" th:field="*{idEmpleado}" />
                     </div>
 
                     <div class="form-group">
@@ -62,15 +61,11 @@
                             <option th:each=" coche: ${listaCoches}" th:value="${coche.idCoche}"
                                 th:text="${coche.nombre}"></option>
 
-
+                        </select>
                     </div>
-
-
-                    </select>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
             </div>
-
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
         </div>
     </div>
     </div>

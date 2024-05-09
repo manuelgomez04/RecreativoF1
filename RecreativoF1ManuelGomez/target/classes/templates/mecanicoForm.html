@@ -61,16 +61,12 @@
                         <select class="form-control" id="opciones" th:field="*{cocheMecanico.idCoche}" name="opciones">
                             <option th:each=" coche: ${listaCoches}" th:value="${coche.idCoche}"
                                 th:text="${coche.nombre}"></option>
-
-
+                        </select>
                     </div>
 
-
-                    </select>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
             </div>
-
-            <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
         </div>
     </div>
     </div>

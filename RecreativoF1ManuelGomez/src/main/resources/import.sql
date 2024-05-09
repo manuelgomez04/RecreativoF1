@@ -38,4 +38,5 @@ insert into piloto (posicion_carrera, coche_piloto_id_coche, id_empleado) values
 
 ALTER SEQUENCE empleado_seq RESTART WITH (60);
 ALTER SEQUENCE coche_seq RESTART WITH (52);
+ALTER SEQUENCE componente_seq RESTART WITH (59);
 
