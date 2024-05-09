@@ -37,12 +37,11 @@
                             <td th:text="${mecanico.nombre}"></td>
                             <td th:text="${mecanico.apellidos}"></td>
                             <td th:text="${mecanico.dni}"></td>
-                            <td></td>
                             <td th:text="${#numbers.formatDecimal(mecanico.salario, 1, 2)+' €'}"></td>
-							<td>
-								<a href="#" th:href="@{/editar/{id}(id=${mecanico.idEmpleado})}">Editar</a> |
-								
-							</td>
+                            <td>
+                                <a href="#" th:href="@{/editar/{id}(id=${mecanico.idEmpleado})}">Editar</a> |
+
+                            </td>
                         </tr>
                     </tbody>
                 </table>

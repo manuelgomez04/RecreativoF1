@@ -27,10 +27,9 @@
                 <div class="card text-center">
                     <img src="" class="card-img-top img-fluid" alt="Imagen 1">
                     <div class="card-body">
-                        <h5 class="card-title">Nombre 1</h5>
+                        <h5 class="card-title" th:text="${coche.nombre}">Nombre 1</h5>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><b>ID:</b> <span th:text="${coche.idCoche}"></span></li>
-                            <li class="list-group-item"><b>Nombre coche</b> <span th:text="${coche.nombre}"></span></li>
                             <li class="list-group-item"><b>Piloto:</b> <span th:text="${coche.piloto.nombre}"></span>
                             </li>
                             <li class="list-group-item" th:each="componente:${coche.listaComponentes}">

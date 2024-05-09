@@ -23,67 +23,28 @@
     <!-- Contenido de la página -->
     <div class="container mt-4 contenido">
         <div class="row justify-content-center">
-            <div class="col-md-4 ">
+            <div class="col-md-4" th:each=" piloto: ${listaPilotos}">
                 <div class="card text-center">
                     <img src="../Imagenes/TerceraEq.webp" class="card-img-top img-fluid " alt="Imagen 1">
                     <div class="card-body">
-                        <h5 class="card-title">Nombre 1</h5>
+                        <h5 class="card-title" th:text="${piloto.nombre}">Nombre 1</h5>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Atributo 1</li>
-                            <li class="list-group-item">Atributo 2</li>
-                            <li class="list-group-item">Atributo 3</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tabla con los bordes visibles -->
-            <div class="col-md-4 tarjeta">
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th scope="col">Columna 1</th>
-                            <th scope="col">Columna 2</th>
-                            <th scope="col">Columna 3</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Aquí puedes agregar las 20 filas de la tabla -->
-                        <tr class="text-center ">
-                            <td>Fila 1</td>
-                            <td>Fila 1</td>
-                            <td>Fila 1</td>
-                        </tr>
-                        <!-- Agrega las demás filas aquí -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="col-md-4">
-                <!-- Tarjeta 2 -->
-                <div class="card text-center">
-                    <img src="../Imagenes/Diseño sin título.png" class="card-img-top img-fluid " alt="Imagen 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre 2</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Atributo 1</li>
-                            <li class="list-group-item">Atributo 2</li>
-                            <li class="list-group-item">Atributo 3</li>
+                            <li class="list-group-item" th:text="${piloto.apellidos}">Atributo 2</li>
+                            <li class="list-group-item" th:text="${piloto.dni}">Atributo 3</li>
+                            <li class="list-group-item" th:text="${#numbers.formatDecimal(piloto.salario, 1, 2)+' €'}">Atributo 3</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
+    </div>    
+        <!-- Botón para otra página -->
+    <div class=" container text-center mt-4 boton2">
+        <button type="submit" class="btn btn-primary btn-block" id="siguienteBtn"
+            th:action="mecanicos">Siguiente página</button>
     </div>
 
-    <!-- Botón para otra página -->
-    <div class="container text-center mt-4 boton2">
-        <button type="submit" class="btn btn-primary btn-block" id="siguienteBtn" th:action="mecanicos">Siguiente
-            página</button>
-    </div>
-
-    <footer th:replace="~{fragmentos/footer::footer}">
-    </footer>
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
 
 </body>
 
