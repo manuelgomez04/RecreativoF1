@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\ComponenteService.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Coche.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Presupuesto.java
@@ -31,3 +32,38 @@ D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\d
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\JefeEquipoRepository.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Empleado.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\JefeEquipoService.java
+=======
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\EmpleadoRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\RecreativoF1ManuelGomezApplication.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\JefeEquipo.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\RepuestoController.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\EmpleadoService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\CarreraRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\ComponenteService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Componente.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\JefeEquipoService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Mecanico.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Empleado.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Presupuesto.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\CarreraService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\JefeEquipoRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\PresupuestoRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\InicioSesionController.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Carrera.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\MecanicoService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\MecanicoController.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\CocheRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\PilotoRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Coche.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\PilotoController.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\MecanicoRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\CarreraController.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\ComponenteRepository.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\base\ServiceBase.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\CocheController.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\PresupuestoService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\CocheService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\base\BaseServiceImpl.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\PilotoService.java
+C:\Users\gomez.maman24_triana\Desktop\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Piloto.java
+>>>>>>> main

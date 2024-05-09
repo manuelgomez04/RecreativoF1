@@ -26,6 +26,7 @@
                     th:action="${editarCoche.idCoche != 0} ? @{/editarCoche/submit} : @{/coches}" method="POST"
                     th:object="${editarCoche}">
 
+<<<<<<< HEAD
                     
                     <div class="form-group">
                         <label for="marca">Posicion de la carrera del coche del Coche</label>
@@ -33,6 +34,18 @@
                     </div>
                     <div class="form-group">
                         <label for="marca">Posicion de la carrera del coche del Coche</label>
+=======
+
+                    <div class="form-group">
+                        <label for="daniado">Está dañado</label>
+                        <select class="form-control" id="daniado" name="daniado" th:field="*{estaDaniado}">
+                            <option value="true">Sí</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="marca">Nombre del coche</label>
+>>>>>>> main
                         <input type="text" class="form-control" id="marca" name="marca" th:field="*{nombre}">
                     </div>
                     <div class="form-group">
@@ -41,8 +54,13 @@
                     </div>
 
                     <div class="form-group">
+<<<<<<< HEAD
                         <label for="marca">Posicion de la carrera del coche del Coche</label>
                         <input type="text" class="form-control" id="marca" name="marca" th:field="*{carreraCoche.id}">
+=======
+                        <label for="marca">ID de la carrera</label>
+                        <input type="text" class="form-control" id="marca" name="marca" readonly th:field="*{carreraCoche.id}">
+>>>>>>> main
                     </div>
 
                     <div>

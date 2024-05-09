@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
-import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 
 @Controller
@@ -18,8 +17,7 @@ public class CocheController {
 	@Autowired
 	private CocheService cocheService;
 
-	@Autowired
-	private CarreraService carreraService;
+	
 
 	@GetMapping("/coches")
 	public String showCoches(Model model) {
