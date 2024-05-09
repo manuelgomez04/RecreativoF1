@@ -31,21 +31,31 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item" th:text="${piloto.apellidos}">Atributo 2</li>
                             <li class="list-group-item" th:text="${piloto.dni}">Atributo 3</li>
-                            <li class="list-group-item" th:text="${#numbers.formatDecimal(piloto.salario, 1, 2)+' €'}">Atributo 3</li>
+                            <li class="list-group-item" th:text="${#numbers.formatDecimal(piloto.salario, 1, 2)+' €'}">
+                                Atributo 3</li>
+                            <li>
+                                <a href="#" th:href="@{/pilotos/editar/{id}(id=${piloto.idEmpleado})}">Editar</a> |
+                                <a href="#" th:href="@{/pilotos/borrar/{id}(id=${piloto.idEmpleado})}">Borrar</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
-        <!-- Botón para otra página -->
-    <div class=" container text-center mt-4 boton2">
-        <button type="submit" class="btn btn-primary btn-block" id="siguienteBtn"
-            th:action="mecanicos">Siguiente página</button>
     </div>
+    <!-- Botón para otra página -->
+    <div class=" container text-center mt-4 boton2">
+        <div class="row justify-content-center text-center">
+            <div class="col">
+                <button id="addPilotoButton" class="btn btn-primary btn-block boton"
+                    th:action="${add}">Añadir un nuevo Piloto</button>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="siguienteBtn" th:action="mecanicos">Siguiente
+                página</button>
+        </div>
 
-    <footer th:replace="~{fragmentos/footer::footer}"></footer>
-
+        <footer th:replace="~{fragmentos/footer::footer}"></footer>
+    </div>
 </body>
 
 </html>
