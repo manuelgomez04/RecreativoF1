@@ -26,7 +26,6 @@ com\salesianostriana\dam\recreativof1manuelgomez\model\Componente.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\PresupuestoService.class
 com\salesianostriana\dam\recreativof1manuelgomez\repository\PilotoRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Piloto.class
-com\salesianostriana\dam\recreativof1manuelgomez\controllers\RepuestoController.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Empleado$EmpleadoBuilder.class
 com\salesianostriana\dam\recreativof1manuelgomez\controllers\PilotoController.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Presupuesto.class
@@ -38,6 +37,7 @@ com\salesianostriana\dam\recreativof1manuelgomez\model\Coche$CocheBuilder.class
 com\salesianostriana\dam\recreativof1manuelgomez\controllers\MecanicoController.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Coche.class
 com\salesianostriana\dam\recreativof1manuelgomez\RecreativoF1ManuelGomezApplication.class
+com\salesianostriana\dam\recreativof1manuelgomez\controllers\ComponenteController.class
 com\salesianostriana\dam\recreativof1manuelgomez\repository\ComponenteRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\EmpleadoService.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Carrera.class

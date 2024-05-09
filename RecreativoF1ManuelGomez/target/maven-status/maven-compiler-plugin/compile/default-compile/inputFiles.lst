@@ -4,10 +4,10 @@ D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\d
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Componente.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\PilotoService.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\CarreraController.java
-D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\RepuestoController.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\PilotoController.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\Piloto.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\repository\MecanicoRepository.java
+D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\controllers\ComponenteController.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\base\ServiceBase.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\services\base\BaseServiceImpl.java
 D:\DAM\RecreativoF1\RecreativoF1ManuelGomez\src\main\java\com\salesianostriana\dam\recreativof1manuelgomez\model\JefeEquipo.java
