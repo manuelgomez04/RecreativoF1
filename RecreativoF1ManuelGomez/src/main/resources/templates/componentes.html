@@ -33,7 +33,7 @@
 	                        <li class="list-group-item">ID Coche: <span th:text="${componente.cocheComponente.idCoche}">Item 4</span></li>
 	                        <li class="list-group-item">ID Carrera: <span th:text="${componente.carreraComponente.id}">Item 5</span></li>
                             <li>
-                                <a href="#" th:href="@{/componentes/editar/{id}(id=${componente.idComponente})}">Editar</a> |
+                                <a href="#" th:href="@{/componentes/edit/{id}(id=${componente.idComponente})}">Editar</a> |
                                 <a href="#" th:href="@{/componentes/borrar/{id}(id=${componente.idComponente})}">Borrar</a>
                             </li>
 	                    </ul>
