@@ -59,7 +59,15 @@
                     
                     <div class="form-group">
                         <label for="salario">Estado del asfalto:</label>
-                        <input th:field="*{tipoAsfaltado}" type="text" class="form-control" id="salario"
+                        <select class="form-control" th:field="*{tipoAsfaltado}" id="opciones">
+                            <option value="nuevo">Nuevo</option>
+                            <option value="viejo">Viejo</option>
+                            <option value="medio">Medio</option>
+                          </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="salario">Estado del asfalto:</label>
+                        <input th:field="*{presupuesto.idPresupuesto}" readonly type="text" class="form-control" id="salario"
                             placeholder="Ingrese su salario">
                     </div>
 
