@@ -34,6 +34,7 @@ public class Carrera {
 	private String tipoAsfaltado;
 	private String nombreCircuito;
 	private String localizacion;
+	private String descripcion;
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

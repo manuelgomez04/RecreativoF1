@@ -1,4 +1,4 @@
-insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado) values (1, 5.0, 55, 'Monaco', 'Monaco', 'Nuevo');
+insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado, descripcion) values (1, 5.0, 55, 'Monaco', 'Monaco', 'Nuevo', 'Vaya pasada que es el circuito de mónaco chaval');
 
 insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (false, 2, 1, 1, 'Coche 1');
 insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (true, 3, 1, 2, 'Coche 2');
@@ -39,4 +39,6 @@ insert into piloto (posicion_carrera, coche_piloto_id_coche, id_empleado) values
 ALTER SEQUENCE empleado_seq RESTART WITH (60);
 ALTER SEQUENCE coche_seq RESTART WITH (52);
 ALTER SEQUENCE componente_seq RESTART WITH (59);
+ALTER SEQUENCE presupuesto_seq RESTART WITH (59);
+ALTER SEQUENCE carrera_seq RESTART WITH (51);
 
