@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,7 @@
     <div th:replace="~{fragmentos/banner::banner}"></div>
 
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
-
+    <h1>Bienvenido <span sec:authentication="name">Usuario</span></h1>
     <!-- Contenido de la página como una tarjeta -->
     <div class="container mt-4">
         <div class="card mx-auto w-75">

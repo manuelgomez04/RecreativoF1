@@ -12,10 +12,4 @@ $(document).ready(function() {
     });
 });
 
-//Inicio sesión
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('loginBtn').addEventListener('click', function () {
-        window.location.href = '/inicioSesion';
-    });
-});
 
