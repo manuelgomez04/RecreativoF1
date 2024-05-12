@@ -8,12 +8,8 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -22,50 +18,41 @@ public class SecurityConfig {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
-	
+
 	@Autowired
 	private PasswordEncoder encoder;
-	
-	@Bean 
+
+	@Bean
 	DaoAuthenticationProvider daoAuthenticationProvider() {
 		DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
 		provider.setUserDetailsService(userDetailsService);
 		provider.setPasswordEncoder(encoder);
 		return provider;
 	}
-	
+
 	@Bean
-	AuthenticationManager 
-			authenticationManager(HttpSecurity http) throws Exception {
-		
-		AuthenticationManagerBuilder authBuilder =
-				http.getSharedObject(AuthenticationManagerBuilder.class);
-		
-		return authBuilder
-			.authenticationProvider(daoAuthenticationProvider())
-			.build();
+	AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+
+		AuthenticationManagerBuilder authBuilder = http.getSharedObject(AuthenticationManagerBuilder.class);
+
+		return authBuilder.authenticationProvider(daoAuthenticationProvider()).build();
 	}
-	
+
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests(
-				(authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**")
-				.permitAll().requestMatchers("/admin/**").hasAnyRole("JEFEEQUIPO")
-				.requestMatchers("/mecanico/**").hasAnyRole("MECANICO","JEFEEQUIPO")
-				.requestMatchers("/piloto/**").hasAnyRole("PILOTO", "JEFEEQUIPO")
+		http.authorizeHttpRequests((authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**").permitAll()
+				.requestMatchers("/admin/**").hasAnyRole("JEFEEQUIPO").requestMatchers("/mecanicos/**")
+				.hasAnyRole("MECANICO", "JEFEEQUIPO").requestMatchers("/piloto/**").hasAnyRole("PILOTO", "JEFEEQUIPO")
+				.requestMatchers("/carrera/***").hasAnyRole("PILOTO", "JEFEEQUIPO").requestMatchers("/presupuesto/**")
+				.hasAnyRole("JEFEEQUIPO").requestMatchers("/componentes/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
 				.anyRequest().authenticated())
-			.formLogin((loginz) -> loginz
-					.loginPage("/inicioSesion").permitAll().defaultSuccessUrl("/carrera/"));
-		
-		  http.csrf(csrfz -> csrfz.disable());
-	        http.headers(headersz -> headersz
-	                .frameOptions(frameOptionsz -> frameOptionsz.disable()));
+				.formLogin((loginz) -> loginz.loginPage("/inicioSesion").permitAll().defaultSuccessUrl("/carrera/"));
+
+		http.csrf(csrfz -> csrfz.disable());
+		http.headers(headersz -> headersz.frameOptions(frameOptionsz -> frameOptionsz.disable()));
 
 		return http.build();
 
 	}
-	
-	
-	
-	
+
 }
