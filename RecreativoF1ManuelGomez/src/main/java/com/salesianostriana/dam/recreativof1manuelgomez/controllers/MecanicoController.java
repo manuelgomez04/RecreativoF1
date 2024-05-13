@@ -26,8 +26,6 @@ public class MecanicoController {
 	@Autowired
 	private CocheService cocheService;
 
-	
-
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {
 		Empleado mecanico = new Mecanico();

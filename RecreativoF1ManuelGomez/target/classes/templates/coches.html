@@ -7,10 +7,8 @@
     <title>Nueva Página</title>
     <!-- Enlace a Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../CSS/boton.css" th:href="@{CSS/boton.css}">
-
-    <link rel="stylesheet" href="../CSS/tarjeta.css" th:href="@{/css/tarjeta.css}">
-    <script src="../JS/coche.js" th:href="@{/JS/coche.js}" defer></script>
+    <link rel="stylesheet" href="../CSS/tarjeta.css" th:href="@{/CSS/tarjeta.css}">
+    <link rel="stylesheet" href="../CSS/footer.css" th:href="@{/CSS/footer.css}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
@@ -43,12 +41,10 @@
                                     th:text="${coche.posicionCarrera}"></span></li>
                         </ul>
                     </div>
-                    <div sec:authorize="hasRole('ROLE_JEFEEQUIPO')">
-                        <a href="#" th:href="@{/admin/editarCoche/{id}(id=${coche.idCoche})}">Editar</a> |
+                    <div sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO', 'ROLE_MECANICO')">
+                        <a href="#" th:href="@{/coche/editarCoche/{id}(id=${coche.idCoche})}">Editar</a> 
                     </div>
-                    <div sec:authorize="hasRole('ROLE_MECANICO')">
-                        <a href="#" th:href="@{/mecanico/editarCoche/{id}(id=${coche.idCoche})}">Editar</a> |
-                    </div>
+
                 </div>
             </div>
         </div>

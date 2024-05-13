@@ -13,14 +13,11 @@ import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 
 @Controller
-@RequestMapping("/admin/coche")
+@RequestMapping("/coche")
 public class CocheController {
 
 	@Autowired
 	private CocheService cocheService;
-
-	
-
 
 	@GetMapping("/editarCoche/{id}")
 	public String editCoche(@PathVariable("id") Long id, Model model) {
@@ -38,6 +35,6 @@ public class CocheController {
 	public String procesarFormularioEdicion(@ModelAttribute("editarCoche") Coche coche) {
 
 		cocheService.save(coche);
-		return "redirect:/coches";
+		return "redirect:/main/coches";
 	}
 }

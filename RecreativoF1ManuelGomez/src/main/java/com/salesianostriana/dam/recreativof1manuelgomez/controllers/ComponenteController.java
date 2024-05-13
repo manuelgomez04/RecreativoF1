@@ -22,7 +22,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.JefeEquipoServi
 
 @Controller
 
-@RequestMapping("/admin")
+@RequestMapping("/componentes")
 public class ComponenteController {
 
 	@Autowired
@@ -36,15 +36,6 @@ public class ComponenteController {
 
 	@Autowired
 	private CarreraService carreraService;
-
-	@GetMapping("/componentes")
-	public String showComponentes(Model model) {
-
-		model.addAttribute("listaComponentes", componenteService.findAll());
-
-		return "componentes";
-
-	}
 
 	@GetMapping("/componenteFormAdd")
 	public String addComponente(Model model) {
@@ -70,7 +61,7 @@ public class ComponenteController {
 			componenteService.save(componente);
 		}
 
-		return "redirect:/componentes/";
+		return "redirect:/main/componentes";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -96,7 +87,7 @@ public class ComponenteController {
 	@PostMapping("editarComponente/submit")
 	public String procesarEditarComponente(@ModelAttribute("componenteForm") Componente componente) {
 		componenteService.save(componente);
-		return "redirect:/componentes/";
+		return "redirect:/main/componentes";
 	}
 
 	@GetMapping("borrar/{id}")
@@ -104,7 +95,7 @@ public class ComponenteController {
 
 		componenteService.deleteById(id);
 
-		return "redirect:/componentes/";
+		return "redirect:/main/componentes";
 	}
 
 }
