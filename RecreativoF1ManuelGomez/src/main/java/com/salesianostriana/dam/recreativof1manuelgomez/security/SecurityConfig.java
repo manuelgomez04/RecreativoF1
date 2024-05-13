@@ -40,13 +40,17 @@ public class SecurityConfig {
 
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.authorizeHttpRequests((authz) -> authz.requestMatchers("/css/**", "/js/**", "/h2-console/**").permitAll()
-				.requestMatchers("/admin/**").hasAnyRole("JEFEEQUIPO").requestMatchers("/mecanicos/**")
-				.hasAnyRole("MECANICO", "JEFEEQUIPO").requestMatchers("/piloto/**").hasAnyRole("PILOTO", "JEFEEQUIPO")
-				.requestMatchers("/carrera/***").hasAnyRole("PILOTO", "JEFEEQUIPO").requestMatchers("/presupuesto/**")
-				.hasAnyRole("JEFEEQUIPO").requestMatchers("/componentes/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
+		http.authorizeHttpRequests((authz) -> authz.requestMatchers("/CSS/**", "/JS/**", "/h2-console/**", "/Imagenes/**").permitAll()
+				.requestMatchers("/admin/**").hasAnyRole("JEFEEQUIPO")
+				.requestMatchers("/main/mecanicos/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
+				.requestMatchers("/main/pilotos/**").hasAnyRole("PILOTO", "JEFEEQUIPO")
+				.requestMatchers("/main/carrera/**").hasAnyRole("PILOTO", "JEFEEQUIPO", "MECANICO")
+				.requestMatchers("/presupuesto/**").hasAnyRole("JEFEEQUIPO")
+				.requestMatchers("/componentes/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
+				.requestMatchers("/main/coches/**").hasAnyAuthority("MECANICO","JEFEEQUIPO","PILOTO")
 				.anyRequest().authenticated())
-				.formLogin((loginz) -> loginz.loginPage("/inicioSesion").permitAll().defaultSuccessUrl("/carrera/"));
+				.formLogin((loginz) -> loginz.loginPage("/").defaultSuccessUrl("/main/carrera").permitAll())
+				.logout((logoutz)-> logoutz.logoutUrl("/logout").logoutSuccessUrl("/").permitAll());
 
 		http.csrf(csrfz -> csrfz.disable());
 		http.headers(headersz -> headersz.frameOptions(frameOptionsz -> frameOptionsz.disable()));

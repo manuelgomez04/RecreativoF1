@@ -17,12 +17,16 @@ import lombok.experimental.SuperBuilder;
 @Getter
 @Setter
 @Entity
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class JefeEquipo extends Empleado {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "jefeComponente", fetch = FetchType.EAGER)

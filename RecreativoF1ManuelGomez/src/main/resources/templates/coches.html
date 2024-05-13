@@ -43,10 +43,13 @@
                                     th:text="${coche.posicionCarrera}"></span></li>
                         </ul>
                     </div>
-                    <a href="#" th:href="@{/editarCoche/{id}(id=${coche.idCoche})}">Editar</a> |
-
+                    <div sec:authorize="hasRole('ROLE_JEFEEQUIPO')">
+                        <a href="#" th:href="@{/admin/editarCoche/{id}(id=${coche.idCoche})}">Editar</a> |
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_MECANICO')">
+                        <a href="#" th:href="@{/mecanico/editarCoche/{id}(id=${coche.idCoche})}">Editar</a> |
+                    </div>
                 </div>
-                <!-- Botón de editar -->
             </div>
         </div>
     </div>
@@ -55,7 +58,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
-                <form th:action="@{/pilotos/}" method="get">
+                <form th:action="@{/main/pilotos}" method="get">
                     <button type="submit" class="btn btn-primary">Siguiente página</button>
                 </form>
             </div>

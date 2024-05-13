@@ -7,11 +7,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 
 @Controller
+@RequestMapping("/admin/coche")
 public class CocheController {
 
 	@Autowired
@@ -19,12 +21,6 @@ public class CocheController {
 
 	
 
-	@GetMapping("/coches")
-	public String showCoches(Model model) {
-
-		model.addAttribute("listaCoches", cocheService.findAll());
-		return "coches";
-	}
 
 	@GetMapping("/editarCoche/{id}")
 	public String editCoche(@PathVariable("id") Long id, Model model) {

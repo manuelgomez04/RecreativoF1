@@ -26,11 +26,7 @@ public class MecanicoController {
 	@Autowired
 	private CocheService cocheService;
 
-	@GetMapping("/mecanicos")
-	public String mostrarListaMecanicos(Model model) {
-		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
-		return "mecanicos";
-	}
+	
 
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {

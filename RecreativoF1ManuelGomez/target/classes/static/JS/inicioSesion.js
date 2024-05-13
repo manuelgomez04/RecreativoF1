@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $('#showPasswordBtn').click(function() {
-        var passwordField = $('#password');
-        var passwordFieldType = passwordField.attr('type');
+        let passwordField = $('#password');
+        let passwordFieldType = passwordField.attr('type');
         if (passwordFieldType === 'password') {
             passwordField.attr('type', 'text');
             $(this).text('Ocultar');

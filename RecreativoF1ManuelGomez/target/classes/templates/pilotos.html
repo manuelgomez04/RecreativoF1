@@ -32,10 +32,12 @@
                             <li class="list-group-item" th:text="${piloto.dni}">Atributo 3</li>
                             <li class="list-group-item" th:text="${#numbers.formatDecimal(piloto.salario, 1, 2)+' €'}">
                                 Atributo 3</li>
-                            <li>
-                                <a href="#" th:href="@{/pilotos/editar/{id}(id=${piloto.idEmpleado})}">Editar</a> |
-                                <a href="#" th:href="@{/pilotos/borrar/{id}(id=${piloto.idEmpleado})}">Borrar</a>
-                            </li>
+                            <div sec:authorize="hasRole('ROLE_JEFEEQUIPO')">
+                                <li class="list-group-item">
+                                    <a href="#" th:href="@{/pilotos/editar/{id}(id=${piloto.idEmpleado})}">Editar</a> |
+                                    <a href="#" th:href="@{/pilotos/borrar/{id}(id=${piloto.idEmpleado})}">Borrar</a>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </div>
@@ -45,14 +47,15 @@
     <!-- Botón para otra página -->
     <!-- Formularios -->
     <div class="container mt-4">
-        <div class="row justify-content-center"  >
-            <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center" sec:authorize="hasRole('ROLE_JEFEEQUIPO')">
+
                 <form th:action="@{/pilotos/pilotoFormAdd}" method="get">
                     <button type="submit" class="btn btn-primary">Añadir un nuevo Piloto</button>
                 </form>
             </div>
             <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
-                <form th:action="@{/mecanicos}" method="get">
+                <form th:action="@{/main/mecanicos}" method="get">
                     <button type="submit" class="btn btn-primary">Siguiente página</button>
                 </form>
             </div>

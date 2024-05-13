@@ -32,6 +32,7 @@ com\salesianostriana\dam\recreativof1manuelgomez\controllers\PilotoController.cl
 com\salesianostriana\dam\recreativof1manuelgomez\model\Presupuesto.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\base\ServiceBase.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\JefeEquipo.class
+com\salesianostriana\dam\recreativof1manuelgomez\controllers\MainController.class
 com\salesianostriana\dam\recreativof1manuelgomez\repository\JefeEquipoRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Mecanico$MecanicoBuilderImpl.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Coche$CocheBuilder.class

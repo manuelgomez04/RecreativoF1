@@ -22,7 +22,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.JefeEquipoServi
 
 @Controller
 
-@RequestMapping("/componentes")
+@RequestMapping("/admin")
 public class ComponenteController {
 
 	@Autowired
@@ -37,7 +37,7 @@ public class ComponenteController {
 	@Autowired
 	private CarreraService carreraService;
 
-	@GetMapping("/")
+	@GetMapping("/componentes")
 	public String showComponentes(Model model) {
 
 		model.addAttribute("listaComponentes", componenteService.findAll());

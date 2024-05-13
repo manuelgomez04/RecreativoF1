@@ -27,13 +27,6 @@ public class PilotoController {
 	@Autowired
 	private CocheService cocheService;
 
-	@GetMapping("/")
-	public String showPiloto(Model model) {
-
-		model.addAttribute("listaPilotos", pilotoService.findAll());
-
-		return "pilotos";
-	}
 
 	@GetMapping("/pilotoFormAdd")
 	public String addPiloto(Model model) {

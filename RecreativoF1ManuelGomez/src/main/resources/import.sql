@@ -1,6 +1,6 @@
 insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables) values (1, 200, 500, 34, 67);
 
-insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado, descripcion, presupuesto_id_presupuesto) values (1, 5.0, 55, 'Monaco', 'Monaco', 'Nuevo', 'Vaya pasada que es el circuito de mónaco chaval',1);
+insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado, descripcion, presupuesto_id_presupuesto) values (1, 5.0, 55, 'Mónaco', 'Mónaco', 'Nuevo', 'Vaya pasada que es el circuito de mónaco chaval',1);
 
 
 insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (false, 2, 1, 1, 'Coche 1');
