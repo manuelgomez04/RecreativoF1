@@ -27,14 +27,6 @@ public class PilotoController {
 	@Autowired
 	private CocheService cocheService;
 
-	@GetMapping("/")
-	public String showPiloto(Model model) {
-
-		model.addAttribute("listaPilotos", pilotoService.findAll());
-
-		return "pilotos";
-	}
-
 	@GetMapping("/pilotoFormAdd")
 	public String addPiloto(Model model) {
 		Piloto piloto = new Piloto();
@@ -51,7 +43,7 @@ public class PilotoController {
 			pilotoService.save(piloto);
 		}
 
-		return "redirect:/pilotos/";
+		return "redirect:/main/pilotos";
 	}
 
 	@GetMapping("/editar/{id}")
@@ -71,12 +63,12 @@ public class PilotoController {
 	@PostMapping("/editarPiloto/submit")
 	public String procesarFormularioEdicionPiloto(@ModelAttribute("pilotoForm") Piloto piloto) {
 		pilotoService.save(piloto);
-		return "redirect:/pilotos/";
+		return "redirect:/main/pilotos";
 	}
 
 	@GetMapping("/borrar/{id}")
 	public String borrarPiloto(@PathVariable("id") Long id) {
 		pilotoService.deleteById(id);
-		return "redirect:/pilotos/";
+		return "redirect:/main/pilotos";
 	}
 }

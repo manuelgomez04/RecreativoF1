@@ -7,24 +7,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 
 @Controller
+@RequestMapping("/coche")
 public class CocheController {
 
 	@Autowired
 	private CocheService cocheService;
-
-	
-
-	@GetMapping("/coches")
-	public String showCoches(Model model) {
-
-		model.addAttribute("listaCoches", cocheService.findAll());
-		return "coches";
-	}
 
 	@GetMapping("/editarCoche/{id}")
 	public String editCoche(@PathVariable("id") Long id, Model model) {
@@ -42,6 +35,6 @@ public class CocheController {
 	public String procesarFormularioEdicion(@ModelAttribute("editarCoche") Coche coche) {
 
 		cocheService.save(coche);
-		return "redirect:/coches";
+		return "redirect:/main/coches";
 	}
 }

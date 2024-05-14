@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
@@ -18,6 +19,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 
 @Controller
+@RequestMapping("admin/mecanico")
 public class MecanicoController {
 
 	@Autowired
@@ -25,12 +27,6 @@ public class MecanicoController {
 
 	@Autowired
 	private CocheService cocheService;
-
-	@GetMapping("/mecanicos")
-	public String mostrarListaMecanicos(Model model) {
-		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
-		return "mecanicos";
-	}
 
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {
@@ -51,7 +47,7 @@ public class MecanicoController {
 			mecanicoService.save(mecanico);
 		}
 
-		return "redirect:/mecanicos";
+		return "redirect:/main/mecanicos";
 	}
 
 	@GetMapping("/editar/{id}")
@@ -71,13 +67,13 @@ public class MecanicoController {
 	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("mecanicoForm") Mecanico m) {
 		mecanicoService.save(m);
-		return "redirect:/mecanicos";
+		return "redirect:/main/mecanicos";
 	}
 
 	@GetMapping("/borrar/{id}")
 	public String borrarMecanico(@PathVariable("id") Long id) {
 		mecanicoService.deleteById(id);
-		return "redirect:/mecanicos";
+		return "redirect:/main/mecanicos";
 	}
 
 }

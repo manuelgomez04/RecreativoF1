@@ -1,36 +1,41 @@
 insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables) values (1, 200, 500, 34, 67);
 
-insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado, descripcion, presupuesto_id_presupuesto) values (1, 5.0, 55, 'Monaco', 'Monaco', 'Nuevo', 'Vaya pasada que es el circuito de mónaco chaval',1);
+insert into carrera (id, longitud_por_vuelta, longitud_total, localizacion, nombre_circuito, tipo_asfaltado, descripcion, presupuesto_id_presupuesto, imagen_carrera) values (1, 5.0, 55, 'Mónaco', 'Mónaco', 'Nuevo', 'Debido a su especial configuración con curvas cerradas y rectas cortas, lo que prima en él es la habilidad de los pilotos frente a la potencia de los motores.',1, 'https://lebalap.academy/wp-content/uploads/2021/02/esquema-circuito-de-monaco.png');
 
 
-insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (false, 2, 1, 1, 'Coche 1');
-insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre) values (true, 3, 1, 2, 'Coche 2');
+insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre, foto_coche) values (false, 2, 1, 1, 'Coche 1','https://i.ebayimg.com/images/g/V04AAOSwPddlMohi/s-l1200.webp');
+insert into coche (esta_daniado, posicion_carrera, carrera_coche_id, id_coche, nombre, foto_coche) values (true, 3, 1, 2, 'Coche 2','https://i.ebayimg.com/images/g/V04AAOSwPddlMohi/s-l1200.webp');
 
 
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (1, 'Lucho', 'Sutherden', 'Abata', 16430.99, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (2, 'Dory', 'Thieme', 'Aivee', 54769.92, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (3, 'Grissel', 'Macallam', 'Yoveo', 44096.63, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (4, 'Blondie', 'Simenot', 'Skyndu', 72597.04, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (5, 'Berkeley', 'Mawdsley', 'Yamia', 24000.62, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (6, 'Chucho', 'Burree', 'Jabbercube', 70437.55, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (7, 'Jo-anne', 'Hudspeth', 'Dabfeed', 9409.82, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (8, 'Shea', 'Roobottom', 'Jetwire', 73821.48, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (9, 'Cele', 'Gathercoal', 'Viva', 99070.69, 20.0, 1);
-insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id) values (10, 'Kane', 'MacMurray', 'Kamba', 26255.46, 20.0, 1);
+insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id, username, password, is_admin, is_mecanico, is_piloto, foto) values (1, 'Lucho', 'Sutherden', 'Abata', 16430.99, 20.0, 1, 'juanjo', '{bcrypt}$2y$10$xkjea62LwBUHc9ZdigB8j.Dic/HBXjoFYOqK6J3KqYxiW9SJ6cdyi', false, true, false,'https://www.aulafacil.com/uploads/cursos/694/editor/l31imagen1.png');
+insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id,username, password, is_admin, is_mecanico, is_piloto, foto) values (2, 'Dory', 'Thieme', 'Aivee', 54769.92, 20.0, 1, 'jefe', '{bcrypt}$2y$10$xkjea62LwBUHc9ZdigB8j.Dic/HBXjoFYOqK6J3KqYxiW9SJ6cdyi',true, false,false,'https://www.aulafacil.com/uploads/cursos/694/editor/l31imagen1.png');
+insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id, username, password, is_admin, is_mecanico, is_piloto, foto) values (3, 'Grissel', 'Macallam', 'Yoveo', 44096.63, 20.0, 1, 'piloto1', '{bcrypt}$2y$10$xkjea62LwBUHc9ZdigB8j.Dic/HBXjoFYOqK6J3KqYxiW9SJ6cdyi', false, false, true, 'https://cdn-4.motorsport.com/images/mgl/0ZRQbbN0/s800/fernando-alonso-aston-martin-r.jpg');
+insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, carrera_empleado_id,username, password, is_admin, is_mecanico, is_piloto, foto) values (4, 'Blondie', 'Simenot', 'Skyndu', 72597.04, 20.0, 1, 'piloto2', '{bcrypt}$2y$10$xkjea62LwBUHc9ZdigB8j.Dic/HBXjoFYOqK6J3KqYxiW9SJ6cdyi', false, false, true, 'https://cdn-8.motorsport.com/images/mgl/63vnZMbY/s8/carlos-sainz-ferrari.jpg');
+
+
 
 
 
 insert into jefe_equipo (id_empleado) values (2);
 
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (1, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (2, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (3, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (4, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (5, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (6, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (7, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (8, 'Motor', 15, 1500.0, 'Honda', 1, 2,2);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado) values (9, 'Motor', 15, 1500.0, 'Honda', 1, 1,2);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (1, 'Motor', 15, 15000.0, 'Honda', 1, 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (2, 'Alerón delantero', 15, 1500.0, 'Ferrari', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (3, 'Alerón trasero', 15, 1500.0, 'RedBull', 1, 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (4, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (5, 'Chasis', 15, 1500.0, 'Mercedes', 1, 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (6, 'Discos de freno', 15, 1500.0, 'Sauber', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (7, 'DRS', 15, 1500.0, 'Hass', 1, 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (8, 'Batería', 15, 1500.0, 'Endesa', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (9, 'Neumáticos', 15, 1500.0, 'Michelín', 1, 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (10, 'Motor', 15, 15000.0, 'Honda', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (11, 'Alerón delantero', 15, 1500.0, 'Ferrari',1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (12, 'Alerón trasero', 15, 1500.0, 'RedBull', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (13, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (14, 'Chasis', 15, 1500.0, 'Mercedes', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (15, 'Discos de freno', 15, 1500.0, 'Sauber', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (16, 'DRS', 15, 1500.0, 'Hass', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (17, 'Batería', 15, 1500.0, 'Endesa', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (18, 'Neumáticos', 15, 1500.0, 'Michelín', 1,2, false);
 
 
 insert into mecanico(coche_mecanico_id_coche, id_empleado) values (1, 1);

@@ -18,7 +18,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.PresupuestoServ
 
 @Controller
 
-@RequestMapping("/carrera")
+@RequestMapping("/admin/carrera")
 public class CarreraController {
 
 	@Autowired
@@ -26,13 +26,6 @@ public class CarreraController {
 
 	@Autowired
 	private PresupuestoService presupuestoService;
-
-	@GetMapping("/")
-	public String showCarrera(Model model) {
-
-		model.addAttribute("listaCarreras", carreraService.findAll());
-		return "carrera";
-	}
 
 	@GetMapping("/carreraFormAdd")
 	public String addCarrera(Model model) {
@@ -48,7 +41,7 @@ public class CarreraController {
 
 		carreraService.save(carrera);
 
-		return "redirect:/carrera/";
+		return "redirect:/main/carrera";
 
 	}
 
@@ -70,15 +63,15 @@ public class CarreraController {
 	@PostMapping("editarCarrera/submit")
 	public String procesarEdicion(@ModelAttribute("carreraForm") Carrera carrera) {
 		carreraService.save(carrera);
-		return "redirect:/carrera/";
+		return "redirect:/main/carrera";
 	}
 
-	@GetMapping("borrarCarrera/{id}")
+	@GetMapping("/borrarCarrera/{id}")
 	public String borrarCarrera(@PathVariable("id") Long id) {
 
 		carreraService.deleteById(id);
 
-		return "redirect:/carrera/";
+		return "redirect:/main/carrera";
 	}
 
 }

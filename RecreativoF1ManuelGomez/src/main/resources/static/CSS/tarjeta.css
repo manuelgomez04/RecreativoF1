@@ -1,3 +1,5 @@
 .tarjeta {
     margin-left: 60px;
+    width: 300px; /* Establecer un ancho fijo para todas las cartas */
+    margin: 10px; /* Espacio entre las cartas */
 }

@@ -2,6 +2,7 @@ package com.salesianostriana.dam.recreativof1manuelgomez.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ForeignKey;
@@ -32,6 +33,8 @@ public class Coche {
 	private String nombre;
 	private boolean estaDaniado;
 	private int posicionCarrera;
+	
+	private String fotoCoche;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_coche_carrera"))
@@ -39,7 +42,7 @@ public class Coche {
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy = "cocheComponente", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "cocheComponente", fetch = FetchType.EAGER , cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Componente> listaComponentes;
 
 	@ToString.Exclude

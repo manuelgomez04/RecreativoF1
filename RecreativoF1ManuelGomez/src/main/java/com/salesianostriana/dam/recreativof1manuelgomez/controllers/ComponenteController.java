@@ -37,15 +37,6 @@ public class ComponenteController {
 	@Autowired
 	private CarreraService carreraService;
 
-	@GetMapping("/")
-	public String showComponentes(Model model) {
-
-		model.addAttribute("listaComponentes", componenteService.findAll());
-
-		return "componentes";
-
-	}
-
 	@GetMapping("/componenteFormAdd")
 	public String addComponente(Model model) {
 		Componente componente = new Componente();
@@ -70,7 +61,7 @@ public class ComponenteController {
 			componenteService.save(componente);
 		}
 
-		return "redirect:/componentes/";
+		return "redirect:/main/componentes";
 	}
 
 	@GetMapping("/edit/{id}")
@@ -96,7 +87,7 @@ public class ComponenteController {
 	@PostMapping("editarComponente/submit")
 	public String procesarEditarComponente(@ModelAttribute("componenteForm") Componente componente) {
 		componenteService.save(componente);
-		return "redirect:/componentes/";
+		return "redirect:/main/componentes";
 	}
 
 	@GetMapping("borrar/{id}")
@@ -104,7 +95,7 @@ public class ComponenteController {
 
 		componenteService.deleteById(id);
 
-		return "redirect:/componentes/";
+		return "redirect:/main/componentes";
 	}
 
 }

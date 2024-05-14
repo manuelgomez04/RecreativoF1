@@ -10,4 +10,9 @@ public class InicioSesionController {
 	public String showInicio() {
 		return "inicioSesion";
 	}
+	
+	@GetMapping("/logout")
+	public String logOut () {
+		return "inicioSesion";
+	}
 }
