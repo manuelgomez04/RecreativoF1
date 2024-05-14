@@ -40,8 +40,8 @@
                             <td sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')"
                                 th:text="${#numbers.formatDecimal(mecanico.salario, 1, 2)+' €'}"></td>
                             <td sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')">
-                                <a href="#" th:href="@{/editar/{id}(id=${mecanico.idEmpleado})}">Editar</a> |
-                                <a href="#" th:href="@{/borrar/{id}(id=${mecanico.idEmpleado})}">Borrar</a>
+                                <a href="#" th:href="@{/admin/mecanico/editar/{id}(id=${mecanico.idEmpleado})}">Editar</a> |
+                                <a href="#" th:href="@{/admin/mecanico/borrar/{id}(id=${mecanico.idEmpleado})}">Borrar</a>
                             </td>
                         </tr>
                     </tbody>
@@ -53,7 +53,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-4 text-center" sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')"> <!-- Agregado 'text-center' -->
-                <form th:action="@{/mecanicoFormAdd}" method="get">
+                <form th:action="@{/admin/mecanico/mecanicoFormAdd}" method="get">
                     <button type="submit" class="btn btn-primary">Añadir un nuevo Piloto</button>
                 </form>
             </div>

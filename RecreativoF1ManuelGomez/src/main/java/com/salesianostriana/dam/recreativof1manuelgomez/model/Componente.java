@@ -26,6 +26,7 @@ public class Componente {
 	private double durabilidad;
 	private double precio;
 	private String marca;
+	private boolean estaDaniado;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_componente_coche"))

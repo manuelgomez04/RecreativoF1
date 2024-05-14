@@ -20,7 +20,6 @@
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
     <div class="container mt-4 contenido">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <!-- Comienza el bucle de las tarjetas -->
             <div class="col" th:each="componente: ${listaComponentes}">
                 <div class="card m-4 text-center">
                     <div class="card-body">
@@ -31,8 +30,6 @@
                             <li class="list-group-item">Precio: <span
                                     th:text="${#numbers.formatDecimal(componente.precio, 1, 2)+' €'}">Item 2</span></li>
                             <li class="list-group-item">Marca: <span th:text="${componente.marca}">Item 3</span></li>
-                            <li class="list-group-item">ID Coche: <span
-                                    th:text="${componente.cocheComponente.idCoche}">Item 4</span></li>
                             <li class="list-group-item">ID Carrera: <span
                                     th:text="${componente.carreraComponente.id}">Item 5</span></li>
                             <li class="list-group-item">
@@ -49,15 +46,14 @@
     </div>
 
 
-    <!-- Botón para otra página -->
     <div class="container mt-4 boton">
         <div class="row justify-content-center">
-            <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
+            <div class="col-md-4 text-center">
                 <form th:action="@{/componentes/componenteFormAdd}" method="get">
                     <button type="submit" class="btn btn-primary">Añadir un nuevo Componente</button>
                 </form>
             </div>
-            <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
+            <div class="col-md-4 text-center">
                 <form th:action="@{/main/carrera}" method="get">
                     <button type="submit" class="btn btn-primary">Siguiente página</button>
                 </form>
