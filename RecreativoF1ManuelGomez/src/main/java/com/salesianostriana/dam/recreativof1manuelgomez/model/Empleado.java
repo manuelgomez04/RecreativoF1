@@ -61,6 +61,8 @@ public class Empleado implements UserDetails{
 	private boolean isMecanico;
 	private boolean isPiloto;
 	
+	private String foto;
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		String role = "ROLE_";

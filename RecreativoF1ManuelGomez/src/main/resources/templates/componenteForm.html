@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario con Bootstrap</title>
+    <title>Formulario de añadir un formulario</title>
     <!-- Agregar la referencia a Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/footer.css" th:href="@{/CSS/footer.css}">
@@ -18,7 +18,7 @@
     <div th:replace="~{fragmentos/banner::banner}"></div>
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
 
-    <div class="container mt-5">
+    <div class="container mt-5 boton">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
@@ -72,11 +72,12 @@
                     <div class="form-group">
                         <label for="opciones" class="form-label">Jefe Equipo:</label>
                         <select class="form-control" id="opciones" th:field="*{jefeComponente.idEmpleado}"
-                            name="opciones">
+                            name="opciones"  th:readonly="${componenteForm.idComponente != 0}">
                             <option th:each=" jefe: ${jefeEquipo}" th:value="${jefe.idEmpleado}"
                                 th:text="${jefe.nombre}"></option>
                         </select>
                     </div>
+
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>

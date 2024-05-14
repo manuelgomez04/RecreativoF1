@@ -18,7 +18,7 @@
     <div th:replace="~{fragmentos/banner::banner}"></div>
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
 
-    <div class="container mt-5">
+    <div class="container mt-5 boton">
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
@@ -66,10 +66,14 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="salario">Estado del asfalto:</label>
-                        <input th:field="*{presupuesto.idPresupuesto}"
-                            th:readonly="${carreraForm.id != 0}"
-                            type="text" class="form-control" id="salario" placeholder="Ingrese su salario">
+                        <label for="salario">Presupuesto:</label>
+                        <input th:field="*{presupuesto.idPresupuesto}" th:readonly="${carreraForm.id != 0}" type="text"
+                            class="form-control" id="salario" placeholder="Ingrese su salario">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="marca">Imagen</label>
+                        <input type="text" class="form-control" id="marca" name="marca" th:field="*{imagenCarrera}">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Enviar</button>

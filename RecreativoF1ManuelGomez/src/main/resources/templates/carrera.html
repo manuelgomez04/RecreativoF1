@@ -25,43 +25,34 @@
                 <h1 class="card-title text-center" th:text="${carrera.nombreCircuito}">Circuito de Mónaco</h1>
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../Imagenes/trazado-monaco_mid641adddf83b16.png" alt="Imagen" class="img-fluid mb-3">
-                        <p class="card-text" th:text="${carrera.descripcion}">Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Sed ac justo vel
-                            libero
-                            tincidunt aliquet. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat harum
-                            blanditiis impedit ratione, repellendus nesciunt. Tempore praesentium est quam obcaecati
-                            quaerat
-                            placeat numquam? Ex porro doloribus temporibus hic vero dolor. Lorem ipsum dolor sit amet
-                            consectetur adipisicing elit.</p>
+                        <img th:src="${not (#strings.isEmpty(carrera.imagenCarrera))} ? ${carrera.imagenCarrera} : 'https://llerena.org/wp-content/uploads/2017/11/imagen-no-disponible.jpg'"
+                            alt="Imagen" class="img-fluid mb-3">
+                        <p class="card-text" th:text="${carrera.descripcion}"></p>
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                         <ul>
-                            <li th:text="${carrera.longitudPorVuelta}">Atributo 1</li>
-                            <li th:text="${carrera.longitudTotal}">Atributo 2</li>
-                            <li th:text="${carrera.localizacion}">Atributo 3</li>
-                            <li>
-                                <select>
-                                    <option value="">Empleados de la carrera</option>
+                            <li class="list-group-item" ><b>Longitud por vuelta</b> <span th:text="${carrera.longitudPorVuelta}"></span>km</li>
+                            <li class="list-group-item"> <b>Longitud Total</b> <span th:text="${carrera.longitudTotal}"></span>km</li>
+                            <li class="list-group-item"> <b>Localización</b> <span th:text="${carrera.localizacion}"></span></li>
+                            <li class="list-group-item">
+                                <select class="form-select">
+                                    <option>Empleados de la carrera</option>
                                     <th:block th:each="empleado : ${listaEmpleados}">
                                         <option th:value="${empleado.idEmpleado}" th:text="${empleado.nombre}"></option>
                                     </th:block>
                                 </select>
                             </li>
                         </ul>
-
+                        
                     </div>
                 </div>
-                <div sec:authorize="hasRole('ROLE_JEFEEQUIPO')">
-                    <a href="#" th:href="@{/admin/carrera/editarCarrera/{id}(id=${carrera.id})}">Editar</a> |
-                    <a href="#" th:href="@{/admin/carrera/borrarCarrera/{id}(id=${carrera.id})}">Borrar</a>
-                </div>
+                
             </div>
         </div>
     </div>
 
     <!-- Botón para otra página -->
-    <div class="container mt-4">
+    <div class="container mt-4 botonCarrera" >
         <div class="row justify-content-center">
             <div class="col-md-4 text-center" sec:authorize="hasRole('ROLE_JEFEEQUIPO')">
                 <!-- Agregado 'text-center' -->
