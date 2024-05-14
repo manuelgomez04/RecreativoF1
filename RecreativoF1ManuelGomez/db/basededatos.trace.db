@@ -33848,3 +33848,11 @@ insert into componente (id_componente, tipo_componente, durabilidad, precio, mar
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.recreativof1manuelgomez.RecreativoF1ManuelGomezApplication.main(RecreativoF1ManuelGomezApplication.java:10)
+2024-05-14 19:53:51.591411+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, SELECT SUM(salario) FROM empleado,[*]1,1,1,1)"; se esperaba "identifier"
+Syntax error in SQL statement "insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, SELECT SUM(salario) FROM empleado,[*]1,1,1,1)"; expected "identifier"; SQL statement:
+insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, SELECT SUM(salario) FROM empleado,1,1,1,1) [42001-224]
+2024-05-14 19:54:44.786630+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, SELECT SUM(salario) FROM empleado,[*]1,1,1,1)"; se esperaba "identifier"
+Syntax error in SQL statement "insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, SELECT SUM(salario) FROM empleado,[*]1,1,1,1)"; expected "identifier"; SQL statement:
+insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, SELECT SUM(salario) FROM empleado,1,1,1,1) [42001-224]

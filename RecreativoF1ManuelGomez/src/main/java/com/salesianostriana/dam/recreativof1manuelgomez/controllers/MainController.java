@@ -13,6 +13,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.ComponenteServi
 import com.salesianostriana.dam.recreativof1manuelgomez.services.EmpleadoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.PilotoService;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.PresupuestoService;
 
 @Controller
 @RequestMapping("/main")
@@ -36,16 +37,22 @@ public class MainController {
 	@Autowired
 	private ComponenteService componenteService;
 
+	@Autowired
+	private PresupuestoService presupuestoService;
+
 	@GetMapping("/pilotos")
 	public String showPiloto(Model model) {
 
 		model.addAttribute("listaPilotos", pilotoService.findAll());
+		presupuestoService.modifyPresupInicial();
 
 		return "pilotos";
 	}
 
 	@GetMapping("/mecanicos")
 	public String mostrarListaMecanicos(Model model) {
+
+		presupuestoService.modifyPresupInicial();
 		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
 		return "mecanicos";
 	}
