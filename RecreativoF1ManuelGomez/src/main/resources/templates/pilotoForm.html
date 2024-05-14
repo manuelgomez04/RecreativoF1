@@ -11,6 +11,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../static/JS/validarDNI.js" th:src="@{/JS/validarDNI.js}" defer></script>
+    <script src="../static/JS/validarFechaNac.js" th:src="@{/JS/validarFechaNac.js}"></script>
 
 </head>
 
@@ -22,7 +24,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
-                <form class="login-form"
+                <form class="login-form" id="formulario"
                     th:action="${pilotoForm.idEmpleado != 0} ? @{/pilotos/editarPiloto/submit} : @{/pilotos/addPiloto}"
                     method="POST" th:object="${pilotoForm}">
                     <div>
@@ -41,12 +43,18 @@
                     <div class="form-group">
                         <label for="dni">DNI:</label>
                         <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI">
+                        <div id="mensaje-validacion-dni" class="invalid-feedback" style="display: none;">
+                            El DNI ingresado no es válido.
+                        </div>
                     </div>
 
                     <div class="form-group">
                         <label for="fecha">Fecha de nacimiento:</label>
                         <input th:field="*{fechaNacimiento}" type="date" id="fecha" name="fecha" class="form-control"
                             placeholder="Fecha de nacimiento">
+                        <div id="mensaje-validacion-fecha" class="invalid-feedback" style="display: none;">
+                            Debe ser mayor de 18 años para registrarse.
+                        </div>
                     </div>
 
                     <div class="form-group">

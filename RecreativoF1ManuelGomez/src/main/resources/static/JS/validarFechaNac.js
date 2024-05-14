@@ -1,26 +1,47 @@
-function validarEdadMayor18(fechaNacimiento) {
-    let fechaNacimientoObj = new Date(fechaNacimiento);
-    let hoy = new Date();
-    let edad = hoy.getFullYear() - fechaNacimientoObj.getFullYear();
-    let mes = hoy.getMonth() - fechaNacimientoObj.getMonth();
+document.addEventListener('DOMContentLoaded', function () {
+    let formulario = document.getElementById('formulario');
+    let fechaInput = document.getElementById('fecha');
+    let mensajeValidacionFecha = document.getElementById('mensaje-validacion-fecha');
 
-    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimientoObj.getDate())) {
+    formulario.addEventListener('submit', function (event) {
+        let fecha = fechaInput.value.trim();
+
+        if (!fecha) {
+            event.preventDefault(); // Evita que se envíe el formulario si el campo de fecha está vacío
+            mensajeValidacionFecha.style.display = 'block';
+            fechaInput.classList.add('is-invalid');
+        } else if (!validarFechaMayor18(fecha)) {
+            event.preventDefault(); // Evita que se envíe el formulario si la fecha no es mayor de 18 años
+            mensajeValidacionFecha.style.display = 'block';
+            fechaInput.classList.add('is-invalid');
+        }
+    });
+
+    fechaInput.addEventListener('input', function () {
+        let fecha = fechaInput.value.trim();
+
+        if (!fecha) {
+            mensajeValidacionFecha.style.display = 'none';
+            fechaInput.classList.remove('is-invalid');
+        } else if (!validarFechaMayor18(fecha)) {
+            mensajeValidacionFecha.style.display = 'block';
+            fechaInput.classList.add('is-invalid');
+        } else {
+            mensajeValidacionFecha.style.display = 'none';
+            fechaInput.classList.remove('is-invalid');
+        }
+    });
+});
+
+function validarFechaMayor18(fecha) {
+    let fechaNacimiento = new Date(fecha);
+    let hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    let mes = hoy.getMonth() - fechaNacimiento.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
         edad--;
     }
 
     return edad >= 18;
 }
-
-// Event listener para validar la edad en el envío del formulario
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('formulario').addEventListener('submit', function(event) {
-        let fechaInput = document.getElementById('fecha');
-        let fechaNacimiento = fechaInput.value;
-
-        if (!validarEdadMayor18(fechaNacimiento)) {
-            alert('Debe ser mayor de 18 años para registrarse.');
-            event.preventDefault(); // Evita que el formulario se envíe
-            fechaInput.focus(); // Pone el foco en el campo de fecha de nacimiento
-        }
-    });
-});
