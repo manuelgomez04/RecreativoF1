@@ -15,4 +15,8 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 		return repository.findComponenteSinCoche();
 	}
+	
+	public List<Componente> mostrarComponentesConCoche(){
+		return repository.findComponenteConCoche();
+	}
 }

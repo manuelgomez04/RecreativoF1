@@ -79,7 +79,7 @@ public class ComponenteController {
 
 			return "componenteForm";
 		} else {
-			return "componentes";
+			return "componentesCoche";
 		}
 
 	}
@@ -96,6 +96,12 @@ public class ComponenteController {
 		componenteService.deleteById(id);
 
 		return "redirect:/main/componentes";
+	}
+	
+	@GetMapping("/comprarComponentes")
+	public String comprarComponentes (Model model) {
+		model.addAttribute("listaComponentesComprar", componenteService.mostrarComponentesSinCoche());
+		return "componentesComprar";
 	}
 
 }

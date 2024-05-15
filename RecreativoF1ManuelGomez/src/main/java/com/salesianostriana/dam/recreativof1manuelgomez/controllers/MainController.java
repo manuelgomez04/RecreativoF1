@@ -76,9 +76,9 @@ public class MainController {
 	@GetMapping("/componentes")
 	public String showComponentes(Model model) {
 
-		model.addAttribute("listaComponentes", componenteService.mostrarComponentesSinCoche());
+		model.addAttribute("listaComponentes", componenteService.mostrarComponentesConCoche());
 
-		return "componentes";
+		return "componentesCoches";
 	}
 
 }
