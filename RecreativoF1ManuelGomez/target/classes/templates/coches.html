@@ -21,7 +21,10 @@
 
     <!-- Contenido de la página -->
     <div class="container mt-4 contenido">
-        <div class="row justify-content-center">
+        <div class="text-center" sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')" th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial, 1, 2)+' €'}">
+
+        </div>
+        <div class=" row justify-content-center">
             <div class="col-md-4 text-center" th:each="coche: ${listaCoches}">
                 <div class="card">
                     <div class="d-flex justify-content-center">

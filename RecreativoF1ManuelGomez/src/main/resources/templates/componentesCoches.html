@@ -19,6 +19,9 @@
 
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
     <div class="container mt-4 contenido">
+        <div class="text-center" sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')"
+            th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial, 1, 2)+' €'}"></div>
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" th:each="componente: ${listaComponentes}">
                 <div class="card m-4 text-center">
@@ -28,8 +31,10 @@
                             <li class="list-group-item">Durabilidad: <span th:text="${componente.durabilidad}">Item
                                     1</span></li>
                             <li class="list-group-item">Precio: <span
-                                    th:text="${#numbers.formatDecimal(componente.precio, 1, 2)+' €'}">Item 2</span></li>
-                            <li class="list-group-item">Marca: <span th:text="${componente.marca}">Item 3</span></li>
+                                    th:text="${#numbers.formatDecimal(componente.precio, 1, 2)+' €'}">Item 2</span>
+                            </li>
+                            <li class="list-group-item">Marca: <span th:text="${componente.marca}">Item 3</span>
+                            </li>
                             <li class="list-group-item">ID Carrera: <span
                                     th:text="${componente.carreraComponente.id}">Item 5</span></li>
                             <li class="list-group-item">

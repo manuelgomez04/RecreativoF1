@@ -2,15 +2,19 @@ package com.salesianostriana.dam.recreativof1manuelgomez.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Componente;
+import com.salesianostriana.dam.recreativof1manuelgomez.model.Presupuesto;
 import com.salesianostriana.dam.recreativof1manuelgomez.repository.ComponenteRepository;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServiceImpl;
 
 @Service
 public class ComponenteService extends BaseServiceImpl<Componente, Long, ComponenteRepository> {
 
+	@Autowired PresupuestoService presupuestoService;
+	
 	public List<Componente> mostrarComponentesSinCoche() {
 
 		return repository.findComponenteSinCoche();
@@ -18,5 +22,16 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 	
 	public List<Componente> mostrarComponentesConCoche(){
 		return repository.findComponenteConCoche();
+	}
+	
+	
+	public void sumarPrecioAGastos (Long id) {
+			
+	Presupuesto presupuesto = presupuestoService.findById(1L).get();
+	presupuesto.setGastosvariables(presupuesto.getGastosvariables()+ findById(id).get().getPrecio());
+	
+	presupuestoService.save(presupuesto);
+		
+
 	}
 }

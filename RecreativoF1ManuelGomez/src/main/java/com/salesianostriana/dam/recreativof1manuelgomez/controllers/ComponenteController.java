@@ -19,6 +19,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.ComponenteService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.JefeEquipoService;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.PresupuestoService;
 
 @Controller
 
@@ -36,6 +37,9 @@ public class ComponenteController {
 
 	@Autowired
 	private CarreraService carreraService;
+	
+	@Autowired 
+	private PresupuestoService presupuestoService;
 
 	@GetMapping("/componenteFormAdd")
 	public String addComponente(Model model) {
@@ -100,8 +104,19 @@ public class ComponenteController {
 	
 	@GetMapping("/comprarComponentes")
 	public String comprarComponentes (Model model) {
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+
 		model.addAttribute("listaComponentesComprar", componenteService.mostrarComponentesSinCoche());
+
 		return "componentesComprar";
 	}
 
+	@GetMapping("/comprarComponente/{id}")
+	public String comprarComponente (Model model, @PathVariable("id")Long id) {
+		
+		componenteService.sumarPrecioAGastos(id);
+				
+		return "redirect:/componentes/comprarComponentes";
+		
+	}
 }
