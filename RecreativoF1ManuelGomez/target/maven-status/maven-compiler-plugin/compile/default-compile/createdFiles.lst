@@ -6,6 +6,7 @@ com\salesianostriana\dam\recreativof1manuelgomez\repository\PresupuestoRepositor
 com\salesianostriana\dam\recreativof1manuelgomez\model\Componente$ComponenteBuilder.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Mecanico.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Presupuesto$PresupuestoBuilder.class
+com\salesianostriana\dam\recreativof1manuelgomez\security\SecurityConfig.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\PilotoService.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\MecanicoService.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Piloto$PilotoBuilder.class
@@ -31,15 +32,18 @@ com\salesianostriana\dam\recreativof1manuelgomez\controllers\PilotoController.cl
 com\salesianostriana\dam\recreativof1manuelgomez\model\Presupuesto.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\base\ServiceBase.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\JefeEquipo.class
+com\salesianostriana\dam\recreativof1manuelgomez\controllers\MainController.class
 com\salesianostriana\dam\recreativof1manuelgomez\repository\JefeEquipoRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Mecanico$MecanicoBuilderImpl.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Coche$CocheBuilder.class
 com\salesianostriana\dam\recreativof1manuelgomez\controllers\MecanicoController.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Coche.class
 com\salesianostriana\dam\recreativof1manuelgomez\RecreativoF1ManuelGomezApplication.class
+com\salesianostriana\dam\recreativof1manuelgomez\security\PasswordEncoderConfig.class
 com\salesianostriana\dam\recreativof1manuelgomez\controllers\ComponenteController.class
 com\salesianostriana\dam\recreativof1manuelgomez\repository\ComponenteRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\EmpleadoService.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Carrera.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\JefeEquipoService.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Empleado.class
+com\salesianostriana\dam\recreativof1manuelgomez\services\EmpleadoDetailsServiceImpl.class
