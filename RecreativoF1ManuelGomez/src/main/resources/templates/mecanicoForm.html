@@ -12,7 +12,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../static/JS/validarDNI.js" th:src="@{/JS/validarDNI.js}" defer></script>
-    <script src="../static/JS/validarFechaNac.js" th:src="@{/JS/validarFechaNac.js}"></script>
+    <script src="../static/JS/validarFechaNac.js" th:src="@{/JS/validarFechaNac.js}" defer></script>
 
 </head>
 
@@ -25,34 +25,40 @@
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
                 <form id="formulario" class="login-form"
-                    th:action="${mecanicoForm.idEmpleado != 0} ? @{/admin/mecanico/editar/submit} : @{/admin/mecanico/addMecanico}" method="POST"
-                    th:object="${mecanicoForm}">
+                    th:action="${mecanicoForm.idEmpleado != 0} ? @{/admin/mecanico/editar/submit} : @{/admin/mecanico/addMecanico}"
+                    method="POST" th:object="${mecanicoForm}">
                     <div>
                         <input th:if="${mecanicoForm.idEmpleado != 0}" type="hidden" name="id"
                             th:field="*{idEmpleado}" />
                     </div>
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}">
+                        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Apellidos:</label>
                         <input th:field="*{apellidos}" type="text" class="form-control" id="apellidos"
-                            placeholder="Ingrese sus apellidos">
+                            placeholder="Ingrese sus apellidos" required>
                     </div>
                     <div class="form-group">
                         <label for="dni">DNI:</label>
                         <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI">
+                        <div id="mensaje-validacion-dni" class="invalid-feedback" style="display: none;">
+                            El DNI ingresado no es válido.
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="fecha">Fecha de nacimiento:</label>
                         <input th:field="*{fechaNacimiento}" type="date" id="fecha" name="fecha" class="form-control"
                             placeholder="Fecha de nacimiento">
+                        <div id="mensaje-validacion-fecha" class="invalid-feedback" style="display: none;">
+                            Debe ser mayor de 18 años para registrarse.
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="salario">Salario:</label>
                         <input th:field="*{salario}" type="number" class="form-control" id="salario"
-                            placeholder="Ingrese su salario">
+                            placeholder="Ingrese su salario" size="7">
                     </div>
                     <div class="form-group">
                         <label for="opciones" class="form-label">Coche:</label>

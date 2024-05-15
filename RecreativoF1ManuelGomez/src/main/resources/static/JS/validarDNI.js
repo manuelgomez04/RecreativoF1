@@ -4,14 +4,36 @@ function validarDNI(dni) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('formulario').addEventListener('submit', function (event) {
-        let dniInput = document.getElementById('dni');
+    let formulario = document.getElementById('formulario');
+    let dniInput = document.getElementById('dni');
+    let mensajeValidacionDNI = document.getElementById('mensaje-validacion-dni');
+
+    formulario.addEventListener('submit', function (event) {
         let dni = dniInput.value.trim();
 
-        if (!validarDNI(dni)) {
-            alert('Por favor, introduce un DNI válido (8 dígitos seguidos de una letra).');
-            event.preventDefault(); // Evita que el formulario se envíe
-            dniInput.focus(); // Pone el foco en el campo DNI
+        if (!dni) {
+            event.preventDefault(); // Evita que se envíe el formulario si el campo de DNI está vacío
+            mensajeValidacionDNI.style.display = 'block';
+            dniInput.classList.add('is-invalid');
+        } else if (!validarDNI(dni)) {
+            event.preventDefault(); // Evita que se envíe el formulario si el formato del DNI es inválido
+            mensajeValidacionDNI.style.display = 'block';
+            dniInput.classList.add('is-invalid');
+        }
+    });
+
+    dniInput.addEventListener('input', function () {
+        let dni = dniInput.value.trim();
+
+        if (!dni) {
+            mensajeValidacionDNI.style.display = 'none';
+            dniInput.classList.remove('is-invalid');
+        } else if (!validarDNI(dni)) {
+            mensajeValidacionDNI.style.display = 'block';
+            dniInput.classList.add('is-invalid');
+        } else {
+            mensajeValidacionDNI.style.display = 'none';
+            dniInput.classList.remove('is-invalid');
         }
     });
 });

@@ -25,6 +25,7 @@ public class Presupuesto {
 	@GeneratedValue
 	private long idPresupuesto;
 	private double ingresosFijos;
+	private double presupuestoInicial;
 	private double gastosFIjos;
 	private double ingresosVariables;
 	private double gastosvariables;
@@ -33,4 +34,5 @@ public class Presupuesto {
 	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "presupuesto", fetch = FetchType.EAGER)
 	private List<Carrera> listaCarreras;
+
 }
