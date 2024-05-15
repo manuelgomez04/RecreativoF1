@@ -19,40 +19,50 @@
 
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
 
-    <!-- Contenido de la página -->
     <div class="container mt-4 contenido">
-        <div class="row justify-content-center">
-            <div class="col-md-4 text-center" th:each="coche: ${listaCoches}">
-                <div class="card">
-                    <div class="d-flex justify-content-center">
-                        <img th:src="${not (#strings.isEmpty(coche.fotoCoche))} ? ${coche.fotoCoche} : 'https://llerena.org/wp-content/uploads/2017/11/imagen-no-disponible.jpg'"
-                            alt="Imagen" class="img-fluid mb-2">
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${coche.nombre}">Nombre 1</h5>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><b>ID:</b> <span th:text="${coche.idCoche}"></span></li>
-                            <li class="list-group-item"><b>Piloto:</b> <span th:text="${coche.piloto.nombre}"></span>
-                            </li>
-                            <li class="list-group-item" th:each="componente:${coche.listaComponentes}">
-                                <b>Componentes:</b>
-                                <span th:text="${componente.tipoComponente}"></span>
-                            </li>
-                            <li class="list-group-item"><b>Estado:</b> <span
-                                    th:if="${coche.estaDaniado}">Dañado</span><span th:unless="${coche.estaDaniado}">No
-                                    dañado</span></li>
-                            <li class="list-group-item"><b>Posición en Carrera:</b> <span
-                                    th:text="${coche.posicionCarrera}"></span></li>
-                        </ul>
-                    </div>
-                    <div sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO', 'ROLE_MECANICO')">
-                        <a href="#" th:href="@{/coche/editarCoche/{id}(id=${coche.idCoche})}">Editar</a>
-                    </div>
-
-                </div>
+        <div class="d-flex justify-content-center align-items-center flex-column">
+            <div class="text-center border border-dark rounded p-2 mb-2">
+                <div>Presupuesto</div>
+                <span class="font-weight-bold" style="font-size: 20px;"
+                    th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial, 1, 2)+' €'}"></span>
             </div>
         </div>
     </div>
+    <div class=" row justify-content-center">
+        <div class="col-md-4 text-center" th:each="coche: ${listaCoches}">
+            <div class="card">
+                <div class="d-flex justify-content-center">
+                    <img th:src="${not (#strings.isEmpty(coche.fotoCoche))} ? ${coche.fotoCoche} : 'https://llerena.org/wp-content/uploads/2017/11/imagen-no-disponible.jpg'"
+                        alt="Imagen" class="img-fluid mb-2">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${coche.nombre}">Nombre 1</h5>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><b>ID:</b> <span th:text="${coche.idCoche}"></span></li>
+                        <li class="list-group-item"><b>Piloto:</b> <span th:text="${coche.piloto.nombre}"></span>
+                        <li class="list-group-item">
+                            <th:block th:if="${coche.idCoche == 1}">
+                                <a th:href="@{/componentes/coche1}">Componentes</a>
+                            </th:block>
+                            <th:block th:if="${coche.idCoche != 1}">
+                                <a th:href="@{/componentes/coche2}">Componentes</a>
+                            </th:block>
+                        </li>
+                        <li class="list-group-item"><b>Estado:</b> <span th:if="${coche.estaDaniado}">Dañado</span><span
+                                th:unless="${coche.estaDaniado}">No
+                                dañado</span></li>
+                        <li class="list-group-item"><b>Posición en Carrera:</b> <span
+                                th:text="${coche.posicionCarrera}"></span></li>
+                    </ul>
+                </div>
+                <div sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO', 'ROLE_MECANICO')">
+                    <a href="#" th:href="@{/coche/editarCoche/{id}(id=${coche.idCoche})}">Editar</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <!-- Botón para otra página -->
     <div class="container mt-4">

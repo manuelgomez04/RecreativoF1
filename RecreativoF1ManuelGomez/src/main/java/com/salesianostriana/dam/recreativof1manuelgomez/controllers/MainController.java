@@ -44,6 +44,7 @@ public class MainController {
 	public String showPiloto(Model model) {
 
 		model.addAttribute("listaPilotos", pilotoService.findAll());
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		presupuestoService.modifyPresupInicial();
 
 		return "pilotos";
@@ -54,6 +55,7 @@ public class MainController {
 
 		presupuestoService.modifyPresupInicial();
 		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "mecanicos";
 	}
 
@@ -61,6 +63,7 @@ public class MainController {
 	public String showCoches(Model model) {
 
 		model.addAttribute("listaCoches", cocheService.findAll());
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "coches";
 	}
 
@@ -69,6 +72,7 @@ public class MainController {
 
 		model.addAttribute("listaCarreras", carreraService.findAll());
 		model.addAttribute("listaEmpleados", empleadoService.findAll());
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 
 		return "carrera";
 	}
@@ -77,6 +81,7 @@ public class MainController {
 	public String showComponentes(Model model) {
 
 		model.addAttribute("listaComponentes", componenteService.mostrarComponentesConCoche());
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 
 		return "componentesCoches";
 	}

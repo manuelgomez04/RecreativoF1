@@ -19,6 +19,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.ComponenteService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.JefeEquipoService;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.PresupuestoService;
 
 @Controller
 
@@ -36,6 +37,9 @@ public class ComponenteController {
 
 	@Autowired
 	private CarreraService carreraService;
+
+	@Autowired
+	private PresupuestoService presupuestoService;
 
 	@GetMapping("/componenteFormAdd")
 	public String addComponente(Model model) {
@@ -97,11 +101,66 @@ public class ComponenteController {
 
 		return "redirect:/main/componentes";
 	}
-	
+
 	@GetMapping("/comprarComponentes")
-	public String comprarComponentes (Model model) {
+	public String comprarComponentes(Model model, Long id) {
+		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+
 		model.addAttribute("listaComponentesComprar", componenteService.mostrarComponentesSinCoche());
+
 		return "componentesComprar";
 	}
 
+	@GetMapping("/comprarComponente/{id}")
+	public String comprarComponente(Model model, @PathVariable("id") Long id) {
+
+		componenteService.sumarPrecioAGastos(id);
+
+		Componente componente;
+
+		componente = Componente.builder().carreraComponente(componenteService.findById(id).get().getCarreraComponente())
+				.durabilidad(componenteService.findById(id).get().getDurabilidad())
+				.estaDaniado(componenteService.findById(id).get().isEstaDaniado())
+				.jefeComponente(componenteService.findById(id).get().getJefeComponente())
+				.precio(componenteService.findById(id).get().getPrecio())
+				.marca(componenteService.findById(id).get().getMarca())
+				.tipoComponente(componenteService.findById(id).get().getTipoComponente()).build();
+		componenteService.save(componente);
+
+		model.addAttribute("componente", componente);
+
+		List<Coche> listaCoches = cocheService.findAll();
+		List<Carrera> listaCarrerasOpcion = carreraService.findAll();
+		List<JefeEquipo> listaJefeEquipoOpcion = jefeEquipoService.findAll();
+		model.addAttribute("listaCoches", listaCoches);
+		model.addAttribute("carrera", listaCarrerasOpcion);
+		model.addAttribute("jefeEquipo", listaJefeEquipoOpcion);
+
+		return "asignarCoche";
+
+	}
+
+	@PostMapping("comprarComponente/submit")
+	public String componenteGuardar(@ModelAttribute("componente") Componente componente) {
+
+		componenteService.edit(componente);
+
+		return "redirect:/componentes/comprarComponentes";
+	}
+
+	@GetMapping("/coche1")
+	public String componentesCoche1(Model model) {
+
+		model.addAttribute("componentes1", componenteService.componentesCoche1());
+
+		return "componentesCoche1";
+	}
+
+	@GetMapping("/coche2")
+	public String componentesCoche2(Model model) {
+
+		model.addAttribute("componentes2", componenteService.componentesCoche2());
+
+		return "componentesCoche2";
+	}
 }
