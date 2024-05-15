@@ -13,9 +13,21 @@ public interface ComponenteRepository extends JpaRepository<Componente, Long> {
 			SELECT c FROM Componente c WHERE c.cocheComponente IS NULL
 			""")
 	public List<Componente> findComponenteSinCoche();
-	
+
 	@Query("""
 			SELECT c FROM Componente c WHERE c.cocheComponente IS NOT NULL
 			""")
 	public List<Componente> findComponenteConCoche();
+
+	@Query("""
+			SELECT c FROM Componente c
+			WHERE c.cocheComponente.idCoche = 1
+			""")
+	public List<Componente> componentesCoche1();
+
+	@Query("""
+			SELECT c FROM Componente c
+			WHERE c.cocheComponente.idCoche = 2
+			""")
+	public List<Componente> componentesCoche2();
 }

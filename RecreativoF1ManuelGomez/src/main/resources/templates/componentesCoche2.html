@@ -15,17 +15,11 @@
 
 <body>
     <div th:replace="~{fragmentos/banner::banner}"></div>
-
-
-    <nav th:replace="~{fragmentos/menu::menu}"></nav>
-    <div class="container mt-4 contenido">
-        <div class="text-center" sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')"
-            th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial, 1, 2)+' €'}"></div>
-
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col" th:each="componente: ${listaComponentes}">
+            <div class="col" th:each="componente: ${componentes2}">
                 <div class="card m-4 text-center">
                     <div class="card-body">
+                        <h4 class="card-title" th:text="${componente.cocheComponente.nombre}"></h4>
                         <h5 class="card-title" th:text="${componente.tipoComponente}">Tipo de componente:</h5>
                         <ul class="list-group">
                             <li class="list-group-item">Durabilidad: <span th:text="${componente.durabilidad}">Item
