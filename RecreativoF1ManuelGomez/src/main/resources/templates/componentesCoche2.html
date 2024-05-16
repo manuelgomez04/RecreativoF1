@@ -15,6 +15,8 @@
 
 <body>
     <div th:replace="~{fragmentos/banner::banner}"></div>
+    <div class="container mt-4 contenido">
+
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" th:each="componente: ${componentes2}">
                 <div class="card m-4 text-center">
@@ -23,14 +25,13 @@
                         <h5 class="card-title" th:text="${componente.tipoComponente}">Tipo de componente:</h5>
                         <ul class="list-group">
                             <li class="list-group-item">Durabilidad: <span th:text="${componente.durabilidad}">Item
-                                    1</span></li>
-                            <li class="list-group-item">Precio: <span
-                                    th:text="${#numbers.formatDecimal(componente.precio, 1, 2)+' €'}">Item 2</span>
+                                    1</span>
                             </li>
                             <li class="list-group-item">Marca: <span th:text="${componente.marca}">Item 3</span>
                             </li>
                             <li class="list-group-item">ID Carrera: <span
-                                    th:text="${componente.carreraComponente.id}">Item 5</span></li>
+                                    th:text="${componente.carreraComponente.id}">Item
+                                    5</span></li>
                             <li class="list-group-item">
                                 <a href="#"
                                     th:href="@{/componentes/edit/{id}(id=${componente.idComponente})}">Editar</a> |
