@@ -1,4 +1,4 @@
-insert into presupuesto (id_presupuesto, gastosfijos, gastosvariables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, 0 ,ROUND(RANDOM()*1000000),ROUND(RANDOM()*10000000),ROUND(RANDOM()*10000000),ROUND(RANDOM()*10000000));
+insert into presupuesto (id_presupuesto, gastos_fijos, gastos_variables, ingresos_fijos, ingresos_variables, presupuesto_inicial) values (1, 0 ,ROUND(RANDOM()*1000000),ROUND(RANDOM()*10000000),ROUND(RANDOM()*10000000),ROUND(RANDOM()*10000000));
 
 insert into carrera (id, longitud_por_vuelta, longitud_total ,localizacion, nombre_circuito, tipo_asfaltado, descripcion, presupuesto_id_presupuesto, imagen_carrera, num_vueltas) values (1, 5.0, 0,  'Mónaco', 'Mónaco', 'Nuevo', 'Debido a su especial configuración con curvas cerradas y rectas cortas, lo que prima en él es la habilidad de los pilotos frente a la potencia de los motores.',1, 'https://lebalap.academy/wp-content/uploads/2021/02/esquema-circuito-de-monaco.png',65);
 

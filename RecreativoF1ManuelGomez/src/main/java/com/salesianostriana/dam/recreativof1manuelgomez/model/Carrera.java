@@ -36,7 +36,7 @@ public class Carrera {
 	private String localizacion;
 	private String descripcion;
 	private int numVueltas;
-	
+
 	private String imagenCarrera;
 
 	@ToString.Exclude
@@ -59,16 +59,18 @@ public class Carrera {
 	private Presupuesto presupuesto;
 
 	public void addToPresupuesto(Presupuesto presupuesto) {
-		this.presupuesto=presupuesto;
+		this.presupuesto = presupuesto;
 		presupuesto.getListaCarreras().add(this);
 	}
-	
+
 	public void removeFromCarrera(Presupuesto presupuesto) {
 		presupuesto.getListaCarreras().remove(this);
 		this.presupuesto = null;
 	}
-	
-	public void calcularLongitudPorVuelta() {
+
+	public double calcularLongitudPorVuelta() {
 		setLongitudTotal(longitudPorVuelta * numVueltas);
+
+		return longitudPorVuelta * numVueltas;
 	}
 }

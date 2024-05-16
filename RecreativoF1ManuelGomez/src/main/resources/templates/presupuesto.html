@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <!-- Enlace a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/boton.css" th:href="@{/CSS/boton.css}">
+    <link rel="stylesheet" href="../CSS/footer.css" th:href="@{/CSS/footer.css}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+    <div class="container mt-4 tarjeta w-50">
+
+        <div class="card mx-auto">
+            <div class="card-body">
+                <h1 class="card-title text-center">RESUMEN ECONÓMICO</h1>
+
+                <div class="text-center">
+                    <ul class="list-group" th:each="presupuesto : ${presupuesto}">
+                        <li class="list-group-item"><b>Presupuesto Inicial = </b><span
+                                th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial,  3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        </li>
+                        <li class="list-group-item"> <b>Ingresos por patrocinadores = </b><span
+                                th:text="${#numbers.formatDecimal(presupuesto.ingresosFijos,  3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        </li>
+                        <li class="list-group-item"><b>Ingresos por el resultado de la Carrera = </b><span
+                                th:text="${#numbers.formatDecimal(presupuesto.ingresosVariables,  3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        </li>
+                        <li class="list-group-item"> <b>Gastos en sueldos de empleados = </b><span
+                                th:text="${#numbers.formatDecimal(presupuesto.gastosVariables, 3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        </li>
+                        <li class="list-group-item"> <b>Gastos en compra de repuestos = </b><span
+                                th:text="${#numbers.formatDecimal(presupuesto.gastosFijos,  3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        </li>
+                        <li class="list-group-item"> <b>Balance del presupuesto = </b><span
+                                th:text="${#numbers.formatDecimal(presupuestoF,  3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Botón para otra página -->
+    <div class="container mt-4 botonCarrera">
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center"> <!-- Agregado 'text-center' -->
+                <form th:action="@{/main/carrera}" method="get">
+                    <button type="submit" class="btn btn-primary">Siguiente página</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Pie de página a 3 columnas -->
+    <footer th:replace="~{fragmentos/footer::footer}">
+    </footer>
+</body>
+
+</html>

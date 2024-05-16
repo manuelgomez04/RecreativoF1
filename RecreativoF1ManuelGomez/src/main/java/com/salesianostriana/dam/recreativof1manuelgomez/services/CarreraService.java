@@ -9,4 +9,8 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServic
 @Service
 public class CarreraService extends BaseServiceImpl<Carrera, Long, CarreraRepository> {
 
+	public Carrera primeraCarrera() {
+
+		return repository.primeraCarrera();
+	}
 }

@@ -27,8 +27,6 @@ public class Piloto extends Empleado {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int posicionCarrera;
-
 	@OneToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_piloto_coche"))
 

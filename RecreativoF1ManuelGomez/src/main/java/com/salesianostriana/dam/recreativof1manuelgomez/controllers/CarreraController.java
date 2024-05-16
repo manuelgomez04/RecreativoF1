@@ -39,7 +39,6 @@ public class CarreraController {
 
 	@PostMapping("/addCarrera")
 	public String showCarrera(@ModelAttribute("carreraForm") Carrera carrera, Model model) {
-		carrera.calcularLongitudPorVuelta();
 
 		carreraService.save(carrera);
 
@@ -72,7 +71,7 @@ public class CarreraController {
 	public String borrarCarrera(@PathVariable("id") Long id) {
 
 		carreraService.findById(id).get().removeFromCarrera(carreraService.findById(id).get().getPresupuesto());
-		
+
 		carreraService.deleteById(id);
 
 		return "redirect:/main/carrera";

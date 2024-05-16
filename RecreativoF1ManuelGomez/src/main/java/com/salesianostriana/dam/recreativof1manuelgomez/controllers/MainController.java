@@ -67,12 +67,11 @@ public class MainController {
 	}
 
 	@GetMapping("/carrera")
-	public String showCarrera(Model model,  Long id) {
+	public String showCarrera(Model model, Long id) {
 
-		
 		model.addAttribute("listaCarreras", carreraService.findAll());
-		carreraService.findAll().stream().findFirst().get().calcularLongitudPorVuelta();
-		carreraService.save(carreraService.findAll().stream().findFirst().get());
+		carreraService.primeraCarrera().calcularLongitudPorVuelta();
+		carreraService.save(carreraService.primeraCarrera());
 		model.addAttribute("listaEmpleados", empleadoService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "carrera";
@@ -86,13 +85,12 @@ public class MainController {
 
 		return "componentesCoches";
 	}
-	
+
 	@GetMapping("/presupuesto")
-	public String showPresupuesto (Model model) {
-		
+	public String showPresupuesto(Model model) {
+
 		model.addAttribute("prespuesto", presupuestoService.findAll());
 		return "presupuesto";
 	}
-	
 
 }
