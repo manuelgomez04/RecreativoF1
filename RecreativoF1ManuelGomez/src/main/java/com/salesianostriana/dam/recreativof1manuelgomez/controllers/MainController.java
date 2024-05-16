@@ -28,7 +28,7 @@ public class MainController {
 	private PilotoService pilotoService;
 
 	@Autowired
-	EmpleadoService empleadoService;
+	private EmpleadoService empleadoService;
 
 	@Autowired
 	private MecanicoService mecanicoService;
@@ -41,7 +41,7 @@ public class MainController {
 
 	@GetMapping("/pilotos")
 	public String showPiloto(Model model) {
-
+		empleadoService.calcularIncentivoEmpleado();
 		model.addAttribute("listaPilotos", pilotoService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		presupuestoService.modifyPresupInicial();
@@ -61,6 +61,7 @@ public class MainController {
 	@GetMapping("/coches")
 	public String showCoches(Model model) {
 
+		presupuestoService.ingresosExtra();
 		model.addAttribute("listaCoches", cocheService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "coches";
