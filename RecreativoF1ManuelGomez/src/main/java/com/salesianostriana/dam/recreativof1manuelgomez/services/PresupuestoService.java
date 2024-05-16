@@ -13,14 +13,21 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 	@Autowired
 	private EmpleadoService empleadoService;
 
-	
 	public void modifyPresupInicial() {
 		Presupuesto presupuesto = repository.findById(1L).get();
-		presupuesto.setGastosFIjos(empleadoService
-				.findAll()
-				.stream()
-				.mapToDouble(empleado -> empleado.getSalario())
-				.sum());
+		presupuesto.setGastosFijos(
+				empleadoService.findAll().stream().mapToDouble(empleado -> empleado.getSalario()).sum());
 		repository.save(presupuesto);
+	}
+
+	public double calcularResultado() {
+		Presupuesto presupuesto = repository.findById(1L).get();
+
+		Double presupuestoFinal = 0.0;
+
+		presupuestoFinal = presupuesto.getPresupuestoInicial() - presupuesto.getGastosFijos()
+				- presupuesto.getGastosVariables() + presupuesto.getIngresosFijos() + presupuesto.getGastosVariables();
+
+		return presupuestoFinal;
 	}
 }

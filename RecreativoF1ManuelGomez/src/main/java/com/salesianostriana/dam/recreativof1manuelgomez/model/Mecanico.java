@@ -30,4 +30,14 @@ public class Mecanico extends Empleado {
 	@JoinColumn(foreignKey = @ForeignKey(name = "mecanico_coche"))
 
 	private Coche cocheMecanico;
+	
+	public void addToCoche(Coche coche) {
+		this.cocheMecanico=coche;
+		coche.getListaMecanicos().add(this);
+	}
+	
+	public void removeFromCoche(Coche coche) {
+		coche.getListaMecanicos().remove(this);
+		this.cocheMecanico= null;
+	}
 }

@@ -44,7 +44,7 @@
                             placeholder="Ingrese su DNI">
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group d-none"> 
                         <label for="fecha">Longitud total:</label>
                         <input th:field="*{longitudTotal}" type="number" id="fecha" name="fecha" class="form-control"
                             placeholder="Fecha de nacimiento">
@@ -56,6 +56,11 @@
                             placeholder="Ingrese su salario">
                     </div>
 
+                    <div class="form-group">
+                        <label for="salario">Número de vueltas:</label>
+                        <input th:field="*{numVueltas}" type="text" class="form-control" id="salario"
+                            placeholder="Diga número de vueltas">
+                    </div>
 
                     <div class="form-group">
                         <label for="salario">Estado del asfalto:</label>

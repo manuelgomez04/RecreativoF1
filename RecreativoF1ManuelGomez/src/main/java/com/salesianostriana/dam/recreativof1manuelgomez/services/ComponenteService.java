@@ -28,7 +28,7 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 	public void sumarPrecioAGastos(Long id) {
 
 		Presupuesto presupuesto = presupuestoService.findById(1L).get();
-		presupuesto.setGastosvariables(presupuesto.getGastosvariables() + findById(id).get().getPrecio());
+		presupuesto.setGastosVariables(presupuesto.getGastosVariables() + findById(id).get().getPrecio());
 
 		presupuestoService.save(presupuesto);
 
@@ -40,5 +40,17 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 	public List<Componente> componentesCoche2() {
 		return repository.componentesCoche2();
+	}
+
+	public Componente componenteComprado(Long id) {
+		Componente componente;
+
+		componente = Componente.builder().carreraComponente(findById(id).get().getCarreraComponente())
+				.durabilidad(findById(id).get().getDurabilidad()).estaDaniado(findById(id).get().isEstaDaniado())
+				.jefeComponente(findById(id).get().getJefeComponente()).precio(findById(id).get().getPrecio())
+				.marca(findById(id).get().getMarca()).tipoComponente(findById(id).get().getTipoComponente()).build();
+		save(componente);
+
+		return componente;
 	}
 }

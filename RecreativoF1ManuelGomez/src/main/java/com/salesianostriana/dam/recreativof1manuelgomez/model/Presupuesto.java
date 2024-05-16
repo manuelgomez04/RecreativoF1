@@ -26,9 +26,9 @@ public class Presupuesto {
 	private long idPresupuesto;
 	private double ingresosFijos;
 	private double presupuestoInicial;
-	private double gastosFIjos;
+	private double gastosFijos;
 	private double ingresosVariables;
-	private double gastosvariables;
+	private double gastosVariables;
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

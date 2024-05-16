@@ -9,6 +9,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -51,7 +52,8 @@ public class SecurityConfig {
 						.requestMatchers("/componentes/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
 						.requestMatchers("/main/coches/**").hasAnyRole("MECANICO", "JEFEEQUIPO", "PILOTO").anyRequest().authenticated())
 				.formLogin((loginz) -> loginz.loginPage("/").defaultSuccessUrl("/main/carrera").permitAll())
-				.logout((logoutz) -> logoutz.logoutUrl("/logout").logoutSuccessUrl("/").permitAll());
+				.logout((logoutz) -> logoutz.logoutUrl("/logout").logoutSuccessUrl("/").permitAll())
+				.exceptionHandling(exceptionHandling -> exceptionHandling.accessDeniedPage("/error/**"));
 
 		http.csrf(csrfz -> csrfz.disable());
 		http.headers(headersz -> headersz.frameOptions(frameOptionsz -> frameOptionsz.disable()));
@@ -59,5 +61,10 @@ public class SecurityConfig {
 		return http.build();
 
 	}
+	
+	public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
 
 }

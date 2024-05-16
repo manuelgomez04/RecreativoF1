@@ -32,7 +32,6 @@
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                         <ul>
                             <li class="list-group-item" ><b>Longitud por vuelta</b> <span th:text="${carrera.longitudPorVuelta}"></span>km</li>
-                            <li class="list-group-item"> <b>Longitud Total</b> <span th:text="${carrera.longitudTotal}"></span>km</li>
                             <li class="list-group-item"> <b>Localización</b> <span th:text="${carrera.localizacion}"></span></li>
                             <li class="list-group-item">
                                 <select class="form-select">
@@ -42,8 +41,10 @@
                                     </th:block>
                                 </select>
                             </li>
+                            <li class="list-group-item"><b>Número de vueltas: </b><span th:text="${carrera.numVueltas}"></span></li>
+                            <li class="list-group-item"> <b>Longitud Total: </b> <span th:text="${carrera.calcularLongitudPorVuelta()}"></span>km</li>
                         </ul>
-                        
+
                     </div>
                 </div>
                 

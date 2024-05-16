@@ -32,6 +32,7 @@ public class CarreraController {
 		Carrera carrera = new Carrera();
 
 		model.addAttribute("carreraForm", carrera);
+
 		return "carreraForm";
 
 	}
@@ -68,6 +69,8 @@ public class CarreraController {
 
 	@GetMapping("/borrarCarrera/{id}")
 	public String borrarCarrera(@PathVariable("id") Long id) {
+
+		carreraService.findById(id).get().removeFromCarrera(carreraService.findById(id).get().getPresupuesto());
 
 		carreraService.deleteById(id);
 
