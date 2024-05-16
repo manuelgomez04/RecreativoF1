@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.salesianostriana.dam.recreativof1manuelgomez.model.Carrera;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.ComponenteService;
@@ -68,12 +67,14 @@ public class MainController {
 	}
 
 	@GetMapping("/carrera")
-	public String showCarrera(Model model, Carrera carrera) {
+	public String showCarrera(Model model,  Long id) {
 
+		
 		model.addAttribute("listaCarreras", carreraService.findAll());
+		carreraService.findAll().stream().findFirst().get().calcularLongitudPorVuelta();
+		carreraService.save(carreraService.findAll().stream().findFirst().get());
 		model.addAttribute("listaEmpleados", empleadoService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
-
 		return "carrera";
 	}
 
@@ -85,5 +86,13 @@ public class MainController {
 
 		return "componentesCoches";
 	}
+	
+	@GetMapping("/presupuesto")
+	public String showPresupuesto (Model model) {
+		
+		model.addAttribute("prespuesto", presupuestoService.findAll());
+		return "presupuesto";
+	}
+	
 
 }

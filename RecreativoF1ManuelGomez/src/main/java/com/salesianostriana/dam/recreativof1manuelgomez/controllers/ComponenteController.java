@@ -68,8 +68,28 @@ public class ComponenteController {
 		return "redirect:/main/componentes";
 	}
 
-	@GetMapping("/edit/{id}")
-	public String editarComponente(@PathVariable("id") Long id, Model model) {
+	@GetMapping("/editCoche1/{id}")
+	public String editarComponente1(@PathVariable("id") Long id, Model model) {
+
+		if (componenteService.findById(id).isPresent()) {
+			model.addAttribute("componenteForm", componenteService.findById(id).get());
+			List<Coche> listaCochesOpcion = cocheService.findAll();
+			List<Carrera> listaCarrerasOpcion = carreraService.findAll();
+			List<JefeEquipo> listaJefeEquipoOpcion = jefeEquipoService.findAll();
+
+			model.addAttribute("listaCoches", listaCochesOpcion);
+			model.addAttribute("carrera", listaCarrerasOpcion);
+			model.addAttribute("jefeEquipo", listaJefeEquipoOpcion);
+
+			return "componenteForm";
+		} else {
+			return "componentesCoche";
+		}
+
+	}
+	
+	@GetMapping("/editCoche2/{id}")
+	public String editarComponente2(@PathVariable("id") Long id, Model model) {
 
 		if (componenteService.findById(id).isPresent()) {
 			model.addAttribute("componenteForm", componenteService.findById(id).get());
@@ -91,16 +111,10 @@ public class ComponenteController {
 	@PostMapping("editarComponente/submit")
 	public String procesarEditarComponente(@ModelAttribute("componenteForm") Componente componente) {
 		componenteService.save(componente);
-		return "redirect:/main/componentes";
+		return "redirect:/componentes/coche1";
 	}
 
-	@GetMapping("borrar/{id}")
-	public String borrarComponente(@PathVariable("id") Long id) {
 
-		componenteService.deleteById(id);
-
-		return "redirect:/main/componentes";
-	}
 
 	@GetMapping("/comprarComponentes")
 	public String comprarComponentes(Model model, Long id) {
@@ -116,18 +130,7 @@ public class ComponenteController {
 
 		componenteService.sumarPrecioAGastos(id);
 
-		Componente componente;
-
-		componente = Componente.builder().carreraComponente(componenteService.findById(id).get().getCarreraComponente())
-				.durabilidad(componenteService.findById(id).get().getDurabilidad())
-				.estaDaniado(componenteService.findById(id).get().isEstaDaniado())
-				.jefeComponente(componenteService.findById(id).get().getJefeComponente())
-				.precio(componenteService.findById(id).get().getPrecio())
-				.marca(componenteService.findById(id).get().getMarca())
-				.tipoComponente(componenteService.findById(id).get().getTipoComponente()).build();
-		componenteService.save(componente);
-
-		model.addAttribute("componente", componente);
+		model.addAttribute("componente", componenteService.componenteComprado(id));
 
 		List<Coche> listaCoches = cocheService.findAll();
 		List<Carrera> listaCarrerasOpcion = carreraService.findAll();
@@ -162,5 +165,23 @@ public class ComponenteController {
 		model.addAttribute("componentes2", componenteService.componentesCoche2());
 
 		return "componentesCoche2";
+	}
+	@GetMapping("borrarComponentesCoche1/{id}")
+	public String borrarComponente(@PathVariable("id") Long id) {
+
+		componenteService.findById(id).get().removeFromCoche(componenteService.findById(id).get().getCocheComponente());
+
+		componenteService.delete(componenteService.findById(id).get());
+
+		return "redirect:/componentes/coche1";
+	}
+	
+	@GetMapping("borrarComponentesCoche2/{id}")
+	public String borrarComponente2(@PathVariable("id") Long id) {
+
+		componenteService.findById(id).get().removeFromCoche(componenteService.findById(id).get().getCocheComponente());
+		componenteService.delete(componenteService.findById(id).get());
+
+		return "redirect:/componentes/coche2";
 	}
 }

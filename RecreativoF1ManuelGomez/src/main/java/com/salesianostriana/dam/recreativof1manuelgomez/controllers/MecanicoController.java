@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,6 +29,9 @@ public class MecanicoController {
 	@Autowired
 	private CocheService cocheService;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {
 		Empleado mecanico = new Mecanico();
@@ -43,7 +47,11 @@ public class MecanicoController {
 
 		if (optionalCoche.isPresent()) {
 			mecanico.setCocheMecanico(optionalCoche.get());
-
+			String encodedPassword = passwordEncoder.encode(mecanico.getPassword());
+	        mecanico.setPassword(encodedPassword);
+	        mecanico.setAdmin(false);
+	        mecanico.setMecanico(true);
+	        mecanico.setPiloto(false);
 			mecanicoService.save(mecanico);
 		}
 

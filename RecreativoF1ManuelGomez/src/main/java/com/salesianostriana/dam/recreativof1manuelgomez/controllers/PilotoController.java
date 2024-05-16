@@ -3,6 +3,7 @@ package com.salesianostriana.dam.recreativof1manuelgomez.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,6 +27,9 @@ public class PilotoController {
 
 	@Autowired
 	private CocheService cocheService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@GetMapping("/pilotoFormAdd")
 	public String addPiloto(Model model) {
@@ -40,7 +44,10 @@ public class PilotoController {
 	public String showPiloto(@ModelAttribute("pilotoForm") Piloto piloto, Model model) {
 		if (cocheService.findById(piloto.getCochePiloto().getIdCoche()).isPresent()) {
 			piloto.setCochePiloto(cocheService.findById(piloto.getCochePiloto().getIdCoche()).get());
-			pilotoService.save(piloto);
+	
+			String encodedPassword = passwordEncoder.encode(piloto.getPassword());
+	        piloto.setPassword(encodedPassword);
+	        pilotoService.save(piloto);
 		}
 
 		return "redirect:/main/pilotos";

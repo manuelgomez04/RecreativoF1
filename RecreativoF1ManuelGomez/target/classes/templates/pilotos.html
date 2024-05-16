@@ -22,7 +22,14 @@
 
     <!-- Contenido de la página -->
     <div class="container mt-4 contenido">
-        <div class="text-center" sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')" th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial, 1, 2)+' €'}">
+        <div class="container mt-4 contenido">
+            <div class="d-flex justify-content-center align-items-center flex-column">
+                <div class="text-center border border-dark rounded p-2 mb-2">
+                    <div>Presupuesto</div>
+                    <span class="font-weight-bold" style="font-size: 20px;"
+                        th:text="${#numbers.formatDecimal(presupuesto.presupuestoInicial, 1, 2)+' €'}"></span>
+                </div>
+            </div>
         </div>
 
             <div class="row justify-content-center">

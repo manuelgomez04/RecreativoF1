@@ -97,4 +97,13 @@ public class Empleado implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
+	public void addToCarrera(Carrera carrera) {
+		this.carreraEmpleado=carrera;
+		carrera.getListaEmpleados().add(this);
+	}
+	
+	public void removeFromCarrera(Carrera carrera) {
+		carrera.getListaEmpleados().remove(this);
+		this.carreraEmpleado = null;
+	}
 }

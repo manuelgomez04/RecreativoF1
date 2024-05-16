@@ -39,4 +39,39 @@ public class Componente {
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_componente_carrera"))
 	private Carrera carreraComponente;
+	
+	public void addToCoche(Coche coche) {
+		this.cocheComponente = coche;
+		coche.getListaComponentes().add(this);
+	}
+	
+	public void removeFromCoche(Coche coche) {
+
+		coche.getListaComponentes().remove(this);
+		
+		this.cocheComponente=null;
+	}
+	
+	public void addToJefe(JefeEquipo jefeEquipo) {
+		this.jefeComponente = jefeEquipo;
+		jefeEquipo.getListaComponentes().add(this);
+	}
+	
+	public void removeFromJefe(JefeEquipo jefeEquipo) {
+
+		jefeEquipo.getListaComponentes().remove(this);
+		
+		this.jefeComponente=null;
+	}
+	
+	public void addToCarrera(Carrera carrera) {
+		this.carreraComponente = carrera;
+		carrera.getListaComponentes().add(this);
+	}
+	
+	public void removeFromCarrera (Carrera carrera) {
+		carrera.getListaComponentes().remove(this);
+		
+		this.carreraComponente=null;
+	}
 }

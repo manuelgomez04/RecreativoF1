@@ -41,4 +41,21 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 	public List<Componente> componentesCoche2() {
 		return repository.componentesCoche2();
 	}
+	
+	public Componente componenteComprado(Long id) {
+		Componente componente;
+
+		componente = Componente.builder()
+				.carreraComponente(findById(id).get().getCarreraComponente())
+				.durabilidad(findById(id).get().getDurabilidad())
+				.estaDaniado(findById(id).get().isEstaDaniado())
+				.jefeComponente(findById(id).get().getJefeComponente())
+				.precio(findById(id).get().getPrecio())
+				.marca(findById(id).get().getMarca())
+				.tipoComponente(findById(id).get().getTipoComponente()).build();
+		save(componente);
+		
+		
+		return componente;
+	}
 }

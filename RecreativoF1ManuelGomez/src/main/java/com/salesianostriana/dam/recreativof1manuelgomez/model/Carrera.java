@@ -35,6 +35,7 @@ public class Carrera {
 	private String nombreCircuito;
 	private String localizacion;
 	private String descripcion;
+	private int numVueltas;
 	
 	private String imagenCarrera;
 
@@ -57,4 +58,17 @@ public class Carrera {
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_carrera_presupuesto"))
 	private Presupuesto presupuesto;
 
+	public void addToPresupuesto(Presupuesto presupuesto) {
+		this.presupuesto=presupuesto;
+		presupuesto.getListaCarreras().add(this);
+	}
+	
+	public void removeFromCarrera(Presupuesto presupuesto) {
+		presupuesto.getListaCarreras().remove(this);
+		this.presupuesto = null;
+	}
+	
+	public void calcularLongitudPorVuelta() {
+		setLongitudTotal(longitudPorVuelta * numVueltas);
+	}
 }
