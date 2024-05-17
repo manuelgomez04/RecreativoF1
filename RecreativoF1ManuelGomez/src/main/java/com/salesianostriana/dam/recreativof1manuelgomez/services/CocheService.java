@@ -9,4 +9,12 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServic
 @Service
 public class CocheService extends BaseServiceImpl<Coche, Long, CocheRepository> {
 
+	public void cochesDaniados() {
+		for (Coche coche : repository.findAll()) {
+			boolean algunComponenteDaniado = coche.getListaComponentes().stream().anyMatch(c -> c.isEstaDaniado());
+
+			coche.setEstaDaniado(algunComponenteDaniado);
+			repository.save(coche);
+		}
+	}
 }

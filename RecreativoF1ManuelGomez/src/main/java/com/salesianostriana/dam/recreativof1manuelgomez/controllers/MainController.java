@@ -41,10 +41,10 @@ public class MainController {
 
 	@GetMapping("/pilotos")
 	public String showPiloto(Model model) {
-		empleadoService.calcularIncentivoEmpleado();
+		// empleadoService.calcularIncentivoEmpleado();
 		model.addAttribute("listaPilotos", pilotoService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
-		presupuestoService.modifyPresupInicial();
+		// presupuestoService.modifyPresupInicial();
 
 		return "pilotos";
 	}
@@ -52,8 +52,8 @@ public class MainController {
 	@GetMapping("/mecanicos")
 	public String mostrarListaMecanicos(Model model) {
 
-		presupuestoService.modifyPresupInicial();
-		empleadoService.calcularIncentivoEmpleado();
+		// presupuestoService.modifyPresupInicial();
+		// empleadoService.calcularIncentivoEmpleado();
 
 		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());

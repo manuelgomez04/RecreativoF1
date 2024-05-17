@@ -19,7 +19,7 @@
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
 
     <div class="container mt-4 contenido">
-       
+
 
 
         <div class="row row-cols-1 row-cols-md-3 g-4" data-aos="fade-right">
@@ -29,21 +29,28 @@
                         <h4 class="card-title" th:text="${componente.cocheComponente.nombre}"></h4>
                         <h5 class="card-title" th:text="${componente.tipoComponente}">Tipo de componente:</h5>
                         <ul class="list-group">
-                            <li class="list-group-item">Durabilidad: <span th:text="${componente.durabilidad}">Item
+                            <li class="list-group-item"> <b> Durabilidad: </b><span
+                                    th:text="${componente.durabilidad}">Item
                                     1</span></li>
-                            <li class="list-group-item">Precio: <span
+                            <li class="list-group-item"> <b> Precio: </b> <span
                                     th:text="${#numbers.formatDecimal(componente.precio, 1, 2)+' €'}">Item 2</span>
                             </li>
-                            <li class="list-group-item">Marca: <span th:text="${componente.marca}">Item 3</span>
+                            <li class="list-group-item"> <b> Marca: </b> <span th:text="${componente.marca}">Item
+                                    3</span>
                             </li>
-                            <li class="list-group-item">ID Carrera: <span
+                            <li class="list-group-item"> <b> ID Carrera: </b> <span
                                     th:text="${componente.carreraComponente.id}">Item
                                     5</span></li>
+                            <li class="list-group-item"><b>Estado:</b> <span
+                                    th:if="${componente.estaDaniado}">Dañado</span><span
+                                    th:unless="${componente.estaDaniado}">No
+                                    dañado</span></li>
                             <li class="list-group-item">
                                 <a href="#"
-                                    th:href="@{/componentes/editCoche1/{id}(id=${componente.idComponente})}">Editar</a> |
+                                    th:href="@{/componentes/editCoche/{id}(id=${componente.idComponente})}">Editar</a>
+                                |
                                 <a href="#"
-                                    th:href="@{/componentes/borrarComponentesCoche1/{id}(id=${componente.idComponente})}">Borrar</a>
+                                    th:href="@{/componentes/borrarComponentes/{id}(id=${componente.idComponente})}">Borrar</a>
                             </li>
                         </ul>
                     </div>
