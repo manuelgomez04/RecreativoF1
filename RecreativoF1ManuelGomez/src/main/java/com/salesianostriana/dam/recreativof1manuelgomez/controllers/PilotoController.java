@@ -3,7 +3,6 @@ package com.salesianostriana.dam.recreativof1manuelgomez.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Piloto;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.EmpleadoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.PilotoService;
 
 @Controller
@@ -27,9 +28,12 @@ public class PilotoController {
 
 	@Autowired
 	private CocheService cocheService;
-	
+
 	@Autowired
-	private PasswordEncoder passwordEncoder;
+	private CarreraService carreraService;
+
+	@Autowired
+	private EmpleadoService empleadoService;
 
 	@GetMapping("/pilotoFormAdd")
 	public String addPiloto(Model model) {
@@ -37,17 +41,22 @@ public class PilotoController {
 
 		model.addAttribute("pilotoForm", piloto);
 		model.addAttribute("listaCoches", cocheService.findAll());
+		model.addAttribute("listaCarreras", carreraService.findAll());
+
 		return "pilotoForm";
 	}
 
 	@PostMapping("/addPiloto")
 	public String showPiloto(@ModelAttribute("pilotoForm") Piloto piloto, Model model) {
+		boolean usernameExists = empleadoService.buscarUsername(piloto.getUsername());
+
+		if (usernameExists) {
+			return "usernameRepetidoPiloto";
+		}
+
 		if (cocheService.findById(piloto.getCochePiloto().getIdCoche()).isPresent()) {
-			piloto.setCochePiloto(cocheService.findById(piloto.getCochePiloto().getIdCoche()).get());
-	
-			String encodedPassword = passwordEncoder.encode(piloto.getPassword());
-	        piloto.setPassword(encodedPassword);
-	        pilotoService.save(piloto);
+
+			pilotoService.esPiloto(piloto);
 		}
 
 		return "redirect:/main/pilotos";

@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Mecanico;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
+import com.salesianostriana.dam.recreativof1manuelgomez.services.EmpleadoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 
 @Controller
@@ -30,29 +31,34 @@ public class MecanicoController {
 	private CocheService cocheService;
 
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
+	private CarreraService carreraService;
+
+	@Autowired
+	private EmpleadoService empleadoService;
+
 	@GetMapping("/mecanicoFormAdd")
 	public String adddMecanico(Model model) {
 		Empleado mecanico = new Mecanico();
 		model.addAttribute("mecanicoForm", mecanico);
 		model.addAttribute("listaCoches", cocheService.findAll());
+		model.addAttribute("listaCarreras", carreraService.findAll());
 		return "mecanicoForm";
 	}
 
 	@PostMapping("/addMecanico")
 	public String showMecanico(@ModelAttribute("mecanicoForm") Mecanico mecanico, Model model) {
 
+		boolean usernameExists = empleadoService.buscarUsername(mecanico.getUsername());
+
+		if (usernameExists) {
+			return "usernameRepetidoMecanico";
+		}
+
 		Optional<Coche> optionalCoche = cocheService.findById(mecanico.getCocheMecanico().getIdCoche());
 
 		if (optionalCoche.isPresent()) {
 			mecanico.setCocheMecanico(optionalCoche.get());
-			String encodedPassword = passwordEncoder.encode(mecanico.getPassword());
-	        mecanico.setPassword(encodedPassword);
-	        mecanico.setAdmin(false);
-	        mecanico.setMecanico(true);
-	        mecanico.setPiloto(false);
-			mecanicoService.save(mecanico);
+			mecanicoService.esMecnaico(mecanico);
 		}
 
 		return "redirect:/main/mecanicos";

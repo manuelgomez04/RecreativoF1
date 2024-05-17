@@ -12,21 +12,6 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 
 	Optional<Empleado> findFirstByUsername(String username);
 
-//	@Query("""
-//			SELECT e FROM Empleado e
-//			WHERE e.salario > :salario
-//			""")
-//	
-//	public List <Empleado> empleadosConMayorSueldo (@Param("salario") double salario);
-//	
-//	
-//	
-//	@Query ("""
-//			SELECT e FROM Empleado e
-//			WHERE type(e) = Mecanico
-//			""")
-//	public List <Mecanico> todosLosMecanicos ();
-
 	@Query("""
 			SELECT e FROM Empleado e
 			LEFT JOIN e.cochePiloto p
@@ -36,5 +21,7 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Long> {
 				(m.posicionCarrera < 10)
 			""")
 	public List<Empleado> todosMecanicosYPilotosCocheBuenaPosicion();
+
+	public boolean existsByUsername(String username);
 
 }
