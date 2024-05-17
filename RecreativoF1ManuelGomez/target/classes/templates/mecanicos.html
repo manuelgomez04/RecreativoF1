@@ -39,6 +39,7 @@
                             <th>Apellidos</th>
                             <th>Dni</th>
                             <th sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')">Salario</th>
+                            <th sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')">Incentivo</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -48,6 +49,10 @@
                             <td th:text="${mecanico.dni}"></td>
                             <td sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')"
                                 th:text="${#numbers.formatDecimal(mecanico.salario, 1, 2)+' €'}"></td>
+                            <td sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')"
+                                th:text="${#numbers.formatDecimal(mecanico.incentivoCalculado, 1, 2)+' €'}">
+                            </td>
+
                             <td sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO')">
                                 <a href="#"
                                     th:href="@{/admin/mecanico/editar/{id}(id=${mecanico.idEmpleado})}">Editar</a> |

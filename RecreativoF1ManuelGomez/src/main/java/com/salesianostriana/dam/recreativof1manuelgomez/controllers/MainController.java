@@ -53,6 +53,8 @@ public class MainController {
 	public String mostrarListaMecanicos(Model model) {
 
 		presupuestoService.modifyPresupInicial();
+		empleadoService.calcularIncentivoEmpleado();
+
 		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "mecanicos";
