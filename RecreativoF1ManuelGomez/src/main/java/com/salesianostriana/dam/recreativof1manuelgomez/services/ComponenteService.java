@@ -48,7 +48,7 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 		return componente;
 	}
 	public List<Componente> buscarPorNombre(String busqueda) {
-        List<Componente> result = this.repository.listaParaBuscar(busqueda, busqueda);
+        List<Componente> result = this.repository.findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCaseAndCocheComponenteIsNull(busqueda, busqueda);
         if (result.isEmpty()) {
             throw new ProductoNoEncontradoException("No hay productos con ese criterio");
         }

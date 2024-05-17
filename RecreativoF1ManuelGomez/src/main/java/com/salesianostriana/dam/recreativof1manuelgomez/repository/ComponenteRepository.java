@@ -19,15 +19,14 @@ public interface ComponenteRepository extends JpaRepository<Componente, Long> {
 			""")
 	public List<Componente> findComponenteConCoche();
 	
-	//List<Componente> findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCaseOrCocheComponenteNull(String nombre, String descripcion);
 	
-
     @Query("""
-    		SELECT c FROM Componente c
-    		 WHERE (UPPER(c.tipoComponente) LIKE UPPER (%:nombre%) 
-    		 	OR (c.marca) LIKE UPPER (%:marca%))
-    		  AND c.cocheComponente IS NULL
+    		SELECT c FROM Componente c 
+    		WHERE (LOWER(c.tipoComponente) LIKE LOWER(CONCAT('%', :nombre, '%')) 
+    			OR LOWER(c.marca) LIKE LOWER(CONCAT('%', :descripcion, '%'))) 
+    		AND c.cocheComponente IS NULL
     		""")
 
-    public List <Componente> listaParaBuscar(String nombre, String marca);
+	List <Componente> findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCaseAndCocheComponenteIsNull(String nombre, String descripcion);
+
 }
