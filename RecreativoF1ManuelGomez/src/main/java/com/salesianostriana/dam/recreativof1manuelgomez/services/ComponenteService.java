@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.dam.recreativof1manuelgomez.exception.ProductoNoEncontradoException;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Componente;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Presupuesto;
 import com.salesianostriana.dam.recreativof1manuelgomez.repository.ComponenteRepository;
@@ -53,4 +54,11 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 		return componente;
 	}
+	public List<Componente> buscarPorNombre(String busqueda) {
+        List<Componente> result = this.repository.findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCase(busqueda, busqueda);
+        if (result.isEmpty()) {
+            throw new ProductoNoEncontradoException("No hay productos con ese criterio");
+        }
+        return result;
+    }
 }

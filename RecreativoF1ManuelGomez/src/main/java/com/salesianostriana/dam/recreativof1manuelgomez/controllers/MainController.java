@@ -61,8 +61,9 @@ public class MainController {
 	@GetMapping("/coches")
 	public String showCoches(Model model) {
 
-		presupuestoService.ingresosExtra();
 		model.addAttribute("listaCoches", cocheService.findAll());
+		presupuestoService.ingresosExtra();
+
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "coches";
 	}

@@ -6,4 +6,7 @@ import com.salesianostriana.dam.recreativof1manuelgomez.model.Presupuesto;
 
 public interface PresupuestoRepository  extends JpaRepository<Presupuesto, Long> {
 
+	
+
+	
 }

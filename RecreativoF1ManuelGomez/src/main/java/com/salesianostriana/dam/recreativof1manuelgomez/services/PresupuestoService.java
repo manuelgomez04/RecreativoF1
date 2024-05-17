@@ -42,12 +42,16 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 		int indiceRango = (int) Math.floor(
 				cocheService.findAll().stream().mapToInt(c -> c.getPosicionCarrera()).average().getAsDouble() / 5);
 
+		double media = cocheService.findAll().stream().mapToInt(c -> c.getPosicionCarrera()).average().getAsDouble();
+		
 		int rango0Desde = 1000000;
 		int rango0Hasta = 1500000;
-		int rango1Desde = 999999;
-		int rango1Hasta = 750000;
-		int rango2Desde = 999999;
-		int rango2Hasta = 750000;
+		int rango1Hasta = 999999;
+		int rango1Desde = 750000;
+		int rango2Hasta = 749999;
+		int rango2Desde = 500000;
+		int rango3Hasta = 499999;
+		int rango3Desde = 100000;
 
 		switch (indiceRango) {
 			case 0:
@@ -66,8 +70,26 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 
 				break;
 			default:
+				findById(1L).get().setIngresosVariables(rnd.nextInt(rango3Hasta - rango3Desde + 1) + rango3Desde);
+				save(findById(1L).get());
 				break;
 		}
+		
+//		if (media>=1 && media<=5) {
+//			findById(1L).get().setIngresosVariables(rnd.nextInt(rango0Hasta - rango0Desde + 1) + rango0Desde);
+//			save(findById(1L).get());
+//		} else if (media >5 && media<=10 ) {
+//			findById(1L).get().setIngresosVariables(rnd.nextInt(rango1Hasta - rango1Desde + 1) + rango1Desde);
+//			save(findById(1L).get());
+//			
+//		} else if (media >11 && media <= 15) {
+//			findById(1L).get().setIngresosVariables(rnd.nextInt(rango2Hasta - rango2Desde + 1) + rango2Desde);
+//			save(findById(1L).get());
+//			
+//		} else if (media> 16 && media<=20) {
+//			findById(1L).get().setIngresosVariables(rnd.nextInt(rango3Hasta - rango3Desde + 1) + rango3Desde);
+//			save(findById(1L).get());
+//		}
 
 	}
 }

@@ -34478,3 +34478,7 @@ insert into piloto (posicion_carrera, coche_piloto_id_coche, id_empleado) values
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
 	at com.salesianostriana.dam.recreativof1manuelgomez.RecreativoF1ManuelGomezApplication.main(RecreativoF1ManuelGomezApplication.java:10)
+2024-05-17 08:51:49.162326+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]EMPLEADO"; se esperaba "EXPLAIN, EXECUTE"
+Syntax error in SQL statement "[*]EMPLEADO"; expected "EXPLAIN, EXECUTE"; SQL statement:
+EMPLEADO [42001-224]
