@@ -9,4 +9,14 @@ import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServic
 @Service
 public class EmpleadoService extends BaseServiceImpl<Empleado, Long, EmpleadoRepository> {
 
+	public void calcularIncentivoEmpleado() {
+
+		repository.todosMecanicosYPilotosCocheBuenaPosicion()
+		.stream()
+		.forEach(e -> {
+			e.setIncentivoCalculado(e.getSalario() * e.getIncentivo() / 100);
+			repository.save(e);
+		});
+
+	}
 }

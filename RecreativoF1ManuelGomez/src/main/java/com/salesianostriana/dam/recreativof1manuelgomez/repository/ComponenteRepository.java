@@ -30,4 +30,6 @@ public interface ComponenteRepository extends JpaRepository<Componente, Long> {
 			WHERE c.cocheComponente.idCoche = 2
 			""")
 	public List<Componente> componentesCoche2();
+	
+	List<Componente> findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCase(String nombre, String descripcion);
 }

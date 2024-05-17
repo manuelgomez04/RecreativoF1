@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Carrera;
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Coche;
@@ -151,7 +152,7 @@ public class ComponenteController {
 		return "redirect:/componentes/comprarComponentes";
 	}
 
-	@GetMapping("/coche1")
+	@GetMapping("/{id}")
 	public String componentesCoche1(Model model) {
 
 		model.addAttribute("componentes1", componenteService.componentesCoche1());
@@ -184,4 +185,10 @@ public class ComponenteController {
 
 		return "redirect:/componentes/coche2";
 	}
+	
+	@GetMapping("/buscarComponente")
+    public String buscarMerchPorNombre(Model model, @RequestParam("busqueda") String busqueda) {
+        model.addAttribute("componentesBuscados", componenteService.buscarPorNombre(busqueda));
+        return "componentesCoche1";
+    }
 }

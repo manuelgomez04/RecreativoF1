@@ -28,18 +28,16 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Empleado implements UserDetails{
+public class Empleado implements UserDetails {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-
 	@Id
 	@GeneratedValue
 	private long idEmpleado;
-
 
 	private String nombre;
 	private String apellidos;
@@ -50,6 +48,7 @@ public class Empleado implements UserDetails{
 
 	private double salario;
 	private double incentivo;
+	private double incentivoCalculado;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_empleado_carrera"))
@@ -60,23 +59,25 @@ public class Empleado implements UserDetails{
 	private boolean isAdmin;
 	private boolean isMecanico;
 	private boolean isPiloto;
-	
+
 	private String foto;
-	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		String role = "ROLE_";
-		
+
 		if (isAdmin) {
 			role += (isAdmin) ? "JEFEEQUIPO" : "USER";
-		} if (isMecanico) {
+		}
+		if (isMecanico) {
 			role += (isMecanico) ? "MECANICO" : "USER";
-		} if (isPiloto) {
+		}
+		if (isPiloto) {
 			role += (isPiloto) ? "PILOTO" : "USER";
 		}
 		return List.of(new SimpleGrantedAuthority(role));
 
-	}	
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {
@@ -97,11 +98,12 @@ public class Empleado implements UserDetails{
 	public boolean isEnabled() {
 		return true;
 	}
+
 	public void addToCarrera(Carrera carrera) {
-		this.carreraEmpleado=carrera;
+		this.carreraEmpleado = carrera;
 		carrera.getListaEmpleados().add(this);
 	}
-	
+
 	public void removeFromCarrera(Carrera carrera) {
 		carrera.getListaEmpleados().remove(this);
 		this.carreraEmpleado = null;
