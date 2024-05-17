@@ -153,20 +153,14 @@ public class ComponenteController {
 	}
 
 	@GetMapping("/{id}")
-	public String componentesCoche1(Model model) {
+	public String componentesCoche1(Model model, @PathVariable("id")Long id) {
 
-		model.addAttribute("componentes1", componenteService.componentesCoche1());
+		model.addAttribute("componentes1", cocheService.findById(id).get().getListaComponentes());
 
 		return "componentesCoche1";
 	}
 
-	@GetMapping("/coche2")
-	public String componentesCoche2(Model model) {
-
-		model.addAttribute("componentes2", componenteService.componentesCoche2());
-
-		return "componentesCoche2";
-	}
+		
 	@GetMapping("borrarComponentesCoche1/{id}")
 	public String borrarComponente(@PathVariable("id") Long id) {
 
@@ -188,7 +182,9 @@ public class ComponenteController {
 	
 	@GetMapping("/buscarComponente")
     public String buscarMerchPorNombre(Model model, @RequestParam("busqueda") String busqueda) {
-        model.addAttribute("componentesBuscados", componenteService.buscarPorNombre(busqueda));
-        return "componentesCoche1";
+        model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+
+        model.addAttribute("listaComponentesComprar", componenteService.buscarPorNombre(busqueda));
+        return "componentesComprar";
     }
 }

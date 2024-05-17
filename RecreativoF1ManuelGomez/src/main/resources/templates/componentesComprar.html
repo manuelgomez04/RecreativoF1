@@ -28,6 +28,12 @@
             </div>
         </div>
 
+        <form th:action="@{/componentes/buscarComponente}" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Buscar por nombre" aria-label="Search"
+                name="busqueda">
+            <button class="btn btn-outline-danger" type="submit">Buscar</button>
+        </form>
+
         <div class="row row-cols-1 row-cols-md-3 g-4" data-aos="fade-right">
             <div class="col" th:each="componente : ${listaComponentesComprar}">
                 <div class="card m-4 text-center">
