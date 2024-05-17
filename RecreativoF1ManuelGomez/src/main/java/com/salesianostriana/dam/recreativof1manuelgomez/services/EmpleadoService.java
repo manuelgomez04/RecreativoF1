@@ -11,12 +11,15 @@ public class EmpleadoService extends BaseServiceImpl<Empleado, Long, EmpleadoRep
 
 	public void calcularIncentivoEmpleado() {
 
-		repository.todosMecanicosYPilotosCocheBuenaPosicion()
-		.stream()
-		.forEach(e -> {
+		repository.todosMecanicosYPilotosCocheBuenaPosicion().stream().forEach(e -> {
 			e.setIncentivoCalculado(e.getSalario() * e.getIncentivo() / 100);
 			repository.save(e);
 		});
 
 	}
+
+	public boolean buscarUsername(String username) {
+		return this.repository.existsByUsername(username);
+	}
+
 }
