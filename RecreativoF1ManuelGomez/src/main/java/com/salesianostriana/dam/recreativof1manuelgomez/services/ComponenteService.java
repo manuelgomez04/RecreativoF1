@@ -35,7 +35,6 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 	}
 
-
 	public Componente componenteComprado(Long id) {
 		Componente componente;
 
@@ -47,11 +46,14 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 		return componente;
 	}
+
 	public List<Componente> buscarPorNombre(String busqueda) {
-        List<Componente> result = this.repository.findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCaseAndCocheComponenteIsNull(busqueda, busqueda);
-        if (result.isEmpty()) {
-            throw new ProductoNoEncontradoException("No hay productos con ese criterio");
-        }
-        return result;
-    }
+		List<Componente> result = this.repository
+				.findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCaseAndCocheComponenteIsNull(busqueda,
+						busqueda);
+		if (result.isEmpty()) {
+			throw new ProductoNoEncontradoException("No hay productos con ese criterio");
+		}
+		return result;
+	}
 }
