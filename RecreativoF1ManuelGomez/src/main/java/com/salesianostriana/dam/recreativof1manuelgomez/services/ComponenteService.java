@@ -35,13 +35,6 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 	}
 
-	public List<Componente> componentesCoche1() {
-		return repository.componentesCoche1();
-	}
-
-	public List<Componente> componentesCoche2() {
-		return repository.componentesCoche2();
-	}
 
 	public Componente componenteComprado(Long id) {
 		Componente componente;
@@ -55,7 +48,7 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 		return componente;
 	}
 	public List<Componente> buscarPorNombre(String busqueda) {
-        List<Componente> result = this.repository.findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCase(busqueda, busqueda);
+        List<Componente> result = this.repository.listaParaBuscar(busqueda, busqueda);
         if (result.isEmpty()) {
             throw new ProductoNoEncontradoException("No hay productos con ese criterio");
         }

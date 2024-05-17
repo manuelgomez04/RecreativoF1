@@ -41,12 +41,7 @@
                         <li class="list-group-item"><b>ID:</b> <span th:text="${coche.idCoche}"></span></li>
                         <li class="list-group-item"><b>Piloto:</b> <span th:text="${coche.piloto.nombre}"></span>
                         <li class="list-group-item">
-                            <th:block th:if="${coche.idCoche == 1}">
-                                <a th:href="@{/componentes/coche1}">Componentes</a>
-                            </th:block>
-                            <th:block th:if="${coche.idCoche != 1}">
-                                <a th:href="@{/componentes/coche2}">Componentes</a>
-                            </th:block>
+                                <a th:href="@{/componentes/{id}(id=${coche.idCoche})}">Componentes</a>
                         </li>
                         <li class="list-group-item"><b>Estado:</b> <span th:if="${coche.estaDaniado}">Dañado</span><span
                                 th:unless="${coche.estaDaniado}">No
