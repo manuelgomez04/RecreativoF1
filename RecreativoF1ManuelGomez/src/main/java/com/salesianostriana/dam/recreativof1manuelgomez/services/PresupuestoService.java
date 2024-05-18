@@ -9,6 +9,8 @@ import com.salesianostriana.dam.recreativof1manuelgomez.model.Presupuesto;
 import com.salesianostriana.dam.recreativof1manuelgomez.repository.PresupuestoRepository;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServiceImpl;
 
+import jakarta.annotation.PostConstruct;
+
 @Service
 public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, PresupuestoRepository> {
 
@@ -18,6 +20,7 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 	@Autowired
 	private CocheService cocheService;
 
+	@PostConstruct
 	public void modifyPresupInicial() {
 		Presupuesto presupuesto = repository.findById(1L).get();
 		presupuesto.setGastosFijos(
@@ -25,6 +28,7 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 		repository.save(presupuesto);
 	}
 
+	@PostConstruct
 	public double calcularResultado() {
 		Presupuesto presupuesto = repository.findById(1L).get();
 
@@ -36,6 +40,7 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 		return presupuestoFinal;
 	}
 
+	@PostConstruct
 	public void ingresosExtra() {
 
 		Random rnd = new Random(System.nanoTime());
@@ -73,6 +78,5 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 			break;
 		}
 
-//		
 	}
 }

@@ -6,9 +6,12 @@ import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.repository.EmpleadoRepository;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServiceImpl;
 
+import jakarta.annotation.PostConstruct;
+
 @Service
 public class EmpleadoService extends BaseServiceImpl<Empleado, Long, EmpleadoRepository> {
 
+	@PostConstruct
 	public void calcularIncentivoEmpleado() {
 
 		repository.todosMecanicosYPilotosCocheBuenaPosicion().stream().forEach(e -> {

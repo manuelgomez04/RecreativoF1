@@ -20,23 +20,32 @@ insert into empleado (id_empleado, nombre, apellidos, dni, salario, incentivo, c
 insert into jefe_equipo (id_empleado) values (2);
 
 insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (1, 'Motor', 15, 15000.0, 'Honda', 1, 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (2, 'Alerón delantero', 15, 1500.0, 'Ferrari', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (2, 'Alerón delantero', 15, 1500.0, 'Ferrari', 1, 1,2, false);
 insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (3, 'Alerón trasero', 15, 1500.0, 'RedBull', 1, 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (4, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (4, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 1,2, false);
 insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (5, 'Chasis', 15, 1500.0, 'Mercedes', 1, 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (6, 'Discos de freno', 15, 1500.0, 'Sauber', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (6, 'Discos de freno', 15, 1500.0, 'Sauber', 1, 1,2, false);
 insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (7, 'DRS', 15, 1500.0, 'Hass', 1, 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (8, 'Batería', 15, 1500.0, 'Endesa', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (8, 'Batería', 15, 1500.0, 'Endesa', 1,1,2, false);
 insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (9, 'Neumáticos', 15, 1500.0, 'Michelín', 1, 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (10, 'Motor', 15, 15000.0, 'Honda', 1, 2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (11, 'Alerón delantero', 15, 1500.0, 'Ferrari',1, 2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (12, 'Alerón trasero', 15, 1500.0, 'RedBull', 1, 2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (13, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (14, 'Chasis', 15, 1500.0, 'Mercedes', 1, 2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (15, 'Discos de freno', 15, 1500.0, 'Sauber', 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (16, 'DRS', 15, 1500.0, 'Hass', 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (17, 'Batería', 15, 1500.0, 'Endesa', 1,2, false);
-insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (18, 'Neumáticos', 15, 1500.0, 'Michelín', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (10, 'Motor', 15, 15000.0, 'Honda', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (11, 'Alerón delantero', 15, 1500.0, 'Ferrari', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (12, 'Alerón trasero', 15, 1500.0, 'RedBull', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (13, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (14, 'Chasis', 15, 1500.0, 'Mercedes', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (15, 'Discos de freno', 15, 1500.0, 'Sauber', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (16, 'DRS', 15, 1500.0, 'Hass', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (17, 'Batería', 15, 1500.0, 'Endesa', 1,2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, coche_componente_id_coche, jefe_componente_id_empleado, esta_daniado) values (18, 'Neumáticos', 15, 1500.0, 'Michelín', 1, 2,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (19, 'Motor', 15, 15000.0, 'Honda', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (20, 'Alerón delantero', 15, 1500.0, 'Ferrari',1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (21, 'Alerón trasero', 15, 1500.0, 'RedBull', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (22, 'Fondo Plano', 15, 1500.0, 'Mclaren', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (23, 'Chasis', 15, 1500.0, 'Mercedes', 1, 2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (24, 'Discos de freno', 15, 1500.0, 'Sauber', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (25, 'DRS', 15, 1500.0, 'Hass', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (26, 'Batería', 15, 1500.0, 'Endesa', 1,2, false);
+insert into componente (id_componente, tipo_componente, durabilidad, precio, marca, carrera_componente_id, jefe_componente_id_empleado, esta_daniado) values (27, 'Neumáticos', 15, 1500.0, 'Michelín', 1,2, false);
 
 
 insert into mecanico(coche_mecanico_id_coche, id_empleado) values (1, 1);
@@ -48,7 +57,7 @@ insert into piloto (coche_piloto_id_coche, id_empleado) values (2, 4);
 
 ALTER SEQUENCE empleado_seq RESTART WITH (60);
 ALTER SEQUENCE coche_seq RESTART WITH (52);
-ALTER SEQUENCE componente_seq RESTART WITH (68);
+ALTER SEQUENCE componente_seq RESTART WITH (77);
 ALTER SEQUENCE presupuesto_seq RESTART WITH (59);
 ALTER SEQUENCE carrera_seq RESTART WITH (51);
 

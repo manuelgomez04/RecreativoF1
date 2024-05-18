@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.services;
 
 import java.util.List;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +13,16 @@ import com.salesianostriana.dam.recreativof1manuelgomez.model.Presupuesto;
 import com.salesianostriana.dam.recreativof1manuelgomez.repository.ComponenteRepository;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.base.BaseServiceImpl;
 
+import jakarta.annotation.PostConstruct;
+
 @Service
 public class ComponenteService extends BaseServiceImpl<Componente, Long, ComponenteRepository> {
 
 	@Autowired
-	PresupuestoService presupuestoService;
+	private PresupuestoService presupuestoService;
+
+	@Autowired
+	private CocheService cocheService;
 
 	public List<Componente> mostrarComponentesSinCoche() {
 
@@ -55,5 +62,19 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 			throw new ProductoNoEncontradoException("No hay productos con ese criterio");
 		}
 		return result;
+	}
+
+	@PostConstruct
+	public void estadoComponentes() {
+
+		Random rnd = new Random();
+		List<Componente> componentes = repository.findComponenteConCoche();
+
+		List<Componente> updatedComponentes = componentes.stream().peek(c -> c.setEstaDaniado(rnd.nextBoolean()))
+				.collect(Collectors.toList());
+
+		repository.saveAll(updatedComponentes);
+
+		cocheService.cochesDaniados();
 	}
 }
