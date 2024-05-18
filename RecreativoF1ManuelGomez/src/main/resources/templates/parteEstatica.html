@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Web</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+
+    <!-- Contenido -->
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <img src="../static/Imagenes/equipo.webp" th:src="@{/Imagenes/equipo.webp}" class="img-fluid mb-3"
+                    alt="Imagen" style="display: block; margin: 0 auto;">
+
+                <h1 class="text-center"><span class="mov"></span></h1>
+                <p class="text-center">La escudería Recreativo F1, fundada en el lejano año de 1889, es una institución
+                    legendaria en el mundo del automovilismo deportivo y una de las más veneradas en la historia de la
+                    Fórmula 1. Desde sus humildes comienzos hasta su estatus actual como una potencia indiscutible en
+                    las pistas de carreras, Recreativo F1 ha forjado un legado incomparable de éxitos y hazañas.
+
+                    Sus orígenes se remontan a una época en la que el automovilismo apenas comenzaba a florecer, y los
+                    coches de carreras eran rudimentarios y peligrosos. A pesar de los desafíos iniciales, los
+                    visionarios fundadores de Recreativo F1 compartían una pasión desenfrenada por la velocidad y la
+                    competición, y esta pasión los impulsó a perseverar y a construir una escudería que perduraría a lo
+                    largo de los años.
+
+                    A lo largo de su extensa historia, Recreativo F1 ha acumulado innumerables logros y ha dejado una
+                    huella imborrable en el deporte del motor. Ha cosechado múltiples campeonatos de pilotos y
+                    constructores, ha protagonizado batallas épicas en las pistas más icónicas del mundo y ha sido
+                    pionero en la innovación tecnológica y el desarrollo de nuevos avances en la ingeniería automotriz.
+
+                    Además de su éxito en las carreras, Recreativo F1 también se ha distinguido por su compromiso con la
+                    excelencia, la integridad y el espíritu deportivo. Sus pilotos y equipos han encarnado los más altos
+                    estándares de profesionalismo y dedicación, y han inspirado a generaciones de aficionados al
+                    automovilismo en todo el mundo.
+
+                    En la actualidad, Recreativo F1 sigue siendo una fuerza dominante en la Fórmula 1, con una
+                    combinación única de tradición, experiencia y determinación. A medida que continúa su viaje en el
+                    mundo de las carreras, la escudería Recreativo F1 se mantiene firme en su compromiso de perseguir la
+                    grandeza y de escribir nuevos capítulos emocionantes en su ya ilustre historia.</p>
+            </div>
+        </div>
+        <div class="container mt-4 botonCarrera">
+            <div class="row justify-content-center">
+                <div class="col-md-4 text-center">
+                    <form th:action="@{/main/carrera}" method="get">
+                        <button type="submit" class="btn btn-primary">Carrera</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Contenido -->
+
+
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
+    <script>
+        let typed = new Typed(".mov", {
+            strings: ["Sobri", "Sobro", "Sobre", "Sobra nus", "Sobre nas", "Sobre nosotros"],
+            typeSpeed: 30,
+            backSpeed: 80,
+            loop: false
+        })
+    </script>
+</body>
+
+</html>

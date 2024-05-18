@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -133,6 +134,8 @@ public class ComponenteController {
 	@GetMapping("/{id}")
 	public String componentesCoche1(Model model, @PathVariable("id") Long id) {
 
+		model.addAttribute("componente", cocheService.findById(id).get());
+
 		model.addAttribute("componentes1", cocheService.findById(id).get().getListaComponentes());
 
 		return "componentesCoche1";
@@ -140,12 +143,19 @@ public class ComponenteController {
 
 	@GetMapping("borrarComponentes/{id}")
 	public String borrarComponente(@PathVariable("id") Long id) {
+		Optional<Componente> optionalComponente = componenteService.findById(id);
 
-		componenteService.findById(id).get().removeFromCoche(componenteService.findById(id).get().getCocheComponente());
+		if (optionalComponente.isPresent()) {
+			Componente componente = optionalComponente.get();
 
-		componenteService.delete(componenteService.findById(id).get());
+			Long cocheId = componente.getCocheComponente().getIdCoche();
+			componente.removeFromCoche(componente.getCocheComponente());
+			componenteService.delete(componente);
 
-		return "redirect:/componentes/{id}";
+			return "redirect:/componentes/" + cocheId;
+		} else {
+			return "redirect:/main/carrera";
+		}
 	}
 
 	@GetMapping("/buscarComponente")

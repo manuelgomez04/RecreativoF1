@@ -49,7 +49,7 @@
                                 <a href="#"
                                     th:href="@{/componentes/editCoche/{id}(id=${componente.idComponente})}">Editar</a>
                                 |
-                                <a href="#"
+                                <a href="#" class="delete-link"
                                     th:href="@{/componentes/borrarComponentes/{id}(id=${componente.idComponente})}">Borrar</a>
                             </li>
                         </ul>
@@ -68,8 +68,8 @@
                 </form>
             </div>
             <div class="col-md-4 text-center">
-                <form th:action="@{/main/carrera}" method="get">
-                    <button type="submit" class="btn btn-primary">Siguiente página</button>
+                <form th:action="@{/main/coches}" method="get">
+                    <button type="submit" class="btn btn-primary">Volver</button>
                 </form>
             </div>
         </div>
@@ -79,6 +79,40 @@
     </footer>
     <script>
         AOS.init();
+    </script>
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar compra</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro que quieres comprar el componente?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <a id="deleteLink" href="#" class="btn btn-danger">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var deleteLinks = document.querySelectorAll('.delete-link');
+            deleteLinks.forEach(function (deleteLink) {
+                deleteLink.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    let modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'), {});
+                    modal.show();
+                    let deleteUrl = deleteLink.getAttribute('href');
+                    document.getElementById('deleteLink').setAttribute('href', deleteUrl);
+                });
+            });
+        });
     </script>
 </body>
 

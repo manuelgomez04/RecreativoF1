@@ -14,6 +14,8 @@
     <script src="../static/JS/validarDNI.js" th:src="@{/JS/validarDNI.js}" defer></script>
     <script src="../static/JS/validarFechaNac.js" th:src="@{/JS/validarFechaNac.js}" defer></script>
     <script src="../static/JS/inicioSesion.js" th:src="@{/JS/inicioSesion.js}"></script>
+    <script src="../static/JS/validarFormularioMecanicos.js" th:src="@{/JS/validarFormularioMecanicos.js}"
+        defer></script>
 
 </head>
 
@@ -35,56 +37,61 @@
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Apellidos:</label>
                         <input th:field="*{apellidos}" type="text" class="form-control" id="apellidos"
                             placeholder="Ingrese sus apellidos" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="dni">DNI:</label>
-                        <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI">
-                        <div id="mensaje-validacion-dni" class="invalid-feedback" style="display: none;">
-                            El DNI ingresado no es válido.
-                        </div>
+                        <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI"
+                            required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="fecha">Fecha de nacimiento:</label>
                         <input th:field="*{fechaNacimiento}" type="date" id="fecha" name="fecha" class="form-control"
-                            placeholder="Fecha de nacimiento">
-                        <div id="mensaje-validacion-fecha" class="invalid-feedback" style="display: none;">
-                            Debe ser mayor de 18 años para registrarse.
-                        </div>
+                            placeholder="Fecha de nacimiento" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="salario">Salario:</label>
                         <input th:field="*{salario}" type="number" class="form-control" id="salario"
-                            placeholder="Ingrese su salario" size="7">
+                            placeholder="Ingrese su salario" required>
+                        <div class="invalid-feedback">Este campo es obligatorio y no puede ser negativo.</div>
                     </div>
                     <div class="form-group">
-                        <label for="salario">Incentivo:</label>
-                        <input th:field="*{incentivo}" type="number" class="form-control" id="salario"
-                            placeholder="Ingrese su salario" size="7">
+                        <label for="incentivo">Incentivo:</label>
+                        <input th:field="*{incentivo}" type="number" class="form-control" id="incentivo"
+                            placeholder="Ingrese su incentivo" required>
+                        <div class="invalid-feedback">Este campo es obligatorio y no puede ser negativo.</div>
                     </div>
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Carrera:</label>
-                        <select class="form-control" id="opciones" th:field="*{cocheMecanico.idCoche}" name="opciones">
+                        <label for="coche">Coche:</label>
+                        <select class="form-control" id="coche" th:field="*{cocheMecanico.idCoche}" name="coche"
+                            required>
                             <option th:each="coche: ${listaCoches}" th:value="${coche.idCoche}"
                                 th:text="${coche.nombre}"></option>
                         </select>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Carrera:</label>
-                        <select class="form-control" id="opciones" th:field="*{carreraEmpleado.id}" name="opciones">
+                        <label for="carrera">Carrera:</label>
+                        <select class="form-control" id="carrera" th:field="*{carreraEmpleado.id}" name="carrera"
+                            required>
                             <option th:each="carrera: ${listaCarreras}" th:value="${carrera.id}"
                                 th:text="${carrera.nombreCircuito}"></option>
                         </select>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div th:if="${mecanicoForm.idEmpleado == 0}" class="form-group">
                         <label for="username">Nombre de usuario:</label>
                         <input th:field="*{username}" type="text" class="form-control" id="username"
                             placeholder="Nombre de usuario" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div th:if="${usernameError}" class="alert alert-danger" role="alert">
                         <p th:text="${usernameError}"></p>
@@ -99,9 +106,8 @@
                                     id="showPasswordBtn">Mostrar</button>
                             </div>
                         </div>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
-
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>

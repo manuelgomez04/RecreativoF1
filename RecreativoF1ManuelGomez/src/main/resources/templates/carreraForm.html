@@ -11,6 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../static/JS/validarFormularioCarrera.js" th:src="@{/JS/validarFormularioCarrera.js}"></script>
 
 </head>
 
@@ -22,65 +23,56 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
-                <form class="login-form"
+                <form class="login-form" id="formulario"
                     th:action="${carreraForm.id != 0} ? @{/carrera/editarCarrera/submit} : @{/admin/carrera/addCarrera}"
                     method="POST" th:object="${carreraForm}">
                     <div>
                         <input th:if="${carreraForm.id != 0}" type="hidden" name="id" th:field="*{id}" />
                     </div>
-
                     <div class="form-group">
                         <label for="nombre">Nombre Circuito:</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombreCircuito}">
+                        <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombreCircuito}"
+                            required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Descripción:</label>
                         <input th:field="*{descripcion}" type="text" class="form-control" id="apellidos"
-                            placeholder="Ingrese sus apellidos">
+                            placeholder="Ingrese sus apellidos" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="dni">Longitud por vuelta:</label>
                         <input th:field="*{longitudPorVuelta}" type="number" class="form-control" id="dni"
-                            placeholder="Ingrese su DNI">
+                            placeholder="Ingrese su DNI" required>
+                        <div class="invalid-feedback">Este campo es obligatorio y no puede ser negativo.</div>
                     </div>
-
-                    <div class="form-group d-none"> 
-                        <label for="fecha">Longitud total:</label>
-                        <input th:field="*{longitudTotal}" type="number" id="fecha" name="fecha" class="form-control"
-                            placeholder="Fecha de nacimiento">
-                    </div>
-
                     <div class="form-group">
                         <label for="salario">Localización:</label>
                         <input th:field="*{localizacion}" type="text" class="form-control" id="salario"
-                            placeholder="Ingrese su salario">
+                            placeholder="Ingrese su salario" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <div class="form-group">
-                        <label for="salario">Número de vueltas:</label>
-                        <input th:field="*{numVueltas}" type="text" class="form-control" id="salario"
-                            placeholder="Diga número de vueltas">
+                        <label for="numVueltas">Número de vueltas:</label>
+                        <input th:field="*{numVueltas}" type="number" class="form-control" id="numVueltas"
+                            placeholder="Diga número de vueltas" required>
+                        <div class="invalid-feedback">Este campo es obligatorio y no puede ser negativo.</div>
                     </div>
-
                     <div class="form-group">
-                        <label for="salario">Estado del asfalto:</label>
-                        <select class="form-control" th:field="*{tipoAsfaltado}" id="opciones">
+                        <label for="tipoAsfaltado">Estado del asfalto:</label>
+                        <select class="form-control" th:field="*{tipoAsfaltado}" id="tipoAsfaltado" required>
                             <option value="nuevo">Nuevo</option>
                             <option value="viejo">Viejo</option>
                             <option value="medio">Medio</option>
                         </select>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-                    <div class="form-group">
-                        <label for="salario">Presupuesto:</label>
-                        <input th:field="*{presupuesto.idPresupuesto}" th:readonly="${carreraForm.id != 0}" type="text"
-                            class="form-control" id="salario" placeholder="Ingrese su salario">
-                    </div>
-
                     <div class="form-group">
                         <label for="marca">Imagen</label>
                         <input type="text" class="form-control" id="marca" name="marca" th:field="*{imagenCarrera}">
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>

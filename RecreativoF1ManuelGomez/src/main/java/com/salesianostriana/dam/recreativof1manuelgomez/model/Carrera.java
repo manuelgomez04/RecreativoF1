@@ -38,6 +38,7 @@ public class Carrera {
 	private int numVueltas;
 
 	private String imagenCarrera;
+	private String textoAlternativo;
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude

@@ -97,4 +97,9 @@ public class MainController {
 		return "presupuesto";
 	}
 
+	@GetMapping("/sobreNosotros")
+	public String showSobreNosotros() {
+		return "parteEstatica";
+
+	}
 }

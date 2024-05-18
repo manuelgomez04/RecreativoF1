@@ -61,6 +61,7 @@ public class Empleado implements UserDetails {
 	private boolean isPiloto;
 
 	private String foto;
+	private String textoAlternativo;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
