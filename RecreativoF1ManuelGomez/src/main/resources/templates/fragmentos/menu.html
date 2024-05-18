@@ -42,9 +42,9 @@
                             th:href="@{/main/componentes}">Repuestos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../componentes.html"
+                        <a class="nav-link" href="../presupuesto.html"
                             sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO', 'ROLE_MECANICO')"
-                            th:href="@{/componentes/comprarComponentes}">Repuestos para comprar</a>
+                            th:href="@{/admin/presupuesto/mostrarPresupuesto}">Presupuesto</a>
                     </li>
                     <li>
                         <form th:action="@{/logout}" method="get">
