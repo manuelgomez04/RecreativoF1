@@ -1,11 +1,13 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.ComponenteService;
@@ -40,23 +42,33 @@ public class MainController {
 	private PresupuestoService presupuestoService;
 
 	@GetMapping("/pilotos")
-	public String showPiloto(Model model) {
+	public String showPiloto(Model model, @AuthenticationPrincipal Empleado empleado) {
 		// empleadoService.calcularIncentivoEmpleado();
-		model.addAttribute("listaPilotos", pilotoService.findAll());
-		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+		if (empleado.isAdmin()) {
+			model.addAttribute("listaPilotos", pilotoService.findAll());
+			model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+		} else {
+			model.addAttribute("listaPilotos", empleado);
+		}
+
 		// presupuestoService.modifyPresupInicial();
 
 		return "pilotos";
 	}
 
 	@GetMapping("/mecanicos")
-	public String mostrarListaMecanicos(Model model) {
+	public String mostrarListaMecanicos(Model model, @AuthenticationPrincipal Empleado empleado) {
 
 		// presupuestoService.modifyPresupInicial();
 		// empleadoService.calcularIncentivoEmpleado();
+		if (empleado.isAdmin()) {
+			model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
+			model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+		} else {
+			model.addAttribute("listaCompletaMecanicos", empleado);
+			model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
+		}
 
-		model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
-		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "mecanicos";
 	}
 
@@ -97,4 +109,9 @@ public class MainController {
 		return "presupuesto";
 	}
 
+	@GetMapping("/sobreNosotros")
+	public String showSobreNosotros() {
+		return "parteEstatica";
+
+	}
 }

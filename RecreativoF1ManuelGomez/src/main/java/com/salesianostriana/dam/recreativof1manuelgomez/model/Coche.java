@@ -33,8 +33,9 @@ public class Coche {
 	private String nombre;
 	private boolean estaDaniado;
 	private int posicionCarrera;
-	
+
 	private String fotoCoche;
+	private String textoAlternativo;
 
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_coche_carrera"))
@@ -42,7 +43,7 @@ public class Coche {
 
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
-	@OneToMany(mappedBy = "cocheComponente", fetch = FetchType.EAGER , cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy = "cocheComponente", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Componente> listaComponentes;
 
 	@ToString.Exclude
@@ -52,16 +53,15 @@ public class Coche {
 
 	@OneToOne(mappedBy = "cochePiloto", fetch = FetchType.EAGER)
 	private Piloto piloto;
-	
-	public void addToCarrera (Carrera carrera) {
-		this.carreraCoche=carrera;
+
+	public void addToCarrera(Carrera carrera) {
+		this.carreraCoche = carrera;
 		carrera.getListaCoches().add(this);
 	}
-	
+
 	public void removeFromCarrera(Carrera carrera) {
 		carrera.getListaCoches().remove(this);
 		this.carreraCoche = null;
 	}
-	
-	
+
 }

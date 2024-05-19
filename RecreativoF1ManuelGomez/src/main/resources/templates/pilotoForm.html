@@ -4,16 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario con Bootstrap</title>
-    <!-- Agregar la referencia a Bootstrap CSS -->
+    <title>Formulario piloto</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/footer.css" th:href="@{/CSS/footer.css}">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../static/JS/validarDNI.js" th:src="@{/JS/validarDNI.js}" defer></script>
-    <script src="../static/JS/validarFechaNac.js" th:src="@{/JS/validarFechaNac.js}"></script>
-    <script src="../static/JS/inicioSesion.js" th:src="@{/JS/inicioSesion.js}"></script>
+    <script src="../static/JS/validarFechaNac.js" th:src="@{/JS/validarFechaNac.js}" defer></script>
+    <script src="../static/JS/inicioSesion.js" th:src="@{/JS/inicioSesion.js}" defer></script>
+    <script src="../static/JS/validarFormularioPiloto.js" th:src="@{/JS/validarFormularioPiloto.js}" defer></script>
 
 
 </head>
@@ -32,63 +31,63 @@
                     <div>
                         <input th:if="${pilotoForm.idEmpleado != 0}" type="hidden" name="id" th:field="*{idEmpleado}" />
                     </div>
-
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" th:field="*{nombre}" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="apellidos">Apellidos:</label>
                         <input th:field="*{apellidos}" type="text" class="form-control" id="apellidos"
                             placeholder="Ingrese sus apellidos" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
                         <label for="dni">DNI:</label>
-                        <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI">
-                        <div id="mensaje-validacion-dni" class="invalid-feedback" style="display: none;">
-                            El DNI ingresado no es válido.
-                        </div>
+                        <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI"
+                            required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <div class="form-group">
                         <label for="fecha">Fecha de nacimiento:</label>
                         <input th:field="*{fechaNacimiento}" type="date" id="fecha" name="fecha" class="form-control"
-                            placeholder="Fecha de nacimiento">
-                        <div id="mensaje-validacion-fecha" class="invalid-feedback" style="display: none;">
-                            Debe ser mayor de 18 años para registrarse.
-                        </div>
+                            placeholder="Fecha de nacimiento" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <div class="form-group">
                         <label for="salario">Salario:</label>
                         <input th:field="*{salario}" type="number" class="form-control" id="salario"
-                            placeholder="Ingrese su salario">
+                            placeholder="Ingrese su salario" required>
+                        <div class="invalid-feedback">Este campo es obligatorio y no puede ser negativo.</div>
                     </div>
-
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Coche:</label>
-                        <select class="form-control" id="opciones" th:field="*{cochePiloto.idCoche}" name="opciones">
-                            <option th:each=" coche: ${listaCoches}" th:value="${coche.idCoche}"
+                        <label for="opcionesCoche" class="form-label">Coche:</label>
+                        <select class="form-control" id="opcionesCoche" th:field="*{cochePiloto.idCoche}"
+                            name="opciones" required>
+                            <option th:each="coche: ${listaCoches}" th:value="${coche.idCoche}"
                                 th:text="${coche.nombre}"></option>
-
                         </select>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
-                        <label for="marca">Imagen</label>
+                        <label for="marca">Imagen:</label>
                         <input type="text" class="form-control" id="marca" name="marca" th:field="*{foto}">
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Coche:</label>
-                        <select class="form-control" id="opciones" th:field="*{carreraEmpleado.id}" name="opciones">
+                        <label for="opcionesCarrera" class="form-label">Carrera:</label>
+                        <select class="form-control" id="opcionesCarrera" th:field="*{carreraEmpleado.id}"
+                            name="opciones" required>
                             <option th:each="carrera: ${listaCarreras}" th:value="${carrera.id}"
                                 th:text="${carrera.nombreCircuito}"></option>
                         </select>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <div th:if="${pilotoForm.idEmpleado == 0}" class="form-group">
                         <label for="username">Nombre de usuario:</label>
                         <input th:field="*{username}" type="text" class="form-control" id="username"
                             placeholder="Nombre de usuario" required>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
                     <div th:if="${pilotoForm.idEmpleado == 0}" class="form-group">
                         <label for="password">Contraseña:</label>
@@ -100,8 +99,8 @@
                                     id="showPasswordBtn">Mostrar</button>
                             </div>
                         </div>
+                        <div class="invalid-feedback">Este campo es obligatorio.</div>
                     </div>
-
                     <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>

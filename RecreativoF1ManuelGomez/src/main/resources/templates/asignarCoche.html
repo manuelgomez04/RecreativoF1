@@ -4,10 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de añadir un formulario</title>
-    <!-- Agregar la referencia a Bootstrap CSS -->
+    <title>Asignar a coche</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/footer.css" th:href="@{/CSS/footer.css}">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -40,7 +38,8 @@
 
                     <div class="form-group d-none">
                         <label for="nombre hidden">Nombre:</label>
-                        <select th:readonly="${componente.idComponente !=0}" class="form-control" id="nombre" name="nombre" th:field="*{tipoComponente}">
+                        <select th:readonly="${componente.idComponente !=0}" class="form-control" id="nombre"
+                            name="nombre" th:field="*{tipoComponente}">
                             <option value="Motor">Motor</option>
                             <option value="Alerón delantero">Alerón delantero</option>
                             <option value="Alerón trasero">Alerón trasero</option>
@@ -54,24 +53,25 @@
                     </div>
                     <div class="form-group d-none">
                         <label for="apellidos">Durabilidad:</label>
-                        <input th:readonly="${componente.idComponente !=0}" th:field="*{durabilidad}" type="number" class="form-control" id="apellidos"
-                            placeholder="Ingrese sus apellidos">
+                        <input th:readonly="${componente.idComponente !=0}" th:field="*{durabilidad}" type="number"
+                            class="form-control" id="apellidos" placeholder="Ingrese sus apellidos">
                     </div>
                     <div class="form-group hidden d-none">
                         <label for="dni">precio:</label>
-                        <input th:readonly="${componente.idComponente !=0}" th:field="*{precio}" type="number" class="form-control" id="dni"
-                            placeholder="Ingrese su DNI">
+                        <input th:readonly="${componente.idComponente !=0}" th:field="*{precio}" type="number"
+                            class="form-control" id="dni" placeholder="Ingrese su DNI">
                     </div>
 
                     <div class="form-group d-none">
                         <label for="fecha">Marca:</label>
-                        <input th:readonly="${componente.idComponente !=0}" th:field="*{marca}" type="text" id="fecha" name="fecha" class="form-control"
-                            placeholder="Fecha de nacimiento">
+                        <input th:readonly="${componente.idComponente !=0}" th:field="*{marca}" type="text" id="fecha"
+                            name="fecha" class="form-control" placeholder="Fecha de nacimiento">
                     </div>
 
                     <div class="form-group d-none">
                         <label for="opciones" class="form-label">Carrera:</label>
-                        <select  class="form-control" th:readonly="${componente.idComponente !=0}" id="opciones" th:field="*{carreraComponente.id}" name="opciones">
+                        <select class="form-control" th:readonly="${componente.idComponente !=0}" id="opciones"
+                            th:field="*{carreraComponente.id}" name="opciones">
                             <option th:each=" carrera: ${carrera}" th:value="${carrera.id}"
                                 th:text="${carrera.nombreCircuito}"></option>
                         </select>
