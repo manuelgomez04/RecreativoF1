@@ -42,7 +42,7 @@ public class SecurityConfig {
 	@Bean
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.authorizeHttpRequests(
-				(authz) -> authz.requestMatchers("/CSS/**", "/JS/**", "/h2-console/**", "/Imagenes/**").permitAll()
+				(authz) -> authz.requestMatchers("/CSS/**", "/JS/**", "/Imagenes/**").permitAll()
 						.requestMatchers("/admin/**").hasAnyRole("JEFEEQUIPO")
 						.requestMatchers("/coche/**").hasAnyRole("MECANICO","JEFEEQUIPO")
 						.requestMatchers("/main/mecanicos/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
@@ -50,7 +50,8 @@ public class SecurityConfig {
 						.requestMatchers("/main/carrera/**").hasAnyRole("PILOTO", "JEFEEQUIPO", "MECANICO")
 						.requestMatchers("/presupuesto/**").hasAnyRole("JEFEEQUIPO")
 						.requestMatchers("/componentes/**").hasAnyRole("MECANICO", "JEFEEQUIPO")
-						.requestMatchers("/main/coches/**").hasAnyRole("MECANICO", "JEFEEQUIPO", "PILOTO").anyRequest().authenticated())
+						.requestMatchers("/main/coches/**").hasAnyRole("MECANICO", "JEFEEQUIPO", "PILOTO")
+						.requestMatchers( "/h2-console/**").hasAnyRole("JEFEEQUIPO").anyRequest().authenticated())
 				.formLogin((loginz) -> loginz.loginPage("/").defaultSuccessUrl("/main/carrera").permitAll())
 				.logout((logoutz) -> logoutz.logoutUrl("/logout").logoutSuccessUrl("/").permitAll())
 				.exceptionHandling(exceptionHandling -> exceptionHandling.accessDeniedPage("/error/**"));
