@@ -36,7 +36,6 @@ com\salesianostriana\dam\recreativof1manuelgomez\model\Carrera$CarreraBuilder.cl
 com\salesianostriana\dam\recreativof1manuelgomez\repository\MecanicoRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\CocheService.class
 com\salesianostriana\dam\recreativof1manuelgomez\services\ComponenteService.class
-com\salesianostriana\dam\recreativof1manuelgomez\controllers\CocheController.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Componente.class
 com\salesianostriana\dam\recreativof1manuelgomez\repository\PilotoRepository.class
 com\salesianostriana\dam\recreativof1manuelgomez\model\Piloto.class

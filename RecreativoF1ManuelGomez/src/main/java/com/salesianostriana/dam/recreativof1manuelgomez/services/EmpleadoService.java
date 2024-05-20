@@ -1,5 +1,7 @@
 package com.salesianostriana.dam.recreativof1manuelgomez.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
@@ -23,6 +25,10 @@ public class EmpleadoService extends BaseServiceImpl<Empleado, Long, EmpleadoRep
 
 	public boolean buscarUsername(String username) {
 		return this.repository.existsByUsername(username);
+	}
+
+	public List<Empleado> listaEmpleadosCarrera(Long id) {
+		return this.repository.empleadosCarrera(id);
 	}
 
 }

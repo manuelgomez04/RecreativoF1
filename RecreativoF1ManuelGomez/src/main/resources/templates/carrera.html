@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +9,14 @@
     <link rel="stylesheet" href="../static/CSS/boton.css" th:href="@{/CSS/boton.css}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="../static/CSS/cerrarSesion.css" th:href="@{/CSS/cerrarSesion.css}">
-
-
 </head>
 
 <body>
     <div th:replace="~{fragmentos/banner::banner}"></div>
-
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
     <div class="container mt-4 tarjeta">
         <div class="card mx-auto w-75">
-            <div class="card-body" th:each=" carrera : ${listaCarreras}">
+            <div class="card-body" th:each="carrera : ${listaCarreras}">
                 <h1 class="card-title text-center" th:text="${carrera.nombreCircuito}">Circuito de Mónaco</h1>
                 <div class="row">
                     <div class="col-md-6">
@@ -30,27 +26,26 @@
                     </div>
                     <div class="col-md-6 d-flex align-items-center justify-content-center">
                         <ul>
-                            <li class="list-group-item"><b>Longitud por vuelta</b> <span
-                                    th:text="${carrera.longitudPorVuelta}"></span>km</li>
-                            <li class="list-group-item"> <b>Localización</b> <span
+                            <li class="list-group-item"><b>Longitud por vuelta:</b> <span
+                                    th:text="${carrera.longitudPorVuelta}"></span> km</li>
+                            <li class="list-group-item"><b>Localización:</b> <span
                                     th:text="${carrera.localizacion}"></span></li>
                             <li class="list-group-item">
+                                <b>Empleados de la carrera:</b>
                                 <select class="form-select">
-                                    <option>Empleados de la carrera</option>
-                                    <th:block th:each="empleado : ${listaEmpleados}">
+                                    <option>Selecciona un empleado</option>
+                                    <th:block th:each="empleado : ${listaEmpleados[carrera.id]}">
                                         <option th:value="${empleado.idEmpleado}" th:text="${empleado.nombre}"></option>
                                     </th:block>
                                 </select>
                             </li>
-                            <li class="list-group-item"><b>Número de vueltas: </b><span
+                            <li class="list-group-item"><b>Número de vueltas:</b> <span
                                     th:text="${carrera.numVueltas}"></span></li>
-                            <li class="list-group-item"> <b>Longitud Total: </b> <span
-                                    th:text="${carrera.calcularLongitudPorVuelta()}"></span>km</li>
+                            <li class="list-group-item"><b>Longitud Total:</b> <span
+                                    th:text="${carrera.calcularLongitudPorVuelta()}"></span> km</li>
                         </ul>
-
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -70,9 +65,7 @@
         </div>
     </div>
 
-
-    <footer th:replace="~{fragmentos/footer::footer}">
-    </footer>
+    <footer th:replace="~{fragmentos/footer::footer}"></footer>
 </body>
 
 </html>

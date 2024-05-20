@@ -11,7 +11,6 @@ import com.salesianostriana.dam.recreativof1manuelgomez.model.Empleado;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CarreraService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.CocheService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.ComponenteService;
-import com.salesianostriana.dam.recreativof1manuelgomez.services.EmpleadoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.MecanicoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.PilotoService;
 import com.salesianostriana.dam.recreativof1manuelgomez.services.PresupuestoService;
@@ -30,9 +29,6 @@ public class MainController {
 	private PilotoService pilotoService;
 
 	@Autowired
-	private EmpleadoService empleadoService;
-
-	@Autowired
 	private MecanicoService mecanicoService;
 
 	@Autowired
@@ -44,7 +40,6 @@ public class MainController {
 	@GetMapping("/pilotos")
 
 	public String showPiloto(Model model, @AuthenticationPrincipal Empleado empleado) {
-		// empleadoService.calcularIncentivoEmpleado();
 		if (empleado.isAdmin()) {
 			model.addAttribute("listaPilotos", pilotoService.findAll());
 			model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
@@ -52,16 +47,12 @@ public class MainController {
 			model.addAttribute("listaPilotos", empleado);
 		}
 
-		// presupuestoService.modifyPresupInicial();
-
 		return "pilotos";
 	}
 
 	@GetMapping("/mecanicos")
 	public String mostrarListaMecanicos(Model model, @AuthenticationPrincipal Empleado empleado) {
 
-		// presupuestoService.modifyPresupInicial();
-		// empleadoService.calcularIncentivoEmpleado();
 		if (empleado.isAdmin()) {
 			model.addAttribute("listaCompletaMecanicos", mecanicoService.findAll());
 			model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
@@ -86,12 +77,10 @@ public class MainController {
 	}
 
 	@GetMapping("/carrera")
-	public String showCarrera(Model model, Long id) {
+	public String showCarrera(Model model) {
 
 		model.addAttribute("listaCarreras", carreraService.findAll());
-		carreraService.primeraCarrera().calcularLongitudPorVuelta();
-		carreraService.save(carreraService.primeraCarrera());
-		model.addAttribute("listaEmpleados", empleadoService.findAll());
+		model.addAttribute("listaEmpleados", carreraService.getEmpleadosPorCarrera());
 		model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		return "carrera";
 	}

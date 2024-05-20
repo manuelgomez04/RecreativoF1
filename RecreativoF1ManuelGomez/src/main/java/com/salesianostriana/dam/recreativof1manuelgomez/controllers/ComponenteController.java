@@ -90,7 +90,7 @@ public class ComponenteController {
 
 	}
 
-	@PostMapping("editarComponente/submit")
+	@PostMapping("/editarComponente/submit")
 	public String procesarEditarComponente(@ModelAttribute("componenteForm") Componente componente) {
 		componenteService.save(componente);
 		return "redirect:/main/coches";

@@ -9,7 +9,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../static/JS/validarFormularioComponente.js" th:src="@{/JS/validarFormularioComponente.js}" defer></script>
+    <script src="../static/JS/validarFormularioComponente.js" th:src="@{/JS/validarFormularioComponente.js}"
+        defer></script>
     <link rel="stylesheet" href="../static/CSS/cerrarSesion.css" th:href="@{/CSS/cerrarSesion.css}">
 
 
@@ -23,13 +24,9 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2 class="text-center mb-4">Formulario</h2>
-                <form class="login-form"
-                    th:action="${componenteForm.idComponente != 0} ? @{/componentes/editarComponente/submit} : @{/componentes/addComponente}"
-                    method="POST" th:object="${componenteForm}">
-                    <div>
-                        <input th:if="${componenteForm.idComponente != 0}" type="hidden" name="id"
-                            th:field="*{idComponente}" />
-                    </div>
+                <form th:action="@{/componentes/editarComponente/submit}" method="POST" th:object="${componenteForm}">
+                    <input th:if="${componenteForm.idComponente != 0}" type="hidden" name="id"
+                        th:field="*{idComponente}" />
 
                     <div class="form-group">
                         <label for="nombre">Nombre:</label>
@@ -44,47 +41,47 @@
                             <option value="Batería">Batería</option>
                             <option value="Neumáticos">Neumáticos</option>
                         </select>
-                    </div>  
+                    </div>
                     <div class="form-group">
                         <label for="durabilidad">Durabilidad:</label>
                         <input th:field="*{durabilidad}" type="number" class="form-control" id="durabilidad"
                             placeholder="Durabilidad">
                     </div>
                     <div class="form-group">
-                        <label for="dni">precio:</label>
-                        <input th:field="*{precio}" type="number" class="form-control" id="dni"
-                            placeholder="Ingrese su DNI">
+                        <label for="precio">Precio:</label>
+                        <input th:field="*{precio}" type="number" class="form-control" id="precio"
+                            placeholder="Ingrese el precio">
                     </div>
 
                     <div class="form-group">
-                        <label for="Marca">Marca:</label>
-                        <input th:field="*{marca}" type="text" id="Marca" name="Marca" class="form-control"
+                        <label for="marca">Marca:</label>
+                        <input th:field="*{marca}" type="text" id="marca" name="marca" class="form-control"
                             placeholder="Marca">
                     </div>
 
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Carrera:</label>
-                        <select class="form-control" id="opciones" th:field="*{carreraComponente.id}" name="opciones">
-                            <option th:each=" carrera: ${carrera}" th:value="${carrera.id}"
+                        <label for="opcionesCarrera" class="form-label">Carrera:</label>
+                        <select class="form-control" id="opcionesCarrera" th:field="*{carreraComponente.id}"
+                            name="opcionesCarrera">
+                            <option th:each="carrera: ${carrera}" th:value="${carrera.id}"
                                 th:text="${carrera.nombreCircuito}"></option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Coche:</label>
-                        <select class="form-control" id="opciones" th:field="*{cocheComponente.idCoche}"
-                            name="opciones">
-                            <option th:each=" coche: ${listaCoches}" th:value="${coche.idCoche}"
+                        <label for="opcionesCoche" class="form-label">Coche:</label>
+                        <select class="form-control" id="opcionesCoche" th:field="*{cocheComponente.idCoche}"
+                            name="opcionesCoche">
+                            <option th:each="coche: ${listaCoches}" th:value="${coche.idCoche}"
                                 th:text="${coche.nombre}"></option>
-
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="opciones" class="form-label">Jefe Equipo:</label>
-                        <select class="form-control" id="opciones" th:field="*{jefeComponente.idEmpleado}"
-                            name="opciones"  th:readonly="${componenteForm.idComponente != 0}">
-                            <option th:each=" jefe: ${jefeEquipo}" th:value="${jefe.idEmpleado}"
+                        <label for="opcionesJefe" class="form-label">Jefe Equipo:</label>
+                        <select class="form-control" id="opcionesJefe" th:field="*{jefeComponente.idEmpleado}"
+                            name="opcionesJefe" th:readonly="${componenteForm.idComponente != 0}">
+                            <option th:each="jefe: ${jefeEquipo}" th:value="${jefe.idEmpleado}"
                                 th:text="${jefe.nombre}"></option>
                         </select>
                     </div>
@@ -94,6 +91,7 @@
             </div>
         </div>
     </div>
+
 
     <footer th:replace="~{fragmentos/footer::footer}"></footer>
 </body>
