@@ -23,8 +23,12 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 	@PostConstruct
 	public void modifyPresupInicial() {
 		Presupuesto presupuesto = repository.findById(1L).get();
-		presupuesto.setGastosFijos(
-				empleadoService.findAll().stream().mapToDouble(empleado -> empleado.getSalario()).sum());
+		
+		double sueldoEmpleados = empleadoService.findAll().stream().mapToDouble(empleado -> empleado.getSalario()).sum();
+		
+		double incentivoEmpleados = empleadoService.findAll().stream().mapToDouble(empleado -> empleado.getIncentivoCalculado()).sum();
+		
+		presupuesto.setGastosFijos( sueldoEmpleados+incentivoEmpleados);
 		repository.save(presupuesto);
 	}
 

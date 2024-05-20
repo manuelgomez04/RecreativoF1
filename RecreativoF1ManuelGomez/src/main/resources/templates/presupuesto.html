@@ -33,10 +33,10 @@
                         <li class="list-group-item"><b>Ingresos por el resultado de la Carrera = </b><span
                                 th:text="${#numbers.formatDecimal(presupuesto.ingresosVariables,  3,'POINT', 2, 'COMMA')+' €'}"></span>
                         </li>
-                        <li class="list-group-item"> <b>Gastos en sueldos de empleados = </b><span
+                        <li class="list-group-item"> <b>Gastos en compra de repuestos = </b><span
                                 th:text="${#numbers.formatDecimal(presupuesto.gastosVariables, 3,'POINT', 2, 'COMMA')+' €'}"></span>
                         </li>
-                        <li class="list-group-item"> <b>Gastos en compra de repuestos = </b><span
+                        <li class="list-group-item"> <b>Gastos en salarios de los empleados = </b><span
                                 th:text="${#numbers.formatDecimal(presupuesto.gastosFijos,  3,'POINT', 2, 'COMMA')+' €'}"></span>
                         </li>
                         <li class="list-group-item"> <b>Balance del presupuesto = </b><span
