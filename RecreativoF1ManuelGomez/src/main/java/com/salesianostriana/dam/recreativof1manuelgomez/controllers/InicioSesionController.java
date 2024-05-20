@@ -6,12 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class InicioSesionController {
 
-//	@Autowired
-//	private PresupuestoService presupuestoService;
-
 	@GetMapping("/")
 	public String showInicio() {
-		// presupuestoService.modifyPresupInicial();
 
 		return "inicioSesion";
 	}

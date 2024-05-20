@@ -41,8 +41,8 @@
                         <li class="list-group-item"> <b>Gastos en salarios de los empleados = </b><span
                                 th:text="${#numbers.formatDecimal(presupuesto.gastosFijos,  3,'POINT', 2, 'COMMA')+' €'}"></span>
                         </li>
-                        <li class="list-group-item"> <b>Balance del presupuesto = </b><span
-                                th:text="${#numbers.formatDecimal(presupuestoF,  3,'POINT', 2, 'COMMA')+' €'}"></span>
+                        <li class="list-group-item"> <h5>Balance del presupuesto</h5><h6
+                                th:text="${#numbers.formatDecimal(presupuestoF,  3,'POINT', 2, 'COMMA')+' €'}"></h6>
                         </li>
                     </ul>
                 </div>

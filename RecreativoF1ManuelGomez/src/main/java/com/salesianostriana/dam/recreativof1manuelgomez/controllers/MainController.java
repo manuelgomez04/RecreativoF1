@@ -42,7 +42,7 @@ public class MainController {
 	private PresupuestoService presupuestoService;
 
 	@GetMapping("/pilotos")
-	
+
 	public String showPiloto(Model model, @AuthenticationPrincipal Empleado empleado) {
 		// empleadoService.calcularIncentivoEmpleado();
 		if (empleado.isAdmin()) {
@@ -50,7 +50,7 @@ public class MainController {
 			model.addAttribute("presupuesto", presupuestoService.findById(1L).get());
 		} else {
 			model.addAttribute("listaPilotos", empleado);
-		}	
+		}
 
 		// presupuestoService.modifyPresupInicial();
 
@@ -75,6 +75,8 @@ public class MainController {
 
 	@GetMapping("/coches")
 	public String showCoches(Model model) {
+
+		cocheService.cochesDaniados();
 
 		model.addAttribute("listaCoches", cocheService.findAll());
 		presupuestoService.ingresosExtra();
