@@ -41,7 +41,8 @@
                         <h5 class="card-title" th:text="${coche.nombre}">Nombre 1</h5>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><b>ID:</b> <span th:text="${coche.idCoche}"></span></li>
-                            <li class="list-group-item"><b>Piloto:</b> <span th:text="${coche.piloto.nombre}"></span>
+                            <li class="list-group-item" th:if="${coche.piloto != null}">
+                                <b>Piloto:</b> <span th:text="${coche.piloto.nombre}"></span>
                             <li class="list-group-item" sec:authorize="hasAnyRole('ROLE_JEFEEQUIPO', 'ROLE_MECANICO')">
                                 <a th:href="@{/componentes/{id}(id=${coche.idCoche})}">
                                     <button class="button">

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje de Error</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/boton.css" th:href="@{/CSS/boton.css}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../static/CSS/cerrarSesion.css" th:href="@{/CSS/cerrarSesion.css}">
+
+</head>
+
+<body>
+    <div th:replace="~{fragmentos/banner::banner}"></div>
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+
+    <div class="container mt-4 tarjeta">
+        <div class="card mx-auto w-75">
+            <div class="card-body text-center">
+                <h1 class="card-title">No puedes añadir un piloto ya hay dos</h1>
+                <img src="../static/Imagenes/nano.webp" th:src="@{/Imagenes/nano.webp}" alt="Imagen de error"
+                    class="img-fluid mt-3">
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 botonCarrera">
+        <div class="row justify-content-center">
+            <div class="col-md-4 text-center">
+                <form th:action="@{/main/pilotos}" method="get">
+                    <button type="submit" class="btn btn-primary">Volver</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer th:replace="~{fragmentos/footer::footer}">
+    </footer>
+</body>
+
+</html>

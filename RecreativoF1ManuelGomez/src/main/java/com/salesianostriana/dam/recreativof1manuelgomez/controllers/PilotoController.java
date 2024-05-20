@@ -42,7 +42,9 @@ public class PilotoController {
 		model.addAttribute("pilotoForm", piloto);
 		model.addAttribute("listaCoches", cocheService.findAll());
 		model.addAttribute("listaCarreras", carreraService.findAll());
-
+		if (cocheService.verificarSiCochesTienenPiloto()) {
+			return "errorPiloto";
+		}
 		return "pilotoForm";
 	}
 
@@ -54,10 +56,7 @@ public class PilotoController {
 			return "usernameRepetidoPiloto";
 		}
 
-		if (cocheService.findById(piloto.getCochePiloto().getIdCoche()).isPresent()) {
-
-			pilotoService.esPiloto(piloto);
-		}
+		pilotoService.esPiloto(piloto);
 
 		return "redirect:/main/pilotos";
 	}

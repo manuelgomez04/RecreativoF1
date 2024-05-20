@@ -17,4 +17,8 @@ public class CocheService extends BaseServiceImpl<Coche, Long, CocheRepository> 
 			repository.save(coche);
 		}
 	}
+
+	public boolean verificarSiCochesTienenPiloto() {
+		return this.repository.findAll().stream().allMatch(c -> c.getPiloto() != null);
+	}
 }
