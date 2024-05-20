@@ -26,11 +26,11 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 
 	public List<Componente> mostrarComponentesSinCoche() {
 
-		return repository.findComponenteSinCoche();
+		return this.repository.findComponenteSinCoche();
 	}
 
 	public List<Componente> mostrarComponentesConCoche() {
-		return repository.findComponenteConCoche();
+		return this.repository.findComponenteConCoche();
 	}
 
 	public void sumarPrecioAGastos(Long id) {
@@ -49,7 +49,7 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 				.durabilidad(findById(id).get().getDurabilidad()).estaDaniado(findById(id).get().isEstaDaniado())
 				.jefeComponente(findById(id).get().getJefeComponente()).precio(findById(id).get().getPrecio())
 				.marca(findById(id).get().getMarca()).tipoComponente(findById(id).get().getTipoComponente()).build();
-		save(componente);
+		this.repository.save(componente);
 
 		return componente;
 	}
