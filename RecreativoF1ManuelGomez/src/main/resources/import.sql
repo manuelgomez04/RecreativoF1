@@ -73,7 +73,7 @@ insert into piloto (coche_piloto_id_coche, id_empleado) values (2, 4);
 
 
 
-ALTER SEQUENCE empleado_seq RESTART WITH (60);
+ALTER SEQUENCE empleado_seq RESTART WITH (62);
 ALTER SEQUENCE coche_seq RESTART WITH (52);
 ALTER SEQUENCE componente_seq RESTART WITH (77);
 ALTER SEQUENCE presupuesto_seq RESTART WITH (59);
