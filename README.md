@@ -5,11 +5,20 @@
 
 ## Recreativo F1, la escudería decana
 
-### Funcionalidad Mecánico
+**(Para iniciar sesión como mecánico)**
+  - **usuario1**
+  - **1234**
 
-(Para iniciar sesión como mecánico) 
-  - usuario1
-  - 1234 
+**(Para iniciar sesión como Jefe de equipo)** 
+  - **admin**
+  - **admin**
+
+**(Para iniciar sesión como mecánico)** 
+  - **usuario2**
+  - **1234**
+ 
+
+### Funcionalidad Mecánico
 
 -  Iniciar sesión
 -  Consultar el estado del coche
@@ -27,10 +36,7 @@
 - Ver sus datos (salario, si tiene incentivo o no)
 
 ### Funcionalidad Jefe de equipo (Admin)
-**(Para iniciar sesión como Jefe de equipo)** 
-  - admin
-  - admin
-    
+
 - Gestión de todos los empleados
   - Añadir
   - Eliminar
@@ -57,10 +63,7 @@
   - Consultar los componentes de un coche
   - Borrar los componentes de un coche
     
-### Funcionalidad Pilotos
-**(Para iniciar sesión como mecánico)** 
-  - usuario2
-  - 1234 
+### Funcionalidad Pilotos 
 
 - Consultar el resultado de la carrera
   
