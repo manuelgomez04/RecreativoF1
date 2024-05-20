@@ -71,6 +71,7 @@ public class MecanicoController {
 			model.addAttribute("mecanicoForm", mecanicoService.findById(id).get());
 			List<Coche> listaCochesOpcion = cocheService.findAll();
 			model.addAttribute("listaCoches", listaCochesOpcion);
+			model.addAttribute("listaCarreras", carreraService.findAll());
 
 			return "mecanicoForm";
 		} else {

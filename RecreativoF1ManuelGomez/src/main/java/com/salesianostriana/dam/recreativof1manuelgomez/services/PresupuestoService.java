@@ -39,7 +39,7 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 		Double presupuestoFinal = 0.0;
 
 		presupuestoFinal = presupuesto.getPresupuestoInicial() - presupuesto.getGastosFijos()
-				- presupuesto.getGastosVariables() + presupuesto.getIngresosFijos() + presupuesto.getGastosVariables();
+				- presupuesto.getGastosVariables() + presupuesto.getIngresosFijos() + presupuesto.getIngresosVariables();
 
 		return presupuestoFinal;
 	}
