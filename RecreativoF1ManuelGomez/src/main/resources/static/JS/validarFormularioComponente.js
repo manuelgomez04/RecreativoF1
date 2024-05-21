@@ -1,13 +1,15 @@
-   // Esperar a que el documento esté listo
-   $(document).ready(function () {
+// Esperar a que el documento esté listo
+$(document).ready(function () {
     // Manejar la presentación del formulario
-    $('.login-form').submit(function (event) {
+    $('form').submit(function (event) {
         event.preventDefault(); // Evitar el envío del formulario
 
         // Validar los campos antes de enviar el formulario
         if (validarCampos()) {
             // Si los campos son válidos, enviar el formulario
             this.submit();
+        } else {
+            alert('Por favor, rellena todos los campos correctamente.');
         }
     });
 
@@ -16,57 +18,57 @@
         let isValid = true;
 
         // Validar campo "Durabilidad"
-        let durabilidad = parseInt($('#apellidos').val());
+        let durabilidad = parseInt($('#durabilidad').val());
         if (isNaN(durabilidad) || durabilidad < 0) {
-            $('#apellidos').addClass('is-invalid');
+            $('#durabilidad').addClass('is-invalid');
             isValid = false;
         } else {
-            $('#apellidos').removeClass('is-invalid');
+            $('#durabilidad').removeClass('is-invalid');
         }
 
         // Validar campo "Precio"
-        let precio = parseInt($('#dni').val());
+        let precio = parseInt($('#precio').val());
         if (isNaN(precio) || precio < 0) {
-            $('#dni').addClass('is-invalid');
+            $('#precio').addClass('is-invalid');
             isValid = false;
         } else {
-            $('#dni').removeClass('is-invalid');
+            $('#precio').removeClass('is-invalid');
         }
 
         // Validar campo "Marca"
-        let marca = $('#fecha').val();
+        let marca = $('#marca').val();
         if (marca.trim() === '') {
-            $('#fecha').addClass('is-invalid');
+            $('#marca').addClass('is-invalid');
             isValid = false;
         } else {
-            $('#fecha').removeClass('is-invalid');
+            $('#marca').removeClass('is-invalid');
         }
 
         // Validar campo "Carrera"
-        let carrera = $('#opciones').val();
+        let carrera = $('#opcionesCarrera').val();
         if (carrera === '') {
-            $('#opciones').addClass('is-invalid');
+            $('#opcionesCarrera').addClass('is-invalid');
             isValid = false;
         } else {
-            $('#opciones').removeClass('is-invalid');
+            $('#opcionesCarrera').removeClass('is-invalid');
         }
 
         // Validar campo "Coche"
-        let coche = $('#opciones').val();
+        let coche = $('#opcionesCoche').val();
         if (coche === '') {
-            $('#opciones').addClass('is-invalid');
+            $('#opcionesCoche').addClass('is-invalid');
             isValid = false;
         } else {
-            $('#opciones').removeClass('is-invalid');
+            $('#opcionesCoche').removeClass('is-invalid');
         }
 
         // Validar campo "Jefe Equipo"
-        let jefeEquipo = $('#opciones').val();
+        let jefeEquipo = $('#opcionesJefe').val();
         if (jefeEquipo === '') {
-            $('#opciones').addClass('is-invalid');
+            $('#opcionesJefe').addClass('is-invalid');
             isValid = false;
         } else {
-            $('#opciones').removeClass('is-invalid');
+            $('#opcionesJefe').removeClass('is-invalid');
         }
 
         return isValid;
