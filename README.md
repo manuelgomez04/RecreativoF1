@@ -59,7 +59,7 @@
 - Consultar el resultado de los coches en la carrera
   
 - Gestión de los coches
-  - Editar un coche
+  - Editar los componentes de un coche
   - Consultar los componentes de un coche
   - Borrar los componentes de un coche
     
