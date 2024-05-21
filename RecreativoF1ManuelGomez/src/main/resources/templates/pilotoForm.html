@@ -49,12 +49,18 @@
                         <input th:field="*{dni}" type="text" class="form-control" id="dni" placeholder="Ingrese su DNI"
                             required>
                         <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        <div id="mensaje-validacion-dni" class="invalid-feedback" style="display: none;">
+                            El DNI ingresado no es válido.
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="fecha">Fecha de nacimiento:</label>
                         <input th:field="*{fechaNacimiento}" type="date" id="fecha" name="fecha" class="form-control"
                             placeholder="Fecha de nacimiento" required>
                         <div class="invalid-feedback">Este campo es obligatorio.</div>
+                        <div id="mensaje-validacion-fecha" class="invalid-feedback" style="display: none;">
+                            Debe ser mayor de 18 años para registrarse.
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="salario">Salario:</label>
