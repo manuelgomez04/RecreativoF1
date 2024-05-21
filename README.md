@@ -6,7 +6,7 @@
 ## Recreativo F1, la escudería decana
 
 **(Para iniciar sesión como mecánico)**
-  - **usuario1**
+  - **usuario**
   - **1234**
 
 **(Para iniciar sesión como Jefe de equipo)** 
