@@ -4,20 +4,22 @@ $(document).ready(function () {
     $('form').submit(function (event) {
         event.preventDefault(); // Evitar el envío del formulario
 
-        // Validar los campos antes de enviar el formulario
         if (validarCampos()) {
-            // Si los campos son válidos, enviar el formulario
             this.submit();
         } else {
-            alert('Por favor, rellena todos los campos correctamente.');
+            // En lugar de alert, mostrar mensajes de error debajo de cada campo
+            $('form .is-invalid').each(function() {
+                $(this).after('<div class="invalid-feedback">Por favor, rellena este campo correctamente.</div>');
+            });
         }
     });
 
-    // Función para validar los campos del formulario
     function validarCampos() {
         let isValid = true;
 
-        // Validar campo "Durabilidad"
+        // Limpiar mensajes de error anteriores
+        $('.invalid-feedback').remove();
+
         let durabilidad = parseInt($('#durabilidad').val());
         if (isNaN(durabilidad) || durabilidad < 0) {
             $('#durabilidad').addClass('is-invalid');
@@ -26,7 +28,6 @@ $(document).ready(function () {
             $('#durabilidad').removeClass('is-invalid');
         }
 
-        // Validar campo "Precio"
         let precio = parseInt($('#precio').val());
         if (isNaN(precio) || precio < 0) {
             $('#precio').addClass('is-invalid');
@@ -44,7 +45,6 @@ $(document).ready(function () {
             $('#marca').removeClass('is-invalid');
         }
 
-        // Validar campo "Carrera"
         let carrera = $('#opcionesCarrera').val();
         if (carrera === '') {
             $('#opcionesCarrera').addClass('is-invalid');
@@ -53,7 +53,6 @@ $(document).ready(function () {
             $('#opcionesCarrera').removeClass('is-invalid');
         }
 
-        // Validar campo "Coche"
         let coche = $('#opcionesCoche').val();
         if (coche === '') {
             $('#opcionesCoche').addClass('is-invalid');
@@ -62,7 +61,6 @@ $(document).ready(function () {
             $('#opcionesCoche').removeClass('is-invalid');
         }
 
-        // Validar campo "Jefe Equipo"
         let jefeEquipo = $('#opcionesJefe').val();
         if (jefeEquipo === '') {
             $('#opcionesJefe').addClass('is-invalid');

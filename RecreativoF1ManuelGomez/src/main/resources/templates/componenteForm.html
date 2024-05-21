@@ -7,7 +7,7 @@
     <title>Formulario de nuevo componente</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
-    <script src="../static/JS/validarFormularioComponente.js" th:src="@{JS/validarFormularioComponente.js}" defer></script>
+    <script src="../static/JS/validarFormularioComponente.js" th:src="@{/JS/validarFormularioComponente.js}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../static/CSS/cerrarSesion.css" th:href="@{/CSS/cerrarSesion.css}">
@@ -43,17 +43,20 @@
                         <label for="durabilidad">Durabilidad:</label>
                         <input th:field="*{durabilidad}" type="number" class="form-control" id="durabilidad"
                             placeholder="Durabilidad" required>
+                        <div class="invalid-feedback"></div> <!-- Este div mostrará el mensaje de error -->
                     </div>
                     <div class="form-group">
                         <label for="precio">Precio:</label>
                         <input th:field="*{precio}" type="number" class="form-control" id="precio"
                             placeholder="Ingrese el precio" required>
+                        <div class="invalid-feedback"></div> <!-- Este div mostrará el mensaje de error -->
                     </div>
 
                     <div class="form-group">
                         <label for="marca">Marca:</label>
                         <input th:field="*{marca}" type="text" id="marca" name="marca" class="form-control"
                             placeholder="Marca" required>
+                        <div class="invalid-feedback"></div> <!-- Este div mostrará el mensaje de error -->
                     </div>
 
                     <div class="form-group">
@@ -63,6 +66,7 @@
                             <option th:each="carrera: ${carrera}" th:value="${carrera.id}"
                                 th:text="${carrera.nombreCircuito}"></option>
                         </select>
+                        <div class="invalid-feedback"></div> <!-- Este div mostrará el mensaje de error -->
                     </div>
 
                     <div class="form-group">
@@ -72,6 +76,7 @@
                             <option th:each="coche: ${listaCoches}" th:value="${coche.idCoche}"
                                 th:text="${coche.nombre}"></option>
                         </select>
+                        <div class="invalid-feedback"></div> <!-- Este div mostrará el mensaje de error -->
                     </div>
 
                     <div class="form-group">
@@ -81,6 +86,7 @@
                             <option th:each="jefe: ${jefeEquipo}" th:value="${jefe.idEmpleado}"
                                 th:text="${jefe.nombre}"></option>
                         </select>
+                        <div class="invalid-feedback"></div> <!-- Este div mostrará el mensaje de error -->
                     </div>
 
                     <button type="submit" class="btn btn-primary">Enviar</button>
@@ -91,7 +97,6 @@
 
     <footer th:replace="~{fragmentos/footer::footer}"></footer>
 
-  
 </body>
 
 </html>
