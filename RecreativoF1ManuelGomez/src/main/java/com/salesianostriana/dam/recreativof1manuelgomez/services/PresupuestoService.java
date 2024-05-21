@@ -20,18 +20,22 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 	@Autowired
 	private CocheService cocheService;
 
+	
+	//Este método me modifica los gastos fijos al iniciar el programa. Calculando los incentivos y el salario de los empleados
 	@PostConstruct
 	public void modifyPresupInicial() {
 		Presupuesto presupuesto = repository.findById(1L).get();
 		
 		double sueldoEmpleados = empleadoService.findAll().stream().mapToDouble(empleado -> empleado.getSalario()).sum();
 		
-		double incentivoEmpleados = empleadoService.findAll().stream().mapToDouble(empleado -> empleado.getIncentivoCalculado()).sum();
+		double incentivoEmpleados = empleadoService.findAll().stream().mapToDouble(empleado ->
+		empleado.getIncentivoCalculado()).sum();
 		
 		presupuesto.setGastosFijos( sueldoEmpleados+incentivoEmpleados);
 		repository.save(presupuesto);
 	}
 
+	//Este método me calcula el balance del presupuesto, restando todos los gastos y sumando todos los ingresos
 	@PostConstruct
 	public double calcularResultado() {
 		Presupuesto presupuesto = repository.findById(1L).get();
@@ -44,6 +48,9 @@ public class PresupuestoService extends BaseServiceImpl<Presupuesto, Long, Presu
 		return presupuestoFinal;
 	}
 
+	
+	//Este método me calcula los ingresos de los coches en función de la media de la posición de ambos y me lo guarda en los 
+	//ingresos variables del presupuesto
 	@PostConstruct
 	public void ingresosExtra() {
 

@@ -13,6 +13,8 @@ import jakarta.annotation.PostConstruct;
 @Service
 public class EmpleadoService extends BaseServiceImpl<Empleado, Long, EmpleadoRepository> {
 
+	
+	//Este método me calcula el incentivo de los empleados cuyo coche ha quedao en mejor posición que 10
 	@PostConstruct
 	public void calcularIncentivoEmpleado() {
 

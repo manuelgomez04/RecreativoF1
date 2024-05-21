@@ -17,6 +17,7 @@ public class PilotoService extends BaseServiceImpl<Piloto, Long, PilotoRepositor
 	@Autowired
 	private CocheService cocheService;
 
+	//Este método me crea un nuevo piloto y me lo almacena en la BBDD
 	public void esPiloto(Piloto piloto) {
 		piloto.setCochePiloto(cocheService.findById(piloto.getCochePiloto().getIdCoche()).get());
 		String encodedPassword = passwordEncoder.encode(piloto.getPassword());

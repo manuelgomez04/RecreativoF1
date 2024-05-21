@@ -33,15 +33,18 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 		return this.repository.findComponenteConCoche();
 	}
 
+	//Este método me suma el precio de los componentes y me lo setea a los gastos variables, actualizándolo
 	public void sumarPrecioAGastos(Long id) {
 
 		Presupuesto presupuesto = presupuestoService.findById(1L).get();
-		presupuesto.setGastosVariables(presupuesto.getGastosVariables() + findById(id).get().getPrecio());
+		presupuesto.setGastosVariables(presupuesto.getGastosVariables() + this.repository.findById(id).get().getPrecio());
 
 		presupuestoService.save(presupuesto);
 
 	}
-
+	
+	
+	// Método para crear un componente igual al comprado.
 	public Componente componenteComprado(Long id) {
 		Componente componente;
 
@@ -54,6 +57,7 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 		return componente;
 	}
 
+	//Método para buscar un componente por su nombre. Si el componente no está, me devuelve una excepción
 	public List<Componente> buscarPorNombre(String busqueda) {
 		List<Componente> result = this.repository
 				.findByTipoComponenteContainsIgnoreCaseOrMarcaContainsIgnoreCaseAndCocheComponenteIsNull(busqueda,
@@ -64,6 +68,7 @@ public class ComponenteService extends BaseServiceImpl<Componente, Long, Compone
 		return result;
 	}
 
+	//Este método me setea el estado de los componente de un coche mediante un random.
 	@PostConstruct
 	public void estadoComponentes() {
 

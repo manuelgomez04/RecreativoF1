@@ -23,6 +23,7 @@ public class CarreraService extends BaseServiceImpl<Carrera, Long, CarreraReposi
 		return repository.primeraCarrera();
 	}
 
+	//Método que llama un listado de los empleados que trabajan en una carrera
 	public Map<Long, List<Empleado>> getEmpleadosPorCarrera() {
 		List<Carrera> carreras = this.repository.findAll();
 		Map<Long, List<Empleado>> empleadosPorCarrera = new HashMap<>();

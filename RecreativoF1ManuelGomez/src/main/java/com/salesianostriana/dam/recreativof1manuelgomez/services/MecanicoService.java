@@ -17,6 +17,7 @@ public class MecanicoService extends BaseServiceImpl<Mecanico, Long, MecanicoRep
 	@Autowired
 	private CarreraService carreraService;
 
+	//Este método me crea un nuevo mecánico y me lo guarda en la BBDD
 	public void esMecnaico(Mecanico mecanico) {
 		mecanico.setCarreraEmpleado(carreraService.findById(mecanico.getCarreraEmpleado().getId()).get());
 
