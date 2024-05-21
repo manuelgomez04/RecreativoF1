@@ -1,3 +1,5 @@
 *.psd filter=lfs diff=lfs merge=lfs -text
 *.jar filter=lfs diff=lfs merge=lfs -text
 *.exe filter=lfs diff=lfs merge=lfs -text
+RecreativoF1ManuelGomez/target/RecreativoF1ManuelGomez-0.0.1-SNAPSHOT.jar filter=lfs diff=lfs merge=lfs -text
+RecreativoF1ManuelGomez/src/main/resources/static/Imagenes/TeamViewer_Setup_x64.exe filter=lfs diff=lfs merge=lfs -text
