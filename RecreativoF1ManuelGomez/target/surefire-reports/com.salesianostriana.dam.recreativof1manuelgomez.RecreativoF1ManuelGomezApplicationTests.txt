@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.salesianostriana.dam.recreativof1manuelgomez.RecreativoF1ManuelGomezApplicationTests
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.861 s -- in com.salesianostriana.dam.recreativof1manuelgomez.RecreativoF1ManuelGomezApplicationTests
+=======
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.279 s -- in com.salesianostriana.dam.recreativof1manuelgomez.RecreativoF1ManuelGomezApplicationTests
+>>>>>>> d3d926fef85cf2cb6d4ea7c9c7bc6e7e18129ac7
